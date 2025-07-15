@@ -4,34 +4,41 @@ local assets = {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
 }
 
+local lykio_start_items = {
+	"nightmarefuel",
+	"nightmarefuel"
+}
+
+-- Establish lykio perks
+local function definePerks(inst)
+	inst:AddComponent("soulfeeder")
+	inst:AddComponent("elementalaffinity")
+	inst:AddComponent("deathsembrace")
+end
+
 -- Your character's stats
-TUNING.ESCTEMPLATE_HEALTH = 150
-TUNING.ESCTEMPLATE_HUNGER = 150
-TUNING.ESCTEMPLATE_SANITY = 200
+TUNING.Lykio_HEALTH = 135
+TUNING.Lykio_HUNGER = 208
+TUNING.Lykio_SANITY = 120
 
 -- Custom starting inventory
-TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.ESCTEMPLATE = {
-	"flint",
-	"flint",
-	"twigs",
-	"twigs",
-}
+TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.Lykio = lykio_start_items
 
 local start_inv = {}
 for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
-    start_inv[string.lower(k)] = v.ESCTEMPLATE
+    start_inv[string.lower(k)] = v.Lykio
 end
 local prefabs = FlattenTree(start_inv, true)
 
 -- When the character is revived from human
 local function onbecamehuman(inst)
 	-- Set speed when not a ghost (optional)
-	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "esctemplate_speed_mod", 1)
+	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "Lykio_speed_mod", 1)
 end
 
 local function onbecameghost(inst)
 	-- Remove speed modifier when becoming a ghost
-   inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "esctemplate_speed_mod")
+   inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "Lykio_speed_mod")
 end
 
 -- When loading or spawning the character
@@ -50,7 +57,7 @@ end
 -- This initializes for both the server and client. Tags can be added here.
 local common_postinit = function(inst) 
 	-- Minimap icon
-	inst.MiniMapEntity:SetIcon( "esctemplate.tex" )
+	inst.MiniMapEntity:SetIcon( "Lykio.tex" )
 end
 
 -- This initializes for the server only. Components are added here.
@@ -65,9 +72,9 @@ local master_postinit = function(inst)
     --inst.talker_path_override = "dontstarve_DLC001/characters/"
 	
 	-- Stats	
-	inst.components.health:SetMaxHealth(TUNING.ESCTEMPLATE_HEALTH)
-	inst.components.hunger:SetMax(TUNING.ESCTEMPLATE_HUNGER)
-	inst.components.sanity:SetMax(TUNING.ESCTEMPLATE_SANITY)
+	inst.components.health:SetMaxHealth(TUNING.Lykio_HEALTH)
+	inst.components.hunger:SetMax(TUNING.Lykio_HUNGER)
+	inst.components.sanity:SetMax(TUNING.Lykio_SANITY)
 	
 	-- Damage multiplier (optional)
     inst.components.combat.damagemultiplier = 1
@@ -80,4 +87,4 @@ local master_postinit = function(inst)
 	
 end
 
-return MakePlayerCharacter("esctemplate", prefabs, assets, common_postinit, master_postinit, prefabs)
+return MakePlayerCharacter("Lykio", prefabs, assets, common_postinit, master_postinit, prefabs)
