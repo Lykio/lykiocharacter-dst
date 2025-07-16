@@ -83,4 +83,13 @@ function DeathsEmbrace:OnRemoveFromEntity()
     end
 end
 
+function DeathAddiciton()
+    -- Check if the player has Lykio_DeathAddictionSanityPenalty tag
+    if self.inst:HasTag("Lykio_DeathAddictionSanityPenalty") then
+        self.inst.components.sanity.night_drain_mult = 1.1 -- Increase night drain by 10%
+    else
+        self.inst.components.sanity.night_drain_mult = 1.0 -- Reset to normal night drain
+    end
+end
+
 return DeathsEmbrace
