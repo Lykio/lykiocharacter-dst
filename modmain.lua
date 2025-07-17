@@ -1,12 +1,8 @@
 -- Require perks
-local SoulFeeder = require "components/soulfeeder"
-local ElementalAffinity = require "components/elementalaffinity"
-local DeathsEmbrace = require "components/deathsembrace"
+
 
 --Require skill trees
-local RunicDominion = require "scripts/prefabs/runicdominion_st"
-local NecroticArts = require "scripts/prefabs/necroticarts_st"
-local InferalPact = require "scripts/prefabs/inferalpack_st"
+
 
 PrefabFiles = {
 	"lykio",
@@ -14,17 +10,6 @@ PrefabFiles = {
 }
 
 Assets = {
-
-    Asset("SCRIPT", "scripts/prefabs/lykio.lua"),
-    Asset("SCRIPT", "scripts/prefabs/lykio_none.lua"),
-    Asset("SCRIPT", "scripts/prefabs/runicdominion_st.lua"),
-    Asset("SCRIPT", "scripts/prefabs/necroticarts_st.lua"),
-    Asset("SCRIPT", "scripts/prefabs/inferalpack_st.lua"),
-    Asset("SCRIPT", "components/elementalaffinity.lua"),
-    Asset("SCRIPT", "components/deathsembrace.lua"),
-    Asset("SCRIPT", "components/soulfeeder.lua"),
-
-
     Asset( "IMAGE", "images/saveslot_portraits/lykio.tex" ),
     Asset( "ATLAS", "images/saveslot_portraits/lykio.xml" ),
 
@@ -77,42 +62,6 @@ STRINGS.SKIN_NAMES.lykio_none = "Lykió"
 
 -- Talent tree constructor
 local function CreateLykioSkillTree()
-    local RunicDominion = RunicDominion()
-    local NecroticArts = NecroticArts()    
-    local InferalPact = InferalPact()
-
-    
-    if RunicDominion then 
-        local data = BuildSkillsData(RunicDominion)
-        if data then 
-        RunicDominion.CreateSkillTree("lykio", data.SKILLS)
-        RunicDominion.SKILLTREE_ORDERS["lykio"] = data.ORDERS
-        else
-            print("RunicDominion data is nil, cannot create skill tree.")
-        end
-    end
-
-
-    if NecroticArts then 
-        local data = BuildSkillsData(NecroticArts)
-        if data then 
-        NecroticArts.CreateSkillTree("lykio", data.SKILLS)
-        NecroticArts.SKILLTREE_ORDERS["lykio"] = data.ORDERS
-        else
-            print("NecroticArts data is nil, cannot create skill tree.")
-        end
-    end
-
-
-    if InferalPact then 
-        local data = BuildSkillsData(InferalPact)
-        if data then 
-        InferalPact.CreateSkillTree("lykio", data.SKILLS)
-        InferalPact.SKILLTREE_ORDERS["lykio"] = data.ORDERS
-        else
-            print("InferalPact data is nil, cannot create skill tree.")
-        end
-    end
 
 end
 
@@ -131,9 +80,7 @@ local skin_modes = {
 -- constructor for LykioClass
 
 -- Add perks to the character
-AddComponentPostInit("SoulFeeder",SoulFeeder)
-AddComponentPostInit("ElementalAffinity", ElementalAffinity)
-AddComponentPostInit("DeathsEmbrace", DeathsEmbrace)
+
 --Add skill trees to the character
 CreateLykioSkillTree()
 

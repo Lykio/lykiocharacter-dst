@@ -11,9 +11,7 @@ local lykio_start_items = {
 
 -- Establish lykio perks
 local function definePerks(inst)
-	inst:AddComponent("soulfeeder")
-	inst:AddComponent("elementalaffinity")
-	inst:AddComponent("deathsembrace")
+	
 end
 
 -- Your character's stats

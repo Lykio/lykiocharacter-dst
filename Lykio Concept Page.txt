@@ -1,0 +1,240 @@
+Lykio DST Page
+
+“Feral and divine, a mage of fire, ice, and death. His hunger is endless, his power ancient, his dignity eternal.”
+
+Blurb:
+	Feral and divine, Lykió walks the mortal realm cloaked in the form of a god-bound wolf. Once a succubus mage, his command over fire, ice, and death magics shapes his path as he endures the harsh wilderness. Haunted by endless hunger yet dignified in spirit, Lykió stands as a solemn guardian — both predator and protector — caught between ancient power and fragile mortality.
+
+	Master the balance of elemental forces and primal instinct. Survive as Lykió, where every step echoes with the weight of a forgotten divinity.
+
+Stats:
+	HP		145
+	HNGR	265
+	SAN		120
+
+Core Perks:
+
+	Runic Power Mastery
+		Unlocks Runic Power (RP) resource.
+		Passively regenerates +1 RP every 10s.
+		
+	Elemental Temperature Resilience
+		Adapts to heat/cold 50% slower (beneficial or detrimental depending on conditions).
+		
+	Night Sight
+		Gains the ability to see a short distance in the dark.
+
+Anti-Perks:
+
+	Soulbound Hunger
+		- Souls are far more nourishing than planely foods.
+			* Effect: All food provides -33% less HNGR. Insanity (being IsCrazy()) causes food to only restore 33% of their hunger. Soul foods restore 300% of their normal values. Occasionally complains about eating non-soul food.
+	Fervent Soul
+	
+		- Your hunger for souls and lifeforce makes you particularly dependant on feeding.
+			* Effect 3: Takes 33% more sanity drain from shadow creatures.
+			* Effect 2: SAN lowers -33% more rapidly if a soul has not been consumed recently. SAN regenerates 33% more rapidly if a soul has been.
+
+Skill Tree:
+
+	Tree 1 - Wilds
+		L1 : Fox's Instinct - +10% Move speed at all times, 20% chance to harvest 1 extra food from foraging.
+		L2 : Winter Resilience - Hunger decay speed during winter and fall is reduced by 10%. During winter and fall, you gain +1 sanity every 30 seconds.
+		L3: Feral Transformation - Freely toggle into your feral fox counterpart. In this form, gain 25% move speed, 25% attack speed, and reduce your health by 50%. In this form your hunger decay reduces by 10%. You may not wear armor or use tools in this form. Spells may be cast.
+		
+	Tree 2 - Succubism
+		L1 : Soul Feeder - Gain 2 HP, 8 hunger, 2 sanity, and 8 Runic Power when killing any creature or player.
+		L2 : Sinful Allure - In a 3 tile radius around Lykio, creatures get attack speed reduced by 15%. Players in a 3 tile radius gain Lykio's current move speed bonuses.
+		L3 : Seductive Drain - ACTIVE: Charm (stun for 3.25 seconds) and drain a creature for 8 health, 8 hunger and 15 Runic Power. 45 second cooldown.
+		BR1 -
+			L4a : Nether Consumption - Soul Feeder generates 100% more Runic Power while insane. Can see shadows and shadow creatures.
+			L5a : Soul Gluttony - Soul Feeder restores 100% more health, hunger, and sanity.
+		BR2 -
+			L4b : Frenzied Feast - Killing an enemy grants 10% move speed and attack speed for 15 seconds. Targets under 33% health restore 2 health when struck by Lykio.
+			L5b : Predatory Apex - Soul Feeder is 150% more effective while Lykio is under 33% health.
+			
+	Tree 3 - Death
+		L1 : Frozen Veins - -15% sanity drain from shadow creatures and the night, increased to 25% less sanity drain while insane. Insanity reduces damage taken by 10%. Gain 10% frost damage.
+		L2 : Necrotic Resilience - 15% damage taken under 50% health.
+		L3 : Death's Grasp - ACTIVE: Root targets for 3 seconds in a radius of 3 tiles, while dealing 14 frost damage. This costs 30 Runic Power and has a 24 second cooldown.
+		BR1 -
+			L4a : Shadow Step – Short 12 tile teleport to target location, costs 8 RP, no cooldown.
+			L5a : Death Incarnate – While insane, gain 15% attack damage and all health restored is doubled.
+		BR2 -
+			L4b : Necrotic Empowerment - Gain 35 max health and 25 max Runic Power permanently. Gain permament 25% damage reduction. Armor effectiveness is reduced by 50%.
+			L5b : Unyeilding Dominion - Under 33% health, gain 40% damage reduction.
+			
+	Tree 4 - Elementalism
+		L1 : Runic Attunement - Runic Power Mastery regeneration is changed to 6 runic power per 10 seconds.
+		L2 : Frostfire Attunement - While Lykio is over 50% Runic Power, Lykio gains immunity to damage from freezing or overheating. Freezing increases frost damage by 33%. Overheating increases fire damage by 33%.
+		L3 : Hellish Bite - ACTIVE. Next melee attack deals 33% more damage and inflicts an intense burn lasting 4 seconds dealing 7 damage every second.
+		L4 : Icy Veins - Instantly gain 75 Runic Power and increase attack speed by 25%. Cooldown is 240 seconds.
+		L5 : Elemental Surge - Max Runic Power is increased by 75 permanently.
+		BR1 - 
+			L6a : Pyroblast - Propel a massive ball of pyroclasm to a location dealing 80 fire damage to anything caught in a 2 tile radius. Applies a burn lasting 4 seconds dealing 11 damage every second. Costs 65 Runic Power. Cooldown 35 seconds.
+			L7a : Infernal Core - Over 75% Runic Power, deal 25% additional fire damage. Overheating doubles the bonus.
+					Additionally, gain ACTIVE. Scorch: Quick fiery lash that increases target's fire damage taken by 15% and then deals 12 fire damage. Costs 22 Runic Power. No cooldown.
+		BR2 - 
+			L6b : Glacial Spike - ACTIVE. Propel an icy spear down a line, dealing 60 frost damage to anything stuck in the line. Applies a 40% slow for 12 seconds. Costs 65 Runic Power. Cooldown 35 seconds.
+			L7b : While below 33% health, deal 25% additional frost damage, doubled while freezing. Reduces Frost spell cooldowns by 33%.
+
+Craftables:
+	- Frozen Runeband (Talent):
+		*4 Ice, 2 Nightmare Fuel, 2 Gold, 2 Rope
+			It increases the rate at which Runic Power is restored by 33%. Must remain on primary hotbar. No durability.
+	- Minor Bi-frost (Magic):
+		*6 Gold, 6 Marble, 6 Twine, Walking Stick
+			Resurrect a fallen ally. May only be used 4 times.
+	- Necrotic Fang Dagger (Magic):
+		*6 Bone Shards, 6 Nightmare Fuel, 2 Flint, 1 Marble
+			49 ATK. Deals +25% damage to shadow creatures. 80 uses. 10 durability may be restored with 5 health and 12 hunger.
+			
+Theoretical Lines:
+
+	General Examination
+		“It serves its purpose in this world.”
+		“A small thing, yet it endures.”
+		“I see it… and I understand.”
+
+	When Hungry
+		“This emptiness… it weighs upon me.”
+		“Even I am bound by hunger’s quiet cruelty.”
+		“I must feed… though I wish it were not so.”
+
+	When Attacking
+		“Forgive me.”
+		“May your end be swift.”
+		“This is the way of things.”
+
+	When Hit
+		“Pain… a gentle reminder I still live.”
+		“You wound me… but you do not break me.”
+		“Such violence… unnecessary.”
+
+	When Eating
+		“It eases the ache within.”
+		“My strength returns… quietly.”
+		“Sustenance… nothing more.”
+
+	When Sanity is Low
+		“The world slips from my grasp…”
+		“Voices… old, forgotten voices…”
+		“I feel my mind unravel… softly…”
+
+	When Crafting
+		“It will serve its purpose.”
+		“Creation brings small comforts.”
+		“It is done, as it must be.”
+
+	When Freezing
+		“Cold… it welcomes me like an old friend.”
+		“Winter’s chill… it knows my name.”
+		“My warmth fades… as all warmth does.”
+
+	When Overheating
+		“This heat… it burdens me deeply…”
+		“My pelt… stifled and heavy…”
+		“I long for winter’s embrace.”
+
+	When Sleeping
+		“Rest… a mercy I seldom grant myself…”
+		“Let me drift… if only for a moment.”
+		“Sleep… so fragile, so necessary.”
+
+	Revived by a Player
+		“Pulled back from death’s quiet halls…”
+		“My time beyond… cut short.”
+		“You return me to life… was it mercy, or cruelty?”
+
+	On Resurrection (Meat Effigy)
+		“Death rejects me… my task remains unfinished.”
+		“The end denies me once more… I continue.”
+		
+	Ghost Lines
+		“Death is no stranger… yet I do not welcome it.”
+		“The veil is thin… but my hunger remains.”
+		“Even in this form, I endure.”
+		“I walk between worlds… untethered, but restless.”
+		“The cold here is deeper… but it does not claim me yet.”
+
+	Haunt Lines
+		“Your unrest betrays you.”
+		“Spirits linger… but you will not sway me.”
+		“Depart… or be silenced.”
+		“I see your hunger… but it is not mine.”
+		“Haunt elsewhere. I have my own path.”
+
+	Boss Encounter Lines
+		Deerclops:
+			“A mountain’s wrath… a test of endurance.”
+			“You move with cold purpose. I respect that.”
+
+		Bearger:
+			“A beast of the wild… raw and relentless.”
+			“Strength is not always wisdom.”
+
+		Fuelweaver:
+			“Dark magic… a shadow against my flame.”
+			“Your death will be slow, Weaver.”
+
+		Ancient Fuelweaver:
+			“The frost and fire clash… I will prevail.”
+			“I have walked long… I will walk longer still.”
+
+		Dragonfly:
+			“A firestorm incarnate… transient yet fierce.”
+			“Your flames burn bright… but not eternal.”
+
+	Seasonal Event Lines
+		Winter’s Feast:
+			“Winter’s bite reminds us of our frailty… yet we endure.”
+			“Feast, if you must… but remember the cold waits.”
+
+		Hallowed Nights:
+			“The dead walk this night… as do I, in life’s shadow.”
+			“Trick or trap matters little when death watches.”
+
+		Year of the Catcoon:
+			“Even the smallest creature shapes the forest’s fate.”
+			“Curiosity survives… even here.”
+
+	Murmurs:
+		Night Murmurs
+			“The night bows to gods and beasts alike.”
+			“Stars bear witness to my endless path.”
+			“Darkness holds no fear for one such as I.”
+			“The moon knows my name… it has watched me hunt since its birth.”
+			“Shadows gather at my paws… silent in their worship.”
+
+		Campfire Murmurs
+			“Fire… humanity’s fragile mimicry of the sun.”
+			“Its warmth tempts even gods to linger.”
+			“Flames flicker, knowing their lives are brief.”
+			“I could rest beside it… if only for a moment.”
+			“The scent of burning wood… it calms the wild within me.”
+
+		Warmth-Seeking Murmurs
+			“This warmth… a fleeting kindness in an unkind world.”
+			“Winter humbles mortals… but even I feel its teeth.”
+			“Heat upon my pelt… it reminds me I still walk among the living.”
+			“I do not need warmth… but I welcome it.”
+			“The cold honours me… but warmth is a softer mercy.”
+
+		Rain Murmurs
+			“Rain cleanses… even gods need cleansing.”
+			“Each drop dies upon my fur… and I honour its end.”
+			“I smell life rising from the wet earth.”
+			“The sky weeps… and I remain silent in its grief.”
+			“Rain dampens the scents… yet sharpens my thoughts.”
+
+		General Idle Murmurs:
+			“All creatures live and die beneath my gaze.”
+			“I feel the earth’s pulse… steady, unending.”
+			“The forest bows in quiet reverence as I pass.”
+			“Life scurries at my paws… unaware of the god that watches them.”
+			“Death walks beside me… a companion I know well.”
+			“Even as a god, I remain bound to hunger, cold, and life’s fleeting beauty.”
+			“My breath mists in the cold… proof I still walk this realm.”
+			“I hear the roots speak… slow, patient words of ages past.”
+			“I smell old blood upon the wind… memories of hunts long forgotten.”
+			“This world endures… though gods rise and fall.”
