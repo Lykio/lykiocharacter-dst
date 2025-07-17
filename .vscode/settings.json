@@ -1,3 +1,9 @@
 {
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "Lua.diagnostics.disable": [
+        "lowercase-global",
+        "undefined-field",
+        "inject-field",
+        "undefined-global"
+    ]
 }
