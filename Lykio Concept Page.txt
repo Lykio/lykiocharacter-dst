@@ -47,9 +47,11 @@ Skill Tree:
 		L2 : Sinful Allure - In a 3 tile radius around Lykio, creatures get attack speed reduced by 15%. Players in a 3 tile radius gain Lykio's current move speed bonuses.
 		L3 : Seductive Drain - ACTIVE: Charm (stun for 3.25 seconds) and drain a creature for 8 health, 8 hunger and 15 Runic Power. 45 second cooldown.
 		BR1 -
+			- Unlocked after spending 6 skill points
 			L4a : Nether Consumption - Soul Feeder generates 100% more Runic Power while insane. Can see shadows and shadow creatures.
 			L5a : Soul Gluttony - Soul Feeder restores 100% more health, hunger, and sanity.
 		BR2 -
+			- Unlocked after spending 6 skill points
 			L4b : Frenzied Feast - Killing an enemy grants 10% move speed and attack speed for 15 seconds. Targets under 33% health restore 2 health when struck by Lykio.
 			L5b : Predatory Apex - Soul Feeder is 150% more effective while Lykio is under 33% health.
 			
@@ -58,9 +60,11 @@ Skill Tree:
 		L2 : Necrotic Resilience - 15% damage taken under 50% health.
 		L3 : Death's Grasp - ACTIVE: Root targets for 3 seconds in a radius of 3 tiles, while dealing 14 frost damage. This costs 30 Runic Power and has a 24 second cooldown.
 		BR1 -
+			- Unlocked after spending 6 skill points
 			L4a : Shadow Step – Short 12 tile teleport to target location, costs 8 RP, no cooldown.
 			L5a : Death Incarnate – While insane, gain 15% attack damage and all health restored is doubled.
 		BR2 -
+			- Unlocked after spending 6 skill points
 			L4b : Necrotic Empowerment - Gain 35 max health and 25 max Runic Power permanently. Gain permament 25% damage reduction. Armor effectiveness is reduced by 50%.
 			L5b : Unyeilding Dominion - Under 33% health, gain 40% damage reduction.
 			
@@ -69,6 +73,7 @@ Skill Tree:
 		L2 : Frostfire Attunement - While Lykio is over 50% Runic Power, Lykio gains immunity to damage from freezing or overheating. Freezing increases frost damage by 33%. Overheating increases fire damage by 33%.
 		L3 : Hellish Bite - ACTIVE. Next melee attack deals 33% more damage and inflicts an intense burn lasting 4 seconds dealing 7 damage every second.
 		L4 : Icy Veins - Instantly gain 75 Runic Power and increase attack speed by 25%. Cooldown is 240 seconds.
+			- Unlocked after spending 12 skill points
 		L5 : Elemental Surge - Max Runic Power is increased by 75 permanently.
 		BR1 - 
 			L6a : Pyroblast - Propel a massive ball of pyroclasm to a location dealing 80 fire damage to anything caught in a 2 tile radius. Applies a burn lasting 4 seconds dealing 11 damage every second. Costs 65 Runic Power. Cooldown 35 seconds.
@@ -79,18 +84,37 @@ Skill Tree:
 			L7b : While below 33% health, deal 25% additional frost damage, doubled while freezing. Reduces Frost spell cooldowns by 33%.
 
 Craftables:
-	- Frozen Runeband (Talent):
-		*4 Ice, 2 Nightmare Fuel, 2 Gold, 2 Rope
-			It increases the rate at which Runic Power is restored by 33%. Must remain on primary hotbar. No durability.
-	- Minor Bi-frost (Magic):
-		*6 Gold, 6 Marble, 6 Twine, Walking Stick
-			Resurrect a fallen ally. May only be used 4 times.
-	- Necrotic Fang Dagger (Magic):
-		*6 Bone Shards, 6 Nightmare Fuel, 2 Flint, 1 Marble
-			49 ATK. Deals +25% damage to shadow creatures. 80 uses. 10 durability may be restored with 5 health and 12 hunger.
-			
-Theoretical Lines:
+	Tier 1 – Basic Runic Tools (Alchemy Engine unlock, based on stone/flint tools):
+		Crafting cost: 50 RP per craft, + standard materials
 
+		Tools:
+			Runic Axe: +20% chop effectiveness, +20% durability
+			Runic Pickaxe: +20% mining effectiveness, +20% durability
+			Runic Shovel: +15% dig effectiveness, +20% durability
+			Runic Hammer: +15% hammer effectiveness, +20% durability
+			Runic Hoe: +20% tilling speed, +20% durability
+
+		Weapons & Armor:
+			Runic Spear: +15% damage compared to regular spear, consumes RP to deal magic damage type
+			Runic Tunic (armor): Base log suit or football helmet tier, consumes RP to reduce incoming damage by an additional 10% (balanced drain rate to avoid infinite tanking)
+	
+		Runic Workbench (Upgrade Bench):
+			Crafted with 6 Marble, 4 Nightmare Fuel, 2 Purple Gem, 4 Boards
+			Consumes 100 RP upon construction
+
+	Tier 2 Advanced Tools (Runic Workbench unlocks, based on gold tools):
+		Frostfire Hatchet: +40% chop effectiveness, +25% durability, small chance to drop an extra resource (15% chance) on fell.
+		Frostfire Pike: +40% mining effectiveness, +30% durability, small chance to drop an extra resource (10% chance) on mining.
+		Soulbound Spade: +40% dig speed, +30% durability, doubles as a weak melee weapon (20 damage)
+		Soulbound Hammer: +40% hammer effectiveness, +30% durability
+		Infernal Hoe: +50% tilling speed, +50% durability
+		Runic Clawblades: Usable in feral form, dual-wield claw weapons with rapid attacks, drain RP per attack (careful balance needed)
+		Necrotic Fang Dagger: 59 ATK. Deals 25% more damage to shadow creatures. 120 uses. 
+		Runebound Armor: Equivalent to marble suit in defense, consumes RP over time to maintain durability (10 RP over 1 minute to restore 5% durability, same durability as marble armor, light).
+		Minor Bi-Frost: Resurrect a fallen ally. May only be used 4 times.
+		Frozen Runeband: Increases the rate at which Runic Power is restored by 33%. Must remain on primary hotbar. No durability.
+
+Theoretical Lines:
 	General Examination
 		“It serves its purpose in this world.”
 		“A small thing, yet it endures.”
@@ -113,8 +137,8 @@ Theoretical Lines:
 
 	When Eating
 		“It eases the ache within.”
-		“My strength returns… quietly.”
-		“Sustenance… nothing more.”
+		“My strength returns...”
+		“Sustenance. Nothing more.”
 
 	When Sanity is Low
 		“The world slips from my grasp…”
@@ -170,7 +194,7 @@ Theoretical Lines:
 			“You move with cold purpose. I respect that.”
 
 		Bearger:
-			“A beast of the wild… raw and relentless.”
+			“A beast of the wild.. raw and relentless.”
 			“Strength is not always wisdom.”
 
 		Fuelweaver:

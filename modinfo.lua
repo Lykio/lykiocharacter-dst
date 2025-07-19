@@ -3,6 +3,7 @@ name = "Lykio Frostpaw"
 description = "A demonic Aesir for Don't Starve Together."
 author = "Lykio"
 version = "0.0.1" -- This is the version of the template. Change it to your own number.
+folder_name = "extendedsamplecharacter-dontstarvetogether"
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
 forumthread = "https://forums.kleientertainment.com/forums/topic/123456-lykio-frostpaw-a-demonic-aesir-for-dont-starve-together/"
