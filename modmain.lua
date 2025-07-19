@@ -1,7 +1,6 @@
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 
-GLOBAL.package.loaded["widgets/runicpowerwidget"] = nil
 GLOBAL.package.loaded["components/runicpower"] = nil
 
 PrefabFiles = {
@@ -9,10 +8,16 @@ PrefabFiles = {
     "lykio_none",
 }
 
-modimport("scripts/components/runicpower.lua")
-modimport("scripts/widgets/runicpowerwidget.lua")
 
 Assets = {
+    Asset("ANIM", "anim/status_meter.zip"),
+
+    Asset("ATLAS", "images/status_icons/runicpowericon.xml"),
+    Asset("IMAGE", "images/status_icons/runicpowericon.tex"),
+    
+    Asset("IMAGE", "images/hud.tex"),
+    Asset("ATLAS", "images/hud.xml"),
+
     Asset( "IMAGE", "images/saveslot_portraits/lykio.tex" ),
     Asset( "ATLAS", "images/saveslot_portraits/lykio.xml" ),
 
@@ -45,6 +50,7 @@ Assets = {
 }
 
 AddMinimapAtlas("images/map_icons/lykio.xml")
+modimport("scripts/components/runicpower")
 
 -- TODO : Require perks
 

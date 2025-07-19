@@ -1,39 +1,13 @@
-local RingMeter = require "widgets/ringmeter"
+local Badge = require "widgets/badge"
+local UIAnim = require "widgets/uianim"
+local Image = require "widgets/image"
 
 -- This is for debugging purposes
 local function DebugPrint(...)
     print("[RunicPower Debug]", ...)
 end
 
-local RunicPowerMeter = Class(RingMeter, function(self, owner, max, current)
-    DebugPrint("Initializing RunicPowerBadge")
-    RingMeter._ctor(self, "RunicPowerBadge")
-
-    DebugPrint("Setting up badge properties")
-    self.owner = owner
-    self.max = 100
-    self.current = 0
-
-    -- Create background
-    self.bg = self:AddChild(Image("images/ui.xml", "status_bg.tex"))
-    self.bg:SetSize(60, 60)
-    
-    -- Create icon
-    self.icon = self:AddChild(Image("images/ui.xml", "health.tex"))
-    self.icon:SetSize(40, 40)
-    
-    -- Create meter ring
-    self.ring = self:AddChild(Image("images/ui.xml", "status_meter.tex"))
-    self.ring:SetSize(65, 65)
-    
-    -- Create value text
-    self.text = self:AddChild(Text(NUMBERFONT, 20, tostring(self.current_value)))
-    self.text:SetPosition(0, -40)
-    
-    -- Start updating
-    self:StartUpdating()
-end)
-
+---@class RunicPower extends Component
 local RunicPower = Class(function(self, inst)
     DebugPrint("Initializing RunicPower component")
     self.inst = inst
@@ -43,44 +17,78 @@ local RunicPower = Class(function(self, inst)
     self.regen_period = 10 -- Seconds between regen
     self.regen_task = nil -- Regeneration task
     self.absorb_enabled = false
-    self.meter = nil
+    self.badge = nil
 
+    if not TheWorld.ismastersim then
+        -- Wait for hud to be ready
+        inst:DoTaskInTime(0.5, function()
+            self:CreateBadge()
+        end)
+
+        -- Listen for hud changes
+        inst:ListenForEvent("gaincontrol", function()
+            DebugPrint("Gained control, updating badge")
+            self:CreateBadge()
+        end)
+    end
 end)
 
-function RunicPower:CreateMeter()
-    if self.meter ~= nil then
-        self.meter:Kill()
+---@param self RunicPower
+function RunicPower:CreateBadge()
+    DebugPrint("Attempting to create badge")
+    if self.badge then
+        DebugPrint("badge already exists, skipping creation")
+        return
     end
 
-    if not self.inst.HUD then return end
+    if not (self.inst.HUD and self.inst.HUD.controls and self.inst.HUD.controls.status) then
+        DebugPrint("ERROR: HUD controls not found")
+        return
+    end
 
-    DebugPrint("Creating runic power meter")
-    self.meter = self.inst.HUD.controls.status:AddChild(RingMeter(self.inst))
+    DebugPrint("Creating runic power badge")
+    self.badge = self.inst.HUD.controls.status:AddChild(Badge(
+        "status_meter",
+        self.inst,
+        {0.1, 0.1, .9, 1}, -- blue tint
+        "images/status_icons/runicpowericon.xml",            -- no custom icon
+        true,          -- not circular
+        true           -- use normal bg
 
-    -- Position relative to other status elements
-    self.meter:SetPosition(-40, -50)  -- Adjust these values to position under other status bars
-    
+    ))
+    if not self.badge then
+        DebugPrint("ERROR: Failed to create badge")
+        return
+    end
+
+    self.badge.icon = self.badge:AddChild(Image("images/status_icons/runicpowericon.tex"))
+    self.badge.icon:SetPosition(0, 0, 0) -- Center the icon
+    self.badge.icon:SetScale(-1,1,1)
+
+    self.badge.circleframe = self.badge:AddChild(UIAnim())
+    self.badge.circleframe:GetAnimState():SetBank("status_meter")
+    self.badge.circleframe:GetAnimState():SetBuild("status_meter")
+    self.badge.circleframe:GetAnimState():PlayAnimation("frame")
+    self.badge.circleframe:GetAnimState():AnimateWhilePaused(false)
+    self.badge.circleframe:SetPosition(0, 0, 0) -- Center the frame
+
     -- Set up initial state
-    self.meter:GetAnimState():SetMultColour(0.4, 0.4, 1.1, 1.1)
-    self.meter:StartTimer(self.max, self.current)
+    self.badge:SetPosition(-40, -80)  -- Below sanity badge
+    self.badge:SetPercent(self:GetPercent())
+
+    DebugPrint("badge created successfully")
 end
 
-function RunicPowerMeter:UpdateDisplay()
-    local current = self.owner.components.runicpower:GetCurrent()
-    local max = self.owner.components.runicpower:GetMax()
-
-    DebugPrint("Updating display - Current:", current, "Max:", max)
-    
-    local percent = max > 0 and current / max or 0
-    DebugPrint("Calculated percentage:", percent)
+---@param self RunicPower
+function RunicPower:UpdateDisplay()
+    if TheWorld.ismastersim then return end
+    DebugPrint("Updating display - Current:", self.current, "Max:", self.max)
     
     -- Update bar fill amount
-    self.meter:StartTimer(max, current)
-    
-    -- Update number display
-    self.text:SetString(string.format("%d", current))
+    self.badge:SetPercent(self:GetPercent())
 end
 
+---@param self RunicPower
 function RunicPower:OnSave()
     DebugPrint("Saving RunicPower state")
     local data = {
@@ -94,6 +102,7 @@ function RunicPower:OnSave()
     return data
 end
 
+---@param self RunicPower
 function RunicPower:OnLoad(data)
     DebugPrint("Loading RunicPower state")
     if data then
@@ -109,6 +118,7 @@ function RunicPower:OnLoad(data)
     end
 end
 
+---@param self RunicPower
 function RunicPower:StartRegen()
     DebugPrint("Starting regeneration")
     self:StopRegen()
@@ -118,6 +128,7 @@ function RunicPower:StartRegen()
     end)
 end
 
+---@param self RunicPower
 function RunicPower:StopRegen()
     if self.regen_task then
         DebugPrint("Stopping regeneration")
@@ -126,6 +137,7 @@ function RunicPower:StopRegen()
     end
 end
 
+---@param self RunicPower
 function RunicPower:SetMax(amt)
     DebugPrint("Setting max runic power from", self.max, "to", amt)
     self.max = math.max(0, amt)
@@ -134,37 +146,42 @@ function RunicPower:SetMax(amt)
         DebugPrint("Adjusting current value to match new max")
         self.current = self.max
         
-        -- Update meter
-        if self.meter then
-            DebugPrint("Updating meter after max change")
+        -- Update badge
+        if self.badge then
+            DebugPrint("Updating badge after max change")
             self:UpdateDisplay()
         end
     end
 end
 
+---@param self RunicPower
 function RunicPower:GetMax()
     return self.max
 end
 
+---@param self RunicPower
 function RunicPower:SetCurrent(amt)
     DebugPrint("Setting current runic power to ", amt)
     self.current = math.max(0, math.min(self.max, amt))
 
-    -- Update meter
-    if self.meter then
-        DebugPrint("Updating meter after max change")
-        self.meter:UpdateDisplay()
+    -- Update badge
+    if not TheWorld.ismastersim and self.badge then
+        DebugPrint("Updating badge after max change")
+        self.badge:UpdateDisplay()
     end
 end
 
+---@param self RunicPower
 function RunicPower:GetCurrent()
     return self.current
 end
 
+---@param self RunicPower
 function RunicPower:GetPercent()
     return self.max > 0 and self.current / self.max or 0
 end
 
+---@param self RunicPower
 function RunicPower:DoDelta(amt, overtime, cause)
     if amt == 0 then
         DebugPrint("DoDelta called with zero amount, skipping")
@@ -174,25 +191,25 @@ function RunicPower:DoDelta(amt, overtime, cause)
     DebugPrint("DoDelta called - Amount:", amt, "Overtime:", overtime, "Cause:", cause)
     local old_current = self.current
     self.current = math.max(0, math.min(self.max, self.current + amt))
+    DebugPrint("Value changed from", old_current, "to", self.current)
 
-    if self.current ~= old_current then
-        DebugPrint("Value changed from", old_current, "to", self.current)
-
-        -- Update meter
-        if self.meter then
-            DebugPrint("Updating meter after max change")
-            self.meter:UpdateDisplay()
+    -- Update badge
+    if self.cuurent ~= old_current then
+        if not TheWorld.ismastersim then
+            self:UpdateDisplay()
         end
     end
 
     return self.current - old_current
 end
 
+---@param self RunicPower
 function RunicPower:CanSpend(amt)
     DebugPrint("Checking if can spend", amt, "current:", self.current)
     return self.current >= amt
 end
 
+---@param self RunicPower
 function RunicPower:Spend(amt, cause)
     DebugPrint("Attempting to spend", amt, "runic power")
     if not self:CanSpend(amt) then
@@ -207,16 +224,19 @@ function RunicPower:Spend(amt, cause)
 end
 
 
+---@param self RunicPower
 function RunicPower:SetRegenRate(rate)
     DebugPrint("Setting regeneration rate to:", rate)
     self.regen_rate = rate
 end
 
+---@param self RunicPower
 function RunicPower:GetRegenRate()
     DebugPrint("Getting regeneration rate:", self.regen_rate)
     return self.regen_rate
 end
 
+---@param self RunicPower
 function RunicPower:SetRegenPeriod(period)
     self.regen_period = period
     DebugPrint("Setting regeneration period to:", period)
@@ -226,28 +246,32 @@ function RunicPower:SetRegenPeriod(period)
     end
 end
 
+---@param self RunicPower
 function RunicPower:GetRegenPeriod()
     DebugPrint("Getting regeneration period:", self.regen_period)
     return self.regen_period
 end
 
 -- Enable/disable absorb mechanics for talents
+---@param self RunicPower
 function RunicPower:SetAbsorbEnabled(enabled)
     DebugPrint("Setting absorb enabled to:", enabled)
     self.absorb_enabled = enabled
 end
 
+---@param self RunicPower
 function RunicPower:IsAbsorbEnabled()
     return self.absorb_enabled
 end
 
+---@param self RunicPower
 function RunicPower:OnRemoveEntity()
     DebugPrint("Removing RunicPower component")
     self:StopRegen()
 
-    if self.meter then
-        self.meter:Kill()
-        self.meter = nil
+    if self.badge then
+        self.badge:Kill()
+        self.badge = nil
     end
 end
 

@@ -17,29 +17,8 @@ local lykio_start_items = {
 }
 
 local prefabs = {
-    -- Tier 1
-	"runicaxe",
-	"runicpickaxe",
-	"runicshovel",
-    "runichammer",
-    "runichoe",
-    "runicspear",
-    "runictunic",
-    "runicworkbench",
-    -- Tier 2
-    "frostfirehatchet",
-    "frostfirepike",
-    "soulboundspade",
-    "soulboundhammer",
-    "runicclawblades",
-    "necroticfangdagger",
-    "runeboundarmor",
-    "minorbifrost",
-    "frozenruneband",
-    -- Tier 3 TODO : Add more items
-    "",
-    -- Tier 4 TODO : Add more items
-    ""
+	"tier1",
+    "tier2"
 }
 
 -- Your character's stats
@@ -131,6 +110,7 @@ local function ApplyNightVision(inst)
 end
 
 -- Handle runic power system
+---@param inst RunicPower
 local function SetupRunicPower(inst)
     DebugPrint("Setting up runic power system")
     
@@ -142,10 +122,10 @@ local function SetupRunicPower(inst)
     RP = inst.components.runicpower
     if RP then
         DebugPrint("Configuring runic power values")
-        RP:SetMax(100)
-        RP:SetCurrent(50)
-        RP:SetRegenRate(1)
-        RP:SetRegenPeriod(10)
+        RP:SetMax(TUNING.Lykio_RunicPower)
+        RP:SetCurrent(TUNING.Lykio_RunicPower / 2)
+        RP:SetRegenRate(TUNING.Lykio_RunicPowerRegen)
+        RP:SetRegenPeriod(TUNING.Lykio_RunicPowerRegenPeriod)
         
         DebugPrint("Starting runic power regeneration")
         RP:StartRegen()
@@ -155,18 +135,21 @@ local function SetupRunicPower(inst)
 end
 
 -- When the character is revived from human
+---@param inst EntityScript
 local function onbecamehuman(inst)
     DebugPrint("Character became human")
     inst.components.locomotor:SetExternalSpeedMultiplier(inst, "Lykio_speed_mod", 1)
 end
 
 -- When the character is revived from ghost
+---@param inst EntityScript
 local function onbecameghost(inst)
     DebugPrint("Character became ghost")
     inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "Lykio_speed_mod")
 end
 
 -- When loading or spawning the character
+---@param inst EntityScript
 local function onload(inst)
     DebugPrint("Loading character")
     inst:ListenForEvent("ms_respawnedfromghost", onbecamehuman)
@@ -183,6 +166,7 @@ end
 
 
 -- This initializes for both the server and client. Tags can be added here.
+---@param inst EntityScript
 local common_postinit = function(inst)
     DebugPrint("Applying character modifications")
     inst:AddTag("lykio")
@@ -194,18 +178,13 @@ local common_postinit = function(inst)
 
     DebugPrint("Setting up runic power")
     SetupRunicPower(inst)
-    if RP then
-        DebugPrint("Runic power component found, setting up meter")
-        RP:CreateMeter()
-    else
-        DebugPrint("ERROR: Runic power component not found")
-    end
 
 	-- Minimap icon
 	inst.MiniMapEntity:SetIcon( "lykio.tex" )
 end
 
 -- This initializes for the server only. Components are added here.
+---@param inst EntityScript
 local master_postinit = function(inst)
     DebugPrint("Starting master initialization")
     
