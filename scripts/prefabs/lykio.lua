@@ -1,24 +1,19 @@
-local require = GLOBAL.require
-local STRINGS = GLOBAL.STRINGS
-
 local MakePlayerCharacter = require "prefabs/player_common"
 
----@type RunicPower
-local RP = nil
-
--- This is for debugging purposes
+-- This is for debugging purposes -------------------------------------------------
 local function DebugPrint(...)
     print("[Lykio Character Debug]", ...)
 end
 
 local assets = {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
-    Asset("ANIM", "anim/lykio.zip"),  -- Your character's custom animations
+    Asset("ANIM", "anim/lykio.zip")
 }
 
 local lykio_start_items = {
 	"nightmarefuel",
-	"nightmarefuel"
+	"nightmarefuel",
+    "horrorfuel"
 }
 
 local prefabs = {
@@ -26,7 +21,7 @@ local prefabs = {
     "tier2"
 }
 
---nightvision colorcubes
+-- COLOURCUBES ---------------------------------------------------------------------
 local NIGHTVISION_COLOURCUBES =
 {
   night = "images/colour_cubes/purple_moon_cc.tex",
@@ -34,7 +29,9 @@ local NIGHTVISION_COLOURCUBES =
 }
 
 local function seasoncheck(inst)
+    DebugPrint("Configuring seasoncheck for night vision")
 	if TheWorld.state.isautumn then
+        DebugPrint("Configuring autumn night vision")
 		NIGHTVISION_COLOURCUBES =
 		{
 			day = "images/colour_cubes/day05_cc.tex",
@@ -43,6 +40,7 @@ local function seasoncheck(inst)
 			full_moon = "images/colour_cubes/purple_moon_cc.tex"
 		}
 	elseif TheWorld.state.iswinter then
+        DebugPrint("Configuring winter night vision")
 		NIGHTVISION_COLOURCUBES =
 		{
 			day = "images/colour_cubes/snow_cc.tex",
@@ -51,6 +49,7 @@ local function seasoncheck(inst)
 			full_moon = "images/colour_cubes/purple_moon_cc.tex"
 		}
 	elseif TheWorld.state.isspring then
+        DebugPrint("Configuring spring night vision")
 		NIGHTVISION_COLOURCUBES =
 		{
 			day = "images/colour_cubes/spring_day_cc.tex",
@@ -59,6 +58,7 @@ local function seasoncheck(inst)
 			full_moon = "images/colour_cubes/purple_moon_cc.tex"
 		}
 	elseif TheWorld.state.issummer then
+        DebugPrint("Configuring summer night vision")
 		NIGHTVISION_COLOURCUBES =
 		{
 			day = "images/colour_cubes/summer_day_cc.tex",
@@ -69,38 +69,7 @@ local function seasoncheck(inst)
 	end
 end
 
--- Your character's stats
-TUNING.Lykio_HEALTH = 145
-TUNING.Lykio_HUNGER = 265
-TUNING.Lykio_SANITY = 120
-TUNING.Lykio_SANITYDRAIN = 1.0
-
-TUNING.Lykio_DAMAGE = 1
-TUNING.Lykio_SPEED = 1.0
-TUNING.LYKIO.NIGHTVISION = true
-
-TUNING.Lykio_WINTER_INSULATION = 1
-TUNING.Lykio_SUMMER_INSULATION = 1
-TUNING.Lykio_WETNESS_INSULATION = 1
-
-TUNING.Lykio_RunicPower = 100
-TUNING.Lykio_RunicPowerRegen = 1
-TUNING.Lykio_RunicPowerRegenPeriod = 10
-
--- Eater settings
-TUNING.Lykio_FOOD_FAVORITE = "nightmarefuel"
-TUNING.Lykio_FOOD_SPOILED_IGNORE = false
-TUNING.Lykio_FOOD_PREFERENCE = { FOODGROUP.RAW }
-TUNING.Lykio_FOOD_TOLERANCE = { FOODGROUP.OMNI }
-TUNING.Lykio_STOMACH_STRONG = true
-
-
--- Buff staves durabilities
-TUNING.Lykio_FIRESTAFF_USES = math.floor(TUNING.FIRESTAFF_USES * 2.5)
-TUNING.Lykio_ICESTAFF_USES = math.floor(TUNING.ICESTAFF_USES * 2.5)
-TUNING.Lykio_TELESTAFF_USES = math.floor(TUNING.TELESTAFF_USES * 2.5)
-
--- Custom starting inventory
+-- Custom starting inventory ------------------------------------------------
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.Lykio = lykio_start_items
 
 local start_inv = {}
@@ -109,7 +78,7 @@ for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
 end
 local start_inv_F = FlattenTree(start_inv, true)
 
--- Slow down temperature adaptation
+-- Slow down temperature adaptation ------------------------------------------------
 ---@param inst EntityScript
 local function ApplyTemperatureResilience(inst)
     DebugPrint("Applying temperature resilience")
@@ -125,7 +94,7 @@ local function ApplyTemperatureResilience(inst)
     end
 end
 
--- Handle hunger modifications TODO : Configuring
+-- Handle hunger modifications TODO : Configuring --------------------------------------
 ---@param inst EntityScript
 local function ApplyHungerModifications(inst)
     DebugPrint("Applying hunger modifications")
@@ -136,60 +105,69 @@ local function ApplyHungerModifications(inst)
     end
 end
 
--- Configuring favoritefood
+-- Configuring favoritefood -------------------------------------------------------------
 ---@param inst EntityScript
 local function ConfigureEater(inst)
+    local eater = inst.components.eater
+
     DebugPrint("Configuring eater")
-    if inst.components.eater then
-        inst.components.eater:SetFavoriteFood(TUNING.Lykio_FOOD_FAVORITE)
+    if eater then
+        if inst.components.foodaffinity == nil then
+            DebugPrint("Adding food affinity component")
+            inst:AddComponent("foodaffinity")
+        end
+
+        inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.SOUL)
+        inst:AddTag(FOODTYPE.SOUL.."_eater")
         inst:AddTag(TUNING.Lykio_FOOD_FAVORITE.."_eater")
         DebugPrint("Favorite food set to", TUNING.Lykio_FOOD_FAVORITE)
 
-        inst.components.eater.soul.foodtype = "soul"
-        inst.components.eater.soul.healthvalue = TUNING.HEALING_MED
-        inst.components.eater.soul.hungervalue = TUNING.CALORIES_HUGE
-        inst.components.eater.soul.sanityvalue = TUNING.SANITY_MED
-
-        inst.components.eater.caneat = {
-            inst.components.eater.soul.foodtype,
+        eater:SetDiet({
+            FOODTYPE.SOUL,
             FOODTYPE.RAW,
             FOODTYPE.MEAT,
             FOODTYPE.VEGGIE,
-            FOODTYPE.BERRY
-        }
+            FOODTYPE.MONSTER
+        })
 
-        inst.components.eater.preferseating = {
-            inst.components.eater.soul.foodtype,
-            FOODTYPE.MEAT
-        }
+        eater:SetRefusesSpoiledFood(TUNING.Lykio_FOOD_SPOILED_IGNORE)
+        eater:SetStrongStomach(TUNING.Lykio_STOMACH_STRONG)
 
-        inst.components.eater:SetRefusesSpoiledFood(TUNING.Lykio_FOOD_SPOILED_IGNORE)
-        inst.components.eater:SetStrongStomach(TUNING.Lykio_STOMACH_STRONG)
+        eater:SetOnEatFn(function (eater_inst, food)
+            if food.components.edible and food.components.edible.foodtype == FOODTYPE.SOUL then
+                DebugPrint("Updating eat function for", food.prefab)
+                local rp = eater_inst.components.runicpower
 
-        inst.components.eater:SetOnEatFn(function (eater, food)
-            if food.prefab == TUNING.Lykio_FOOD_FAVORITE then
-                eater.components.health:DoDelta(TUNING.HEALING_MED, false, "lykio_eat_favorite")
-                eater.components.hunger:DoDelta(TUNING.CALORIES_HUGE, false, "lykio_eat_favorite")
-                eater.components.sanity:DoDelta(TUNING.SANITY_MED, false, "lykio_eat_favorite")
-                RP:DoDelta(20, false, "lykio_eat_favorite")
-                return true
+                if rp then
+                    if food.prefab == "horrorfuel" then
+                        rp:DoDelta(TUNING.RUNICPOWER_HUGE, false, "eat_horrorfuel")
+                        return true
+                    end
+
+                    rp:DoDelta(TUNING.RUNICPOWER_LARGE, false, "eat_soul")
+                    return true
+                end
             end
+            return false
         end)
     else
         DebugPrint("ERROR: No eater component found")
     end
 end
 
--- Handle night vision
+-- Handle night vision ------------------------------------------------------
 ---@param inst EntityScript
 local function applynightvision(inst)
-	if TUNING.NIGHTVISION == 1 then
+	if TUNING.Lykio_NIGHTVISION then
+    DebugPrint("Configuring night vision listener")
 		if inst.components.playervision then
 			if inst.nightvision:value() then
 				seasoncheck(inst)
 				inst.components.playervision:SetCustomCCTable(NIGHTVISION_COLOURCUBES)
+                DebugPrint("Setting night vision on")
 				inst.components.playervision:ForceNightVision(true)
 			else
+                DebugPrint("Setting night vision off")
 				inst.components.playervision:ForceNightVision(false)
 			end
 		end
@@ -203,7 +181,8 @@ end
 
 ---@param inst EntityScript
 local function initializenightvision(inst)
-	if TUNING.NIGHTVISION == 1 then
+	if TUNING.Lykio_NIGHTVISION then
+        DebugPrint("Initializing night vision")
 		inst.nightvision = net_bool(inst.GUID, "player.nightvision", "nightvisiondirty")
 		inst.nightvision:set(false)
 		inst:DoTaskInTime(0, registernightvisionlistener)
@@ -216,7 +195,7 @@ local function checkphase(inst)
 		inst.task1:Cancel()
 		inst.task1 = nil
 	end
-	if inst:HasTag("playerghost") == false and TUNING.NIGHTVISION == 1 then
+	if inst:HasTag("playerghost") == false and TUNING.Lykio_NIGHTVISION then
 		if TheWorld:HasTag("cave") then
 			inst.components.playervision:SetCustomCCTable(NIGHTVISION_COLOURCUBES)
 			inst.components.playervision:ForceNightVision(true)
@@ -235,7 +214,7 @@ local function checkphase(inst)
 	end
 end
 
--- Handle runic power system
+-- Handle runic power system ----------------------------------------------------------
 ---@param inst RunicPower
 local function SetupRunicPower(inst)
     DebugPrint("Setting up runic power system")
@@ -245,50 +224,53 @@ local function SetupRunicPower(inst)
         inst:AddComponent("runicpower")
     end
     
-    RP = inst.components.runicpower
-    if RP then
+    local rp = inst.components.runicpower
+    if rp then
         DebugPrint("Configuring runic power values")
-        RP:SetMax(TUNING.Lykio_RunicPower)
-        RP:SetCurrent(TUNING.Lykio_RunicPower / 2)
-        RP:SetRegenRate(TUNING.Lykio_RunicPowerRegen)
-        RP:SetRegenPeriod(TUNING.Lykio_RunicPowerRegenPeriod)
+        rp:SetMax(TUNING.Lykio_RunicPower)
+        rp:SetCurrent(TUNING.Lykio_RunicPower / 2)
+        rp:SetRegenRate(TUNING.Lykio_RunicPowerRegen)
+        rp:SetRegenPeriod(TUNING.Lykio_RunicPowerRegenPeriod)
         
         DebugPrint("Starting runic power regeneration")
-        RP:StartRegen()
+        rp:StartRegen()
     else
         DebugPrint("ERROR: Failed to set up runic power component")
     end
 end
 
--- When the character is revived from human
+-- When the character is revived from human ---------------------------------------
 ---@param inst EntityScript
 local function onbecamehuman(inst)
+    local rp = inst.components.runicpower
     DebugPrint("Character became human")
-    if RP ~= nil then RP:StartRegen() end
+    if rp ~= nil then rp:StartRegen() end
     inst.components.locomotor:SetExternalSpeedMultiplier(inst, "Lykio_speed_mod", 1)
 
-    taskNightVision = inst:DoPeriodicTask(0.25, checkphase)
+    inst.taskNightVision = inst:DoPeriodicTask(0.25, checkphase)
 
     inst:ListenForEvent("death", function()
-        taskNightVision:Cancel()
-        taskNightVision = nil
+        DebugPrint("Stopping runic power regeneration on death")
+        if rp ~= nil then rp:StopRegen() end
+        inst.taskNightVision:Cancel()
+        inst.taskNightVision = nil
     end)
 end
 
--- When the character is revived from ghost
+-- When the character is revived from ghost --------------------------------------
 ---@param inst EntityScript
 local function onbecameghost(inst)
+    local rp = inst.components.runicpower
     DebugPrint("Character became ghost")
     inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "Lykio_speed_mod")
 
-    if RP ~= nil then
+    if rp ~= nil then
         DebugPrint("Stopping runic power regeneration on ghost")
-        RP:SetCurrent(0)
-        RP:StopRegen()
+        rp:SetCurrent(0)
     end
 end
 
--- When loading or spawning the character
+-- When loading or spawning the character -------------------------------------------
 ---@param inst EntityScript
 local function onload(inst)
     DebugPrint("Loading character")
@@ -316,15 +298,12 @@ local function calculateFinalStats(inst)
     inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
 end
 
--- This initializes for both the server and client. Tags can be added here.
+-- This initializes for both the server and client. ----------------------------------
 local common_postinit = function(inst)
     DebugPrint("Applying character modifications")
     inst:AddTag("lykio")
 
     DebugPrint("Setting up character properties")
-    ApplyTemperatureResilience(inst)
-    ApplyHungerModifications(inst)
-    ConfigureEater(inst)
     initializenightvision(inst)
 
     DebugPrint("Setting up runic power")
@@ -334,13 +313,13 @@ local common_postinit = function(inst)
 	inst.MiniMapEntity:SetIcon( "lykio.tex" )
 end
 
--- This initializes for the server only. Components are added here.
+-- This initializes for the server only. Components are added here. -------------------
 local master_postinit = function(inst)
     DebugPrint("Starting master initialization")
-    if TUNING.NIGHTVISION == 1 then
+    if TUNING.Lykio_NIGHTVISION then
         inst:WatchWorldState("phase", checkphase)
     end
-    
+
     DebugPrint("Setting up inventory")
     inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
     
@@ -350,6 +329,10 @@ local master_postinit = function(inst)
     DebugPrint("Setting up save/load handlers")
     inst.OnLoad = onload
     inst.OnNewSpawn = onload
+    
+    ApplyTemperatureResilience(inst)
+    ApplyHungerModifications(inst)
+    ConfigureEater(inst)
     
     DebugPrint("Master initialization complete")
 end

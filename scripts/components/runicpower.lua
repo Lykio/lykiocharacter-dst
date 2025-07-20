@@ -1,6 +1,5 @@
 local Badge = require "widgets/badge"
-local UIAnim = require "widgets/uianim"
-local Image = require "widgets/image"
+local net = GLOBAL.net_shortint
 
 -- This is for debugging purposes
 local function DebugPrint(...)
@@ -18,6 +17,21 @@ local RunicPower = Class(function(self, inst)
     self.regen_task = nil -- Regeneration task
     self.absorb_enabled = false
     self.badge = nil
+
+    --[[self._max = net(inst.GUID, "runicpower._max", "maxdirty")
+    self._current = net(inst.GUID, "runicpower._current", "currentdirty")
+    self._regen_rate = net(inst.GUID, "runicpower._regen_rate", "regendirty")
+    self._regen_period = net(inst.GUID, "runicpower._regen_period", "perioddirty")
+    self._regen_task = net(inst.GUID, "runicpower._regen_task", "regentaskdirty")
+    self._absorb_enabled = net(inst.GUID, "runicpower._absorb_enabled", "absorbenableddirty")
+
+    self._max:set(self.max)
+    self._current:set(self.current)
+    self._regen_rate:set(self.regen_rate)
+    self._regen_period:set(self.regen_period)
+    self._regen_task:set(self.regen_task)
+    self._absorb_enabled:set(self.absorb_enabled)--]]
+
 
     if not TheWorld.ismastersim then
         -- Wait for hud to be ready
@@ -50,26 +64,16 @@ function RunicPower:CreateBadge()
     self.badge = self.inst.HUD.controls.status:AddChild(Badge(
         "status_meter",
         self.inst,
-        {0.1, 0.1, .9, 1}, -- blue tint
-        "images/status_icons/runicpowericon.xml", -- no custom icon
+        {0.5, 0.8, 1, 1}, -- blue tint
+        "images/status_icons/runicpowericon.xml", -- custom icon
+        "runicpowericon.tex", -- custom icon texture
         true, -- not circular
-        true -- use normal bg
+        false -- use normal bg
     ))
     if not self.badge then
         DebugPrint("ERROR: Failed to create badge")
         return
     end
-
-    self.badge.icon = self.badge:AddChild(Image("images/status_icons/runicpowericon.tex"))
-    self.badge.icon:SetPosition(0, 0, 0) -- Center the icon
-    self.badge.icon:SetScale(-1,1,1)
-
-    self.badge.circleframe = self.badge:AddChild(UIAnim())
-    self.badge.circleframe:GetAnimState():SetBank("status_meter")
-    self.badge.circleframe:GetAnimState():SetBuild("status_meter")
-    self.badge.circleframe:GetAnimState():PlayAnimation("frame")
-    self.badge.circleframe:GetAnimState():AnimateWhilePaused(false)
-    self.badge.circleframe:SetPosition(0, 0, 0) -- Center the frame
 
     -- Set up initial state
     self.badge:SetPosition(-80, -130)  -- Below sanity badge
@@ -194,7 +198,7 @@ function RunicPower:DoDelta(amt, overtime, cause)
     DebugPrint("Value changed from", old_current, "to", self.current)
 
     -- Update badge
-    if self.cuurent ~= old_current then
+    if self.current ~= old_current then
         if not TheWorld.ismastersim then
             self:UpdateDisplay()
         end
