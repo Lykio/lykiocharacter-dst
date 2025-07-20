@@ -36,7 +36,7 @@ Anti-Perks:
 			* Effect 2: SAN lowers -33% more rapidly if a soul has not been consumed recently. SAN regenerates 33% more rapidly if a soul has been.
 
 Skill Tree:
-
+	- Shadows are soulless
 	Tree 1 - Wilds
 		L1 : Fox's Instinct - +10% Move speed at all times, 20% chance to harvest 1 extra food from foraging.
 		L2 : Winter Resilience - Hunger decay speed during winter and fall is reduced by 10%. During winter and fall, you gain +1 sanity every 30 seconds.

@@ -51,10 +51,9 @@ function RunicPower:CreateBadge()
         "status_meter",
         self.inst,
         {0.1, 0.1, .9, 1}, -- blue tint
-        "images/status_icons/runicpowericon.xml",            -- no custom icon
-        true,          -- not circular
-        true           -- use normal bg
-
+        "images/status_icons/runicpowericon.xml", -- no custom icon
+        true, -- not circular
+        true -- use normal bg
     ))
     if not self.badge then
         DebugPrint("ERROR: Failed to create badge")
@@ -73,7 +72,7 @@ function RunicPower:CreateBadge()
     self.badge.circleframe:SetPosition(0, 0, 0) -- Center the frame
 
     -- Set up initial state
-    self.badge:SetPosition(-40, -80)  -- Below sanity badge
+    self.badge:SetPosition(-80, -130)  -- Below sanity badge
     self.badge:SetPercent(self:GetPercent())
 
     DebugPrint("badge created successfully")
@@ -121,7 +120,8 @@ end
 ---@param self RunicPower
 function RunicPower:StartRegen()
     DebugPrint("Starting regeneration")
-    self:StopRegen()
+    if self.regen_task ~= nil then self:StopRegen() end
+
     self.regen_task = self.inst:DoPeriodicTask(self.regen_period, function()
         DebugPrint("Regenerating runic power")
         self:DoDelta(self.regen_rate, false, "regen")

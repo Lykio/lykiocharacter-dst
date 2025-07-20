@@ -99,6 +99,7 @@ local function DebugPrint(...)
     print("[Lykio Debug]", ...)
 end
 
+-- TUNING
 
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
 AddModCharacter("lykio", "PLURAL", skin_modes)
