@@ -10,14 +10,16 @@ PrefabFiles = {
 
 Assets = {
     -- For Runic Power
-    Asset("ANIM", "anim/status_health.zip"),
-
     Asset("ANIM", "anim/runicpowericon.zip"),
     Asset("ATLAS", "images/status_icons/runicpowericon.xml"),
     Asset("IMAGE", "images/status_icons/runicpowericon.tex"),
 
     Asset("SCRIPT", "scripts/components/runicpowermeter.lua"),
     Asset("SCRIPT", "scripts/components/runicpowermeter_replica.lua"),
+    Asset("SCRIPT", "scripts/widgets/rpbadge.lua"),
+
+    -- Tuning
+    Asset("SCRIPT", "scripts/tuning_lykio.lua"),
 
     -- For Art
     Asset( "IMAGE", "images/saveslot_portraits/lykio.tex" ),
@@ -51,8 +53,8 @@ Assets = {
     Asset( "ATLAS", "images/names_gold_lykio.xml" )
 }
 
-modimport("scripts/components/runicpower")
-require("scripts/tuning_lykio")
+modimport("scripts/components/runicpowermeter")
+require("tuning_lykio")
 
 -- This is for debugging purposes
 local function DebugPrint(...)
@@ -120,12 +122,14 @@ local function MakeSoulEdible(inst)
     end
 end
 
+AddReplicableComponent("runicpowermeter")
+
 AddClassPostConstruct("widgets/statusdisplays", function(self)
     if self.owner:HasTag("lykio") then
-        local rpmeter = require "widgets/rpbadge"
+        local rpbadge = require "widgets/rpbadge"
         DebugPrint("Adding Runic Power Meter to status displays for", self.owner.prefab)
-        self.rpmeter = self:AddChild(rpmeter)
-        self.rpmeter:SetPosition(-80, 20, 0)
+        self.rpbadge = self:AddChild(rpbadge(self.owner, "status_health", "status_health"))
+        self.rpbadge:SetPosition(-420, -420, -420)
     else
         --DebugPrint("Not adding Runic Power Meter to status displays for", self.owner.prefab)
     end
@@ -137,6 +141,5 @@ AddPrefabPostInit("player_classified", function(inst)
     inst._max = net_shortint(inst.GUID, "runicpower._max", "runicpower_maxdirty")
     inst._current = net_shortint(inst.GUID, "runicpower._current", "runicpower_currentdirty")
 end)
-AddReplicableComponent("runicpowermeter")
 AddModCharacter("lykio", "PLURAL", skin_modes)
 DebugPrint("modmain.lua loaded")

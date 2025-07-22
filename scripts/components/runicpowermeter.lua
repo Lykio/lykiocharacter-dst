@@ -6,25 +6,40 @@ local function DebugPrint(...)
 end
 
 local function SetReplicaRPMax(self, max)
-    self.inst.replica.rpmeter:SetMax(max)
+    DebugPrint("Setting replica RP max to:", max)
+    self.inst.replica.runicpowermeter:SetMax(max)
 end
 
 local function SetReplicaRPCurrent(self, current)
-    self.inst.replica.rpmeter:SetCurrent(current)
+    DebugPrint("Setting replica RP current to:", current)
+    self.inst.replica.runicpowermeter:SetCurrent(current)
+end
+
+local function OnTaskTick(inst, self, period)
+    self:DoDec(period)
 end
 
 local RunicPowerMeter = Class(function(self, inst)
     self.inst = inst
     self.max = TUNING.LYKIO.RUNICPOWER.STATS.MAX.DEFAULT
-    self.current = TUNING.LYKIO.RUNICPOWER.STATS.CURRENT.DEFAULT
+    self.current = TUNING.LYKIO.RUNICPOWER.STATS.MAX.DEFAULT / 2
     self.initialspawn = true
-    self.regen = TUNING.LYKIO.RUNICPOWER.STATS.REGEN.DEFAULT
-    self.regen_period = TUNING.LYKIO.RUNICPOWER.STATS.REGEN.PERIOD.DEFAULT
+    self.regen = TUNING.LYKIO.RUNICPOWER.STATS.REGEN.TINY
+    self.regen_period = TUNING.LYKIO.RUNICPOWER.STATS.REGEN.PERIOD.TINY
     self.regen_task = nil
-end)
+
+    local period = 1
+    DebugPrint("DoPeriodicTask", self.regen_period)
+    self.inst:DoPeriodicTask(self.regen_period, OnTaskTick, nil, self, self.regen_period)
+end,
+nil,
+{
+    max = SetReplicaRPMax,
+    current = SetReplicaRPCurrent
+})
 
 function RunicPowerMeter:OnSave()
-    AddDeconstructRecipe {
+    return {
         _current = self.current,
         _max = self.max,
         _regen_task = self.regen_task
@@ -124,6 +139,15 @@ function RunicPowerMeter:StartRegen(amt, period, interruptcur)
     end
 end
 
+function RunicPowerMeter:DoDec(period)--[[
+    if self.regen_task ~= nil then
+        local amt = self.regen.rate * period
+        self:DoDelta(-amt, true, "regen")
+    else
+        DebugPrint("RunicPowerMeter:DoDec called but no regen task is running")
+    end--]]
+end
+
 function RunicPowerMeter:SpendRP(amt, cause)
     if amt <= 0 then return false end
 
@@ -152,14 +176,12 @@ function RunicPowerMeter:GetPeriod()
     return self.regen_period
 end
 
-function RunicPowerMeter:GetTask()
+function RunicPowerMeter:GetRegenTask()
     return self.regen_task
 end
 
 function RunicPowerMeter:OnRemoveEntity()
     self:StopRegen()
-    self.regen_task:Cancel()
-    self.regen_task = nil
 end
 
 return RunicPowerMeter

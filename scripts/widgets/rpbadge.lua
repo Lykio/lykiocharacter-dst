@@ -1,10 +1,9 @@
 local Badge = require "widgets/badge"
 local UIAnim = require "widgets/uianim"
+local Image = require "widgets/image"
 local Text = require "widgets/text"
 
 Assets = {
-    Asset("ANIM", "anim/status_health.zip"),
-   
     Asset("ANIM", "anim/runicpowericon.zip"),
     Asset("ATLAS", "images/status_icons/runicpowericon.xml"),
     Asset("IMAGE", "images/status_icons/runicpowericon.tex"),
@@ -16,11 +15,21 @@ end
 
 ---@class RunicPowerBadge extends Badge
 local RunicPowerBadge = Class(Badge, function(self, owner, bank, background_build)
-    Badge._ctor(self, "rpmeter", bank, background_build)
+    Badge._ctor(self, "status_meter", owner, { 70 / 255, 130 / 255, 180 / 255, 1 }, "status_meter")
 
-    self.anim:GetAnimState():SetBank("status_health")
-    self.anim:GetAnimState():SetBuild("status_health")
-    self.anim:GetAnimState():PlayAnimation("idle")
+    DebugPrint("Creating Runic Power Badge for", owner.prefab)
+    self.anim = self:AddChild(UIAnim())
+    self.anim:GetAnimState():SetBank("status_meter")
+    self.anim:GetAnimState():SetBuild("status_meter")
+    self.anim:GetAnimState():PlayAnimation("anim")
+    self.anim:GetAnimState():SetMultColour(0.2, 0.2, 0.7, 1) -- Blue
+    self.anim:SetClickable(false)
+
+    self.frame = self.underNumber:AddChild(UIAnim())
+    self.frame:GetAnimState():SetBank("status_meter")
+    self.frame:GetAnimState():SetBuild("status_meter")
+    self.frame:GetAnimState():PlayAnimation("frame")
+    self.frame:SetClickable(false)
 
     self.sanityarrow = self.underNumber:AddChild(UIAnim())
     self.sanityarrow:GetAnimState():SetBank("sanity_arrow")
@@ -32,12 +41,26 @@ local RunicPowerBadge = Class(Badge, function(self, owner, bank, background_buil
     self.rppulse:GetAnimState():SetBank("pulse")
     self.rppulse:GetAnimState():SetBuild("hunger_health_pulse")
     self.rppulse:MoveToBack()
+    self.rppulse:SetClickable(false)
 
-    self.icon = self:AddChild(UIAnim())
-    self.icon:GetAnimState():SetBank("runicpowericon")
-    self.icon:GetAnimState():SetBuild("runicpowericon")
-    self.icon:GetAnimState():PlayAnimation("icon")
+    self.icon = self:AddChild(Image(
+        "images/status_icons/runicpowericon.xml",
+        "images/status_icons/runicpowericon.tex"
+    ))
+    self.icon:MoveToFront()
+    self.icon:SetClickable(false)
 
+    self.num = self:AddChild(Text(Badge.default_font, 30))
+    self.num:SetPosition(0, 0, 0)
+    self.num:SetColour(1, 1, 1, 1)
+    self.num:SetHAlign(ANCHOR_MIDDLE)
+    self.num:SetVAlign(ANCHOR_MIDDLE)
+    self.num:SetString("0")
+    self.num:SetClickable(false)
+    self.num:SetScale(0.8, 0.8, 0.8)
+    self.num:SetFont(Badge.default_font)
+
+    DebugPrint("Runic Power Badge created for", owner.prefab)
     self:StartUpdating()
 end)
 
@@ -72,14 +95,16 @@ function RunicPowerBadge:SetPercent(val, max, current, maxrp)
 end
 
 function RunicPowerBadge:OnUpdate(dt)
-    if TheNet.IsServerPaused() then return end
+    if TheNet:IsServerPaused() then return end
 
-    if self.owner.replica.rpmeter ~= nil then
+    if self.owner.replica.runicpowermeter ~= nil then
+        self.num:SetString(math.ceil(self.owner.replica.runicpowermeter:GetCurrent()))
+
         self:SetPercent(
-            self.owner.replica.rpmeter:GetPercentRPC(),
-            self.owner.replica.rpmeter:GetMaxRPC(),
-            self.owner.replica.rpmeter:GetCurrentRPC(),
-            self.owner.replica.rpmeter:GetMaxRPC()
+            self.owner.replica.runicpowermeter:GetPercent(),
+            self.owner.replica.runicpowermeter:GetMax(),
+            self.owner.replica.runicpowermeter:GetCurrent(),
+            self.owner.replica.runicpowermeter:GetMax()
         )
     end
     
@@ -101,3 +126,5 @@ function RunicPowerBadge:OnUpdate(dt)
 		self.sanityarrow:GetAnimState():PlayAnimation(anim, true)
 	end
 end
+
+return RunicPowerBadge

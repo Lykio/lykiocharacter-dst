@@ -2,7 +2,7 @@
 --local seg_time = 30
 --local total_day_time = seg_time * 16
 
-TUNING.LYKIO = "LYKIO"
+TUNING.LYKIO = {}
 
 TUNING.LYKIO.START_ITEMS = {
     "nightmarefuel",
@@ -39,29 +39,29 @@ TUNING.LYKIO.DURABILITY = {
 }
 
 -- Eater settings
-GLOBAL.FOODTYPE.SOUL = "SOUL"
-TUNING.Lykio.FOOD_FAVORITE = "nightmarefuel"
-TUNING.Lykio.FOOD_SPOILED_IGNORE = false
-TUNING.Lykio.FOOD_DIET = {
+FOODTYPE.SOUL = "SOUL"
+TUNING.LYKIO.FOOD_FAVORITE = "nightmarefuel"
+TUNING.LYKIO.FOOD_SPOILED_IGNORE = false
+TUNING.LYKIO.FOOD_DIET = {
         FOODTYPE.SOUL,
         FOODTYPE.RAW,
         FOODTYPE.MEAT,
         FOODTYPE.VEGGIE,
         FOODTYPE.MONSTER
     }
-TUNING.Lykio.FOOD_TOLERANCE = { GLOBAL.FOODGROUP.OMNI }
-TUNING.Lykio.STOMACH_STRONG = true
+TUNING.LYKIO.FOOD_TOLERANCE = { FOODGROUP.OMNI }
+TUNING.LYKIO.STOMACH_STRONG = true
 
 -- RP TUNING TODO : Adjust for skilltrees
 ---@enum TUNING.LYKIO.RUNICPOWER
 TUNING.LYKIO.RUNICPOWER = {
-    -- FOOD VALUES
+    -- RESTORE VALUES
     TINY = 1,
     SMALL = 3,
     SMALLMED = 5,
     MED = 10,
     LARGE = 20,
-    HUGE = 75,
+    HUGE = 50,
 
     STATS = {
         -- RP Maximums

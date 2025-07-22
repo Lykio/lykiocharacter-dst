@@ -2,12 +2,23 @@ local MakePlayerCharacter = require "prefabs/player_common"
 local rpbadge = require("widgets/rpbadge")
 
 
-local assets = {
+local Assets = {
     --common
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
     Asset("ANIM", "anim/lykio.zip"),
     --badge
-    Asset("SCRIPT", "scripts/widgets/rpbadge.lua")
+    Asset("SCRIPT", "scripts/widgets/rpbadge.lua"),
+
+    --nightvision
+    Asset("IMAGE", "images/colour_cubes/purple_moon_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/day05_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/dusk03_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/snow_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/snowdusk_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/spring_day_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/spring_dusk_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/summer_day_cc.tex"),
+    Asset("IMAGE", "images/colour_cubes/summer_dusk_cc.tex"),
 }
 
 local prefabs = {
@@ -26,32 +37,36 @@ local function getCubemaps()
     }
 
 	if TheWorld.state.isautumn then
+        DebugPrint("Autumn detected, using autumn cubemaps")
 		return {
 			day = "images/colour_cubes/day05_cc.tex",
 			dusk = "images/colour_cubes/dusk03_cc.tex",
-			NIGHTVISION_COLOURCUBES.night,
-			NIGHTVISION_COLOURCUBES.full_moon
+			night = NIGHTVISION_COLOURCUBES.night,
+			full_moon = NIGHTVISION_COLOURCUBES.full_moon
 		}
 	elseif TheWorld.state.iswinter then
+        DebugPrint("Winter detected, using winter cubemaps")
 		return {
 			day = "images/colour_cubes/snow_cc.tex",
 			dusk = "images/colour_cubes/snowdusk_cc.tex",
-			NIGHTVISION_COLOURCUBES.night,
-			NIGHTVISION_COLOURCUBES.full_moon
+			night = NIGHTVISION_COLOURCUBES.night,
+			full_moon = NIGHTVISION_COLOURCUBES.full_moon
 		}
 	elseif TheWorld.state.isspring then
+        DebugPrint("Spring detected, using spring cubemaps")
 		return {
 			day = "images/colour_cubes/spring_day_cc.tex",
 			dusk = "images/colour_cubes/spring_dusk_cc.tex",
-			NIGHTVISION_COLOURCUBES.night,
-			NIGHTVISION_COLOURCUBES.full_moon
+			night = NIGHTVISION_COLOURCUBES.night,
+			full_moon = NIGHTVISION_COLOURCUBES.full_moon
 		}
 	elseif TheWorld.state.issummer then
+        DebugPrint("Summer detected, using summer cubemaps")
 		return {
 			day = "images/colour_cubes/summer_day_cc.tex",
 			dusk = "images/colour_cubes/summer_dusk_cc.tex",
-			NIGHTVISION_COLOURCUBES.night,
-			NIGHTVISION_COLOURCUBES.full_moon
+			night = NIGHTVISION_COLOURCUBES.night,
+			full_moon = NIGHTVISION_COLOURCUBES.full_moon
 		}
 	end
 
@@ -59,9 +74,9 @@ local function getCubemaps()
 end
 
 -- Custom starting inventory ------------------------------------------------
-local start_inv = {}
+local start_inv = TUNING.LYKIO.START_ITEMS
 
-for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.Lykio) do
+for k, v in pairs(TUNING.LYKIO.START_ITEMS) do
     start_inv[string.lower(k)] = v.Lykio
 end
 
@@ -88,7 +103,7 @@ end
 local function ApplyHungerModifications(inst)
     DebugPrint("Applying hunger modifications")
     if inst.components.hunger then
-        DebugPrint("Hunger component found")
+        inst.components.hunger.hungerrate = TUNING.LYKIO.STATS.HUNGERRATE
     else
         DebugPrint("ERROR: No hunger component found")
     end
@@ -96,36 +111,37 @@ end
 
 -- Handle night vision ------------------------------------------------------
 ---@param inst EntityScript
+local function SetForcedNightVision(inst, nightvision_on)
+    DebugPrint("Setting forced night vision to:", nightvision_on)
+    inst._forced_nightvision:set(nightvision_on)
+    if inst.components.playervision ~= nil then
+        inst.components.playervision:ForceNightVision(nightvision_on)
+        inst.compoenents.playervision:SetCustomCCTable(getCubemaps())
+    else
+        inst.components.playervision:ForceNightVision(false)
+        inst.compoenents.playervision:SetCustomCCTable(getCubemaps())
+    end
+end
+
+---@param inst EntityScript
 local function OnForcedNightVisionDirty(inst)
-	if inst:HasTag("playerghost") == false and TUNING.LYKIO.NIGHTVISION then
-            if inst.components.playervision then
-                if TheWorld:HasTag("cave") then
-                    inst.components.playervision:SetCustomCCTable(getCubemaps())
-                    inst.components.playervision:ForceNightVision(true)
-                    inst.nightvision:set(true)
-                elseif TheWorld.state.phase == "day" then
-                    inst.nightvision:set(false)
-                elseif TheWorld.state.phase == "dusk" then
-                    inst.nightvision:set(false)
-                elseif TheWorld.state.phase == "night" then
-                    inst.components.playervision:SetCustomCCTable(getCubemaps())
-                    inst.components.playervision:ForceNightVision(true)
-                    inst.nightvision:set(true)
-                end
-            end
-		end
-	end
+    if inst.components.playervision ~= nil then
+        DebugPrint("Updating forced night vision for:", inst.prefab)
+        inst.components.playervision:ForceNightVision(inst._forced_nightvision:value())
+    end
+end
 
 -- When the character is revived from human ---------------------------------------
 ---@param inst EntityScript
 local function onbecamehuman(inst)
     local rp = inst.components.runicpower
     DebugPrint("Character became human")
-    if rp ~= nil then rp:StartRegen() end
+    if rp ~= nil then rp:StartRegen(false) end
     inst.components.locomotor:SetExternalSpeedMultiplier(inst, "Lykio_speed_mod", 1)
 
     inst:ListenForEvent("death", function()
-        -- TODO WTF
+        DebugPrint("Character died, reset runic power")
+        if rp ~= nil then rp:SetCurrent(0) end
     end)
 end
 
@@ -138,7 +154,7 @@ local function onbecameghost(inst)
 
     if rp ~= nil then
         DebugPrint("Stopping runic power regeneration on ghost")
-        rp:SetCurrent(0)
+        rp:StopRegen()
     end
 end
 
@@ -197,7 +213,14 @@ local function onsave(inst, data)
     end
 end
 
+local function AddRPMeter(inst)
+    DebugPrint("Adding Runic Power Meter to character:", inst.prefab)
+    inst["current"] = net_shortint(inst.GUID, "runicpowermeter.current", "runicpowermeter_currentdirty")
+    inst["max"] = net_shortint(inst.GUID, "runicpowermeter.max", "runicpowermeter_maxdirty")
+end
+
 local function OnPlayerDeactivated(inst)
+    DebugPrint("Player deactivated:", inst.prefab)
     inst:RemoveEventCallback("onremove", OnPlayerDeactivated)
     if not TheNet:IsDedicated() then
         inst:RemoveEventCallback("forced_nightvision_dirty", OnForcedNightVisionDirty)
@@ -205,50 +228,21 @@ local function OnPlayerDeactivated(inst)
 end
 
 local function OnPlayerActivated(inst)
+    DebugPrint("Player activated:", inst.prefab)
     inst:ListenForEvent("onremove", OnPlayerDeactivated)
     if not TheNet:IsDedicated() then
         inst:ListenForEvent("forced_nightvision_dirty", OnForcedNightVisionDirty)
         OnForcedNightVisionDirty(inst)
     end
 
-    local eater = inst.components.eater
-
-    if eater ~= nil then
-        if inst.components.foodaffinity == nil then
-            DebugPrint("Adding food affinity component")
-            inst:AddComponent("foodaffinity")
-            inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.SOUL)
-        else
-            inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.SOUL)
-        end
-
-        eater:SetDiet(TUNING.LYKIO.FOOD_DIET)
-        eater:SetRefusesSpoiledFood(TUNING.LYKIO.FOOD_SPOILED_IGNORE)
-        eater:SetStrongStomach(TUNING.LYKIO.STOMACH_STRONG)
-        eater:SetOnEatFn(function (eater_inst, food)
-                if food.components.edible and food.components.edible.foodtype == FOODTYPE.SOUL then
-                    DebugPrint("Updating eat function for", food.prefab)
-
-                    if inst.components.runicpowermeter then
-                        if food.prefab == "horrorfuel" then
-                            inst.components.runicpowermeter:DoDelta(TUNING.RUNICPOWER_HUGE, false, "eat_soul_large")
-                            return true
-                        end
-
-                        inst.components.runicpowermeter:DoDelta(TUNING.RUNICPOWER_LARGE, false, "eat_soul")
-                        return true
-                    end
-                end
-                return false
-        end)
-    else
-        DebugPrint("ERROR: No eater component found")
+    if inst.components.runicpowermeter ~= nil then
+        inst.components.runicpowermeter:StartRegen(false)
     end
 end
 
 -- This initializes for both the server and client. ----------------------------------
 local common_postinit = function(inst)
-    DebugPrint("Applying character modifications")
+    DebugPrint("Applying character tags")
     inst:AddTag("lykio")
     inst:AddTag("nightvision")
     inst:AddTag("insomniac")
@@ -257,6 +251,9 @@ local common_postinit = function(inst)
 
     inst._forced_nightvision = net_bool(inst.GUID, "wx78.forced_nightvision", "forced_nightvision_dirty")
 
+    AddRPMeter(inst)
+
+    DebugPrint("Setting up playerevents")
     inst:ListenForEvent("playeractivated", OnPlayerActivated)
     inst:ListenForEvent("playerdeactivated", OnPlayerDeactivated)
 
@@ -277,24 +274,68 @@ local master_postinit = function(inst)
     DebugPrint("Starting master initialization")
     inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
     
+    DebugPrint("Setting up stats")
     inst.components.health:SetMaxHealth(TUNING.LYKIO.STATS.HEALTH)
     inst.components.hunger:SetMax(TUNING.LYKIO.STATS.HUNGER)
     inst.components.hunger.hungerrate = TUNING.LYKIO.STATS.HUNGERRATE * TUNING.WILSON_HUNGER_RATE
     inst.components.sanity:SetMax(TUNING.LYKIO.STATS.SANITY)
-    inst.components.sanity.sanityrate = TUNING.LYKIO.STATS.SANITYRATE * TUNING.WILSON_SANITY_RATE
     inst.components.combat.damagemultiplier = TUNING.LYKIO.STATS.DAMAGE
     inst.components.locomotor:SetExternalSpeedMultiplier(inst, "Lykio_speed_mod", TUNING.LYKIO.STATS.SPEED)
+
+    if not inst.components.runicpowermeter then
+        inst:AddComponent("runicpowermeter")
+    end
 
     DebugPrint("Setting up save/load handlers")
     inst.OnPreLoad = onpreload
     inst.OnLoad = onload
     inst.OnNewSpawn = onnewspawn
     inst.OnSave = onsave
+
+    DebugPrint("Setting up forced night vision")
+    inst.SetForcedNightVision = SetForcedNightVision
     
+    DebugPrint("Setting up perks")
     ApplyTemperatureResilience(inst)
     ApplyHungerModifications(inst)
     
+    local eater = inst.components.eater
+
+    if eater ~= nil then
+        if inst.components.foodaffinity == nil then
+            DebugPrint("Adding food affinity component")
+            inst:AddComponent("foodaffinity")
+            inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.SOUL)
+        else
+            inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.SOUL)
+        end
+
+        DebugPrint("Setting up eater component for", inst.prefab)
+        eater:SetDiet(TUNING.LYKIO.FOOD_DIET)
+        eater:SetRefusesSpoiledFood(TUNING.LYKIO.FOOD_SPOILED_IGNORE)
+        eater:SetStrongStomach(TUNING.LYKIO.STOMACH_STRONG)
+        eater:SetOnEatFn(function (eater_inst, food)
+                if food.components.edible and food.components.edible.foodtype == FOODTYPE.SOUL then
+                    DebugPrint("Updating eat function for", food.prefab)
+
+                    if inst.components.runicpowermeter then
+                        if food.prefab == "horrorfuel" then
+                            inst.components.runicpowermeter:DoDelta(TUNING.LYKIO.RUNICPOWER.HUGE, false, "eat_soul_large")
+                            return true
+                        end
+
+                        inst.components.runicpowermeter:DoDelta(TUNING.LYKIO.RUNICPOWER.LARGE, false, "eat_soul")
+                        return true
+                    end
+                end
+                return false
+        end)
+    else
+        DebugPrint("ERROR: No eater component found")
+    end
+
     DebugPrint("Master initialization complete")
 end
 
-return MakePlayerCharacter("lykio", prefabs, assets, common_postinit, master_postinit, start_inv_F)
+DebugPrint("Lykio character prefab loaded")
+return MakePlayerCharacter("lykio", prefabs, Assets, common_postinit, master_postinit, start_inv_F)
