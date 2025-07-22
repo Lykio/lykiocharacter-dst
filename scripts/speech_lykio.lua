@@ -2113,7 +2113,6 @@ return {
 			GENERIC = "It's a tickle trunk!",
 			BURNT = "That trunk was truncated.",
 		},
-		TREASURECHEST_TRAP = "How convenient!",
 		SACRED_CHEST = 
 		{
 			GENERIC = "I hear whispers. It wants something.",
@@ -2611,11 +2610,8 @@ return {
         QUAGMIRE_SAP_SPOILED = "Might as well toss it on the fire.",
         QUAGMIRE_SEEDPACKET = "Sow what?",
         
-        QUAGMIRE_POT = "This pot holds more ingredients.",
-        QUAGMIRE_POT_SMALL = "Let's get cooking!",
         QUAGMIRE_POT_SYRUP = "I need to sweeten this pot.",
         QUAGMIRE_POT_HANGER = "It has hang-ups.",
-        QUAGMIRE_POT_HANGER_ITEM = "For suspension-based cookery.",
         QUAGMIRE_GRILL = "Now all I need is a backyard to put it in.",
         QUAGMIRE_GRILL_ITEM = "I'll have to grill someone about this.",
         QUAGMIRE_GRILL_SMALL = "Barbecurious.",

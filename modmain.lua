@@ -1,15 +1,7 @@
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 local TUNING = GLOBAL.TUNING
-
--- This is for debugging purposes
-local function DebugPrint(...)
-    print("[Lykio Debug]", ...)
-end
-
-DebugPrint("modmain.lua start")
-
-GLOBAL.package.loaded["components/runicpower"] = nil
+local net_shortint = GLOBAL.net_shortint
 
 PrefabFiles = {
 	"lykio",
@@ -18,9 +10,14 @@ PrefabFiles = {
 
 Assets = {
     -- For Runic Power
-    Asset("ANIM", "anim/status_meter.zip"),
+    Asset("ANIM", "anim/status_health.zip"),
+
+    Asset("ANIM", "anim/runicpowericon.zip"),
     Asset("ATLAS", "images/status_icons/runicpowericon.xml"),
     Asset("IMAGE", "images/status_icons/runicpowericon.tex"),
+
+    Asset("SCRIPT", "scripts/components/runicpowermeter.lua"),
+    Asset("SCRIPT", "scripts/components/runicpowermeter_replica.lua"),
 
     -- For Art
     Asset( "IMAGE", "images/saveslot_portraits/lykio.tex" ),
@@ -54,45 +51,18 @@ Assets = {
     Asset( "ATLAS", "images/names_gold_lykio.xml" )
 }
 
-AddMinimapAtlas("images/map_icons/lykio.xml")
 modimport("scripts/components/runicpower")
+require("scripts/tuning_lykio")
 
--- Lykio's stats
-TUNING.Lykio_HEALTH = 145
-TUNING.Lykio_HUNGER = 265
-TUNING.Lykio_SANITY = 120
-TUNING.Lykio_SANITYDRAIN = 1.0
+-- This is for debugging purposes
+local function DebugPrint(...)
+    print("[Lykio Debug]", ...)
+end
 
-TUNING.Lykio_DAMAGE = 1
-TUNING.Lykio_SPEED = 1.0
-TUNING.LYKIO_NIGHTVISION = true
+DebugPrint("modmain.lua start")
 
-TUNING.Lykio_WINTER_INSULATION = 1
-TUNING.Lykio_SUMMER_INSULATION = 1
-TUNING.Lykio_WETNESS_INSULATION = 1
+AddMinimapAtlas("images/map_icons/lykio.xml")
 
-TUNING.Lykio_RunicPower = 100
-TUNING.Lykio_RunicPowerRegen = 1
-TUNING.Lykio_RunicPowerRegenPeriod = 10
-
-TUNING.RUNICPOWER_SMALL = 3
-TUNING.RUNICPOWER_SMALLMED = 5
-TUNING.RUNICPOWER_MED = 10
-TUNING.RUNICPOWER_LARGE = 20
-TUNING.RUNICPOWER_HUGE = 75
-
--- Eater settings
-GLOBAL.FOODTYPE.SOUL = "SOUL"
-TUNING.Lykio_FOOD_FAVORITE = "nightmarefuel"
-TUNING.Lykio_FOOD_SPOILED_IGNORE = false
-TUNING.Lykio_FOOD_PREFERENCE = { GLOBAL.FOODGROUP.RAW }
-TUNING.Lykio_FOOD_TOLERANCE = { GLOBAL.FOODGROUP.OMNI }
-TUNING.Lykio_STOMACH_STRONG = true
-
--- Buff staves durabilities
-TUNING.Lykio_FIRESTAFF_USES = math.floor(TUNING.FIRESTAFF_USES * 2.5)
-TUNING.Lykio_ICESTAFF_USES = math.floor(TUNING.ICESTAFF_USES * 2.5)
-TUNING.Lykio_TELESTAFF_USES = math.floor(TUNING.TELESTAFF_USES * 2.5)
 
 -- The character select screen lines
 STRINGS.CHARACTER_TITLES.Lykio = "The Fallen Aesir Demoness"
@@ -150,11 +120,23 @@ local function MakeSoulEdible(inst)
     end
 end
 
+AddClassPostConstruct("widgets/statusdisplays", function(self)
+    if self.owner:HasTag("lykio") then
+        local rpmeter = require "widgets/rpbadge"
+        DebugPrint("Adding Runic Power Meter to status displays for", self.owner.prefab)
+        self.rpmeter = self:AddChild(rpmeter)
+        self.rpmeter:SetPosition(-80, 20, 0)
+    else
+        --DebugPrint("Not adding Runic Power Meter to status displays for", self.owner.prefab)
+    end
+end)
+
 AddPrefabPostInit("nightmarefuel", MakeSoulEdible)
 AddPrefabPostInit("horrorfuel", MakeSoulEdible)
-
---AddReplicableComponent("runicpower")
-
--- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
-DebugPrint("modmain.lua loaded")
+AddPrefabPostInit("player_classified", function(inst)
+    inst._max = net_shortint(inst.GUID, "runicpower._max", "runicpower_maxdirty")
+    inst._current = net_shortint(inst.GUID, "runicpower._current", "runicpower_currentdirty")
+end)
+AddReplicableComponent("runicpowermeter")
 AddModCharacter("lykio", "PLURAL", skin_modes)
+DebugPrint("modmain.lua loaded")
