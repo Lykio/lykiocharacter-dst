@@ -9,6 +9,13 @@ local EaterLykio = Class(function(self, inst)
     self.last_soul_eaten_time = nil
 end)
 
+local function IsSoulless(victim)
+    return (victim:HasTag("shadow") or
+        victim:HasTag("shadowcreature") or
+        victim:HasTag("shadow_aligned") or
+        victim:HasTag("nightmarecreature"))
+end
+
 local function IsSoulFood(food)
     DebugPrint("Checking if food is soul food:", food and food.prefab or "nil")
     return food and food.components.edible and food.components.edible.foodtype == FOODTYPE.SOUL
@@ -54,7 +61,7 @@ function EaterLykio:OnEat(food)
             self.last_soul_eaten_time = GetTime()
             return true
         else
-            -- Non-soul foods give 15% less calories, only 50% when insane, no RP
+            -- Non-soul foods give 15% less stats, only 50% when insane, no RP
             local mult = is_crazy and 0.50 or 0.85
             DebugPrint("Processing non-soul food for hunger/sanity/health", hunger * mult, sanity * mult, health * mult)
             inst.components.hunger:DoDelta(hunger * mult)
@@ -78,8 +85,8 @@ function EaterLykio:OnKill(data)
     local RUNICPOWER = TUNING.LYKIO.RUNICPOWER
 
     if not victim then return end
-    -- TODO : soul tag doesn't exist, reductively refuse shadow creatures
-    if victim:HasTag("player") or victim:HasTag("soul") then
+    -- TODO : soul tag doesn't exist, reductively refuse shadow creatures - found tags "shadowcreature" & "shadow" & "shadow_aligned"
+    if victim:HasTag("player") or not IsSoulless(victim) then
         DebugPrint("OnKill called, victim is a player or has soul tag:")
         inst.components.hunger:DoDelta(RUNICPOWER.TINY)
         inst.components.sanity:DoDelta(RUNICPOWER.TINY)
@@ -92,18 +99,18 @@ end
 
 -- TODO : Make this retroactively tune sanityrate with the skilltree
 function EaterLykio:GetCustomSanityRate()
-    local base = TUNING.LYKIO.STATS.SANITYRATE
-    if self.inst.components.sanity and self.inst.components.sanity_rate_fn then
-        base = self.inst.components.sanity.custom_rate_fn(self.inst)
+    local sanity = self.inst.components.sanity
+    local base = 0
+
+    if sanity and self.sanity_rate_fn then
+        base = sanity._old_custom_rate_fn(self.inst)
     end
 
     local now = GetTime()
-    if self.last_soul_eaten_time and now - self.last_soul_eaten_time < 480 then -- 8 min, approx 1 day
-        DebugPrint("Last soul eaten within 8 minutes, reducing sanity drain")
-        return base + (TUNING.LYKIO.STATS.SANITYRATE * 0.2) -- Sanity drain 20% slower
+    if self.last_soul_eaten_time and now - self.last_soul_eaten_time < TUNING.TOTAL_DAY_TIME*1.5 then -- 1.5 days
+        return base
     else
-        DebugPrint("Last soul eaten more than 8 minutes ago, increasing sanity drain")
-        return base - (TUNING.LYKIO.STATS.SANITYRATE * 0.5) -- Sanity drain 50% faster
+        return base * 1.33 -- 33% more sanity drain
     end
 end
 

@@ -29,12 +29,12 @@ Core Perks:
 Anti-Perks:
 	Soulbound Hunger ✅
 		- Souls are far more nourishing than planely foods.
-			X Effect: All food provides -10% less HNGR. Insanity (being IsCrazy()) causes food to only restore 50% of their hunger. Soul foods restore normal values. Occasionally complains about eating non-soul food.
+			X Effect: All food provides -10% less HNGR. Insanity (being IsCrazy()) causes food to only restore 50% of their hunger. Soul foods always restore normal values. Occasionally complains about eating non-soul food, particularly when insane
 	Fervent Soul
 		- Your hunger for souls and lifeforce makes you particularly dependant on feeding.
 			X Effect 1: Regenerate health, hunger and sanity when killing players or creatures with souls.
-			* Effect 2: Takes 33% more sanity drain from shadow creatures.
-			X Effect 3: SAN lowers -33% more rapidly if a soul has not been consumed recently. SAN regenerates 33% more rapidly if a soul has been.
+			X Effect 2: Takes 33% more sanity drain from shadow creatures.
+			X Effect 3: SAN lowers up to 33% more rapidly if a soul has not been consumed recently.
 
 Skill Tree:
 	- Shadows are soulless

@@ -16,7 +16,7 @@ TUNING.LYKIO.STATS = {
     HUNGER = 265,
     HUNGERRATE = 1.0, -- TODO : Adjust for skilltrees
     SANITY = 120,
-    SANITYRATE = 1.0, -- TODO : Adjust for skilltrees
+    SANITYRATE = 1.33, -- TODO : Adjust for skilltrees
 
     DAMAGE = 1,
     SPEED = 1.0,

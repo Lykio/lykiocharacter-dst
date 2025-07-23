@@ -1880,7 +1880,7 @@ return {
         HOUNDWHISTLE = "A call to command lesser beasts.",
         CHESSPIECE_CLAYHOUND = "Its hunt is over.",
         CHESSPIECE_CLAYWARG = "Tamed by stone and silence.",
-
+        -- TODO : RESUME FLAVOUR SPEECH
 		PIGSHRINE =
 		{
             GENERIC = "More stuff to make.",

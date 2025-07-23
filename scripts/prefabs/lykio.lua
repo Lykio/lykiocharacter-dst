@@ -1,7 +1,6 @@
 local MakePlayerCharacter = require "prefabs/player_common"
 local rpbadge = require("widgets/rpbadge")
 
-
 local Assets = {
     --common
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
@@ -21,10 +20,8 @@ local Assets = {
     Asset("IMAGE", "images/colour_cubes/summer_dusk_cc.tex"),
 }
 
-local prefabs = {
-	"tier1",
-    "tier2"
-}
+-- TODO : One day..
+local prefabs = {}
 
 local function DebugPrint(...)
     print("[Lykio Character Debug]", ...)
@@ -35,7 +32,6 @@ local function getCubemaps()
         night = "images/colour_cubes/purple_moon_cc.tex",
         full_moon = "images/colour_cubes/purple_moon_cc.tex"
     }
-
 	if TheWorld.state.isautumn then
         DebugPrint("Autumn detected, using autumn cubemaps")
 		return {
@@ -69,11 +65,9 @@ local function getCubemaps()
 			full_moon = NIGHTVISION_COLOURCUBES.full_moon
 		}
 	end
-
     return error("No cubemaps found for current world state")
 end
 
--- Custom starting inventory ------------------------------------------------
 local start_inv = {}
 for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
     DebugPrint("Adding item to starting inventory:", k, "->", v.LYKIO)
@@ -83,7 +77,6 @@ end
 local start_inv_F = FlattenTree(start_inv, true)
 DebugPrint("Adding custom items to starting inventory:", start_inv_F)
 
--- Slow down temperature adaptation ------------------------------------------------
 ---@param inst EntityScript
 local function ApplyTemperatureResilience(inst)
     DebugPrint("Applying temperature resilience")
@@ -99,18 +92,6 @@ local function ApplyTemperatureResilience(inst)
     end
 end
 
--- TODO : Configuring Handle hunger modifications --------------------------------------
----@param inst EntityScript
-local function ApplyHungerModifications(inst)
-    DebugPrint("Applying hunger modifications")
-    if inst.components.hunger then
-        inst.components.hunger.hungerrate = TUNING.LYKIO.STATS.HUNGERRATE
-    else
-        DebugPrint("ERROR: No hunger component found")
-    end
-end
-
--- Handle nightvision ------------------------------------------------------------------
 ---@param inst EntityScript
 local function OnChangePhase(inst, phase)
     if TheNet:IsDedicated() then return end
@@ -138,7 +119,6 @@ local function OnChangePhase(inst, phase)
     end
 end
 
--- When the character is revived from human ---------------------------------------
 ---@param inst EntityScript
 local function onbecamehuman(inst)
     local rpm = inst.components.runicpowermeter
@@ -157,7 +137,6 @@ local function onbecamehuman(inst)
     end)
 end
 
--- When the character is revived from ghost --------------------------------------
 ---@param inst EntityScript
 local function onbecameghost(inst)
     local rp = inst.components.runicpower
@@ -174,7 +153,6 @@ local function onbecameghost(inst)
     end
 end
 
--- When loading or spawning the character -------------------------------------------
 ---@param inst EntityScript
 local function onpreload(inst)
     DebugPrint("Preloading character")
@@ -336,6 +314,12 @@ local master_postinit = function(inst)
         inst.components.sanity.custom_rate_fn = function (inst, ...)
             return eaterl:GetCustomSanityRate() + (old_custom_rate_fn and old_custom_rate_fn(inst, ...) or 0)
         end
+
+        inst:ListenForEvent("sanityaura", function(self, data)
+            if data and data.aura and data.source and data.source:HasTag("shadow") then
+                data.aura = data.aura * 1.33 -- 33% more sanity drain
+            end
+        end)
     end
 
     DebugPrint("Setting up save/load handlers")
@@ -346,7 +330,6 @@ local master_postinit = function(inst)
     
     DebugPrint("Setting up perks")
     ApplyTemperatureResilience(inst)
-    ApplyHungerModifications(inst)
 
     DebugPrint("Master initialization complete")
 end
