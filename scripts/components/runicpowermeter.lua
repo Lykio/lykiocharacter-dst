@@ -1,8 +1,7 @@
 require "math"
 
--- This is for debugging purposes
 local function DebugPrint(...)
-    print("[RunicPower Debug]", ...)
+    if GLOBAL.DEBUGMODE then print("[RunicPower Debug]", ...) end
 end
 
 local function SetReplicaRPMax(self, max)

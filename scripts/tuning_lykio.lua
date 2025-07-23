@@ -1,7 +1,3 @@
--- Tuning param
---local seg_time = 30
---local total_day_time = seg_time * 16
-
 TUNING.LYKIO = {}
 
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.LYKIO = {

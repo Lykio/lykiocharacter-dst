@@ -1,6 +1,10 @@
 local MakePlayerCharacter = require "prefabs/player_common"
 local rpbadge = require("widgets/rpbadge")
 
+local function DebugPrint(...)
+    if GLOBAL.DEBUGMODE then print("[Lykio Character Debug]", ...) end
+end
+
 local Assets = {
     --common
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
@@ -23,9 +27,6 @@ local Assets = {
 -- TODO : One day..
 local prefabs = {}
 
-local function DebugPrint(...)
-    print("[Lykio Character Debug]", ...)
-end
 
 local function getCubemaps()
     local NIGHTVISION_COLOURCUBES = {
@@ -264,7 +265,7 @@ end
 local master_postinit = function(inst)
     DebugPrint("Starting master initialization")
     inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
-    
+
     DebugPrint("Setting up stats")
     inst.components.health:SetMaxHealth(TUNING.LYKIO.STATS.HEALTH)
     inst.components.hunger:SetMax(TUNING.LYKIO.STATS.HUNGER)
@@ -327,7 +328,7 @@ local master_postinit = function(inst)
     inst.OnLoad = onload
     inst.OnNewSpawn = onnewspawn
     inst.OnSave = onsave
-    
+
     DebugPrint("Setting up perks")
     ApplyTemperatureResilience(inst)
 

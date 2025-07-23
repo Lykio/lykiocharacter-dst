@@ -95,4 +95,3 @@ configuration_options = {
         hover = "Enable or disable Runic Power and Spells."
     }
 }
-}

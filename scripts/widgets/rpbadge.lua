@@ -4,7 +4,7 @@ local Image = require "widgets/image"
 local Text = require "widgets/text"
 
 local function DebugPrint(...)
-    print("[RunicPowerBadge Debug]", ...)
+    if GLOBAL.DEBUGMODE then print("[RunicPowerBadge Debug]", ...) end
 end
 
 ---@class RunicPowerBadge extends Badge
@@ -103,10 +103,10 @@ function RunicPowerBadge:OnUpdate(dt)
             self.owner.replica.runicpowermeter:GetMax()
         )
     end
-    
+
     local anim = "neutral"
 
-    
+
 	if self.owner:HasTag("runicpower_increased") then
 		anim = "arrow_loop_increase"
 	elseif self.owner:HasTag("runicpower_increased_most") then

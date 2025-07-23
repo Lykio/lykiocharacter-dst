@@ -9,13 +9,21 @@ if DEV_MODE then
     GLOBAL.TheSim:SetSetting("misc", "console_enabled", true)
     GLOBAL.AddKeyDownHandler(GLOBAL.KEY_F5, function()
         GLOBAL.TheSim:SendServerCommand("lykio", "toggle_debug")
-        print("RELOADING MOD SCRIPTS...")
-        -- TODO : Actually make this work
+        print("[Lykio Debug] RELOADING MOD SCRIPTS...")
+        if GLOBAL.TheNet:GetIsServer() then
+            GLOBAL.c_reset()
+        else
+            GLOBAL.TheNet:SendRemoteExecute("c_reset()")
+        end
     end)
     GLOBAL.AddKeyDownHandler(GLOBAL.KEY_F6, function()
         GLOBAL.DEBUGMODE = not GLOBAL.DEBUGMODE
-        print("Debug visualization:", GLOBAL.DEBUGMODE and "ON" or "OFF")
+        print("[Lykio Debug] Debug visualization:", GLOBAL.DEBUGMODE and "ON" or "OFF")
     end)
+end
+
+local function DebugPrint(...)
+    if GLOBAL.DEBUGMODE then print("[Lykio Debug]", ...) end
 end
 
 PrefabFiles = {
@@ -74,11 +82,6 @@ Assets = {
 modimport("scripts/components/runicpowermeter")
 modimport("scripts/components/eaterlykio")
 require("tuning_lykio")
-
--- This is for debugging purposes
-local function DebugPrint(...)
-    print("[Lykio Debug]", ...)
-end
 
 DebugPrint("modmain.lua start")
 
