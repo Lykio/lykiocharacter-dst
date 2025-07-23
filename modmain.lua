@@ -9,10 +9,10 @@ PrefabFiles = {
 }
 
 Assets = {
-    -- For Runic Power
+    --For Runic Power
     Asset("ANIM", "anim/runicpowericon.zip"),
-    Asset("ATLAS", "images/status_icons/runicpowericon.xml"),
-    Asset("IMAGE", "images/status_icons/runicpowericon.tex"),
+    Asset("IMAGE", "images/runicpowericon.tex"),
+    Asset("ATLAS", "images/runicpowericon.xml"),
 
     Asset("SCRIPT", "scripts/components/runicpowermeter.lua"),
     Asset("SCRIPT", "scripts/components/runicpowermeter_replica.lua"),
@@ -127,11 +127,11 @@ AddReplicableComponent("runicpowermeter")
 AddClassPostConstruct("widgets/statusdisplays", function(self)
     if self.owner:HasTag("lykio") then
         local rpbadge = require "widgets/rpbadge"
-        DebugPrint("Adding Runic Power Meter to status displays for", self.owner.prefab)
+        DebugPrint("Adding Runic Power Meter to status displays")
         self.rpbadge = self:AddChild(rpbadge(self.owner, "status_health", "status_health"))
-        self.rpbadge:SetPosition(-420, -420, -420)
+        self.rpbadge:SetPosition(40, -550, 0)
     else
-        --DebugPrint("Not adding Runic Power Meter to status displays for", self.owner.prefab)
+        DebugPrint("Owner does not have the 'lykio' tag, not adding Runic Power Meter")
     end
 end)
 

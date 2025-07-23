@@ -3,12 +3,6 @@ local UIAnim = require "widgets/uianim"
 local Image = require "widgets/image"
 local Text = require "widgets/text"
 
-Assets = {
-    Asset("ANIM", "anim/runicpowericon.zip"),
-    Asset("ATLAS", "images/status_icons/runicpowericon.xml"),
-    Asset("IMAGE", "images/status_icons/runicpowericon.tex"),
-}
-
 local function DebugPrint(...)
     print("[RunicPowerBadge Debug]", ...)
 end
@@ -17,12 +11,14 @@ end
 local RunicPowerBadge = Class(Badge, function(self, owner, bank, background_build)
     Badge._ctor(self, "status_meter", owner, { 70 / 255, 130 / 255, 180 / 255, 1 }, "status_meter")
 
-    DebugPrint("Creating Runic Power Badge for", owner.prefab)
+    self:SetScale(1, 1, 1)
+
+    DebugPrint("Creating Runic Power Badge")
     self.anim = self:AddChild(UIAnim())
     self.anim:GetAnimState():SetBank("status_meter")
     self.anim:GetAnimState():SetBuild("status_meter")
     self.anim:GetAnimState():PlayAnimation("anim")
-    self.anim:GetAnimState():SetMultColour(0.2, 0.2, 0.7, 1) -- Blue
+    self.anim:GetAnimState():SetMultColour(0.5, 0.7, 1.0, 1) -- Light blue
     self.anim:SetClickable(false)
 
     self.frame = self.underNumber:AddChild(UIAnim())
@@ -44,21 +40,21 @@ local RunicPowerBadge = Class(Badge, function(self, owner, bank, background_buil
     self.rppulse:SetClickable(false)
 
     self.icon = self:AddChild(Image(
-        "images/status_icons/runicpowericon.xml",
-        "images/status_icons/runicpowericon.tex"
+        "images/runicpowericon.xml",
+        "runicpowericon.tex"
     ))
     self.icon:MoveToFront()
     self.icon:SetClickable(false)
 
-    self.num = self:AddChild(Text(Badge.default_font, 30))
+    self.num = self:AddChild(Text(NUMBERFONT, 32))
     self.num:SetPosition(0, 0, 0)
     self.num:SetColour(1, 1, 1, 1)
     self.num:SetHAlign(ANCHOR_MIDDLE)
     self.num:SetVAlign(ANCHOR_MIDDLE)
     self.num:SetString("0")
-    self.num:SetClickable(false)
+    self.num:SetClickable(true)
+    self.num:MoveToFront()
     self.num:SetScale(0.8, 0.8, 0.8)
-    self.num:SetFont(Badge.default_font)
 
     DebugPrint("Runic Power Badge created for", owner.prefab)
     self:StartUpdating()

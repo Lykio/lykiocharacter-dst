@@ -31,7 +31,7 @@ local function DebugPrint(...)
 end
 
 local function getCubemaps()
-    NIGHTVISION_COLOURCUBES = {
+    local NIGHTVISION_COLOURCUBES = {
         night = "images/colour_cubes/purple_moon_cc.tex",
         full_moon = "images/colour_cubes/purple_moon_cc.tex"
     }
@@ -74,13 +74,14 @@ local function getCubemaps()
 end
 
 -- Custom starting inventory ------------------------------------------------
-local start_inv = TUNING.LYKIO.START_ITEMS
-
-for k, v in pairs(TUNING.LYKIO.START_ITEMS) do
-    start_inv[string.lower(k)] = v.Lykio
+local start_inv = {}
+for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
+    DebugPrint("Adding item to starting inventory:", k, "->", v.LYKIO)
+    start_inv[string.lower(k)] = v.LYKIO
 end
 
 local start_inv_F = FlattenTree(start_inv, true)
+DebugPrint("Adding custom items to starting inventory:", start_inv_F)
 
 -- Slow down temperature adaptation ------------------------------------------------
 ---@param inst EntityScript
@@ -109,39 +110,50 @@ local function ApplyHungerModifications(inst)
     end
 end
 
--- Handle night vision ------------------------------------------------------
+-- Handle nightvision ------------------------------------------------------------------
 ---@param inst EntityScript
-local function SetForcedNightVision(inst, nightvision_on)
-    DebugPrint("Setting forced night vision to:", nightvision_on)
-    inst._forced_nightvision:set(nightvision_on)
-    if inst.components.playervision ~= nil then
-        inst.components.playervision:ForceNightVision(nightvision_on)
-        inst.compoenents.playervision:SetCustomCCTable(getCubemaps())
-    else
-        inst.components.playervision:ForceNightVision(false)
-        inst.compoenents.playervision:SetCustomCCTable(getCubemaps())
-    end
-end
+local function OnChangePhase(inst, phase)
+    if TheNet:IsDedicated() then return end
 
----@param inst EntityScript
-local function OnForcedNightVisionDirty(inst)
-    if inst.components.playervision ~= nil then
-        DebugPrint("Updating forced night vision for:", inst.prefab)
-        inst.components.playervision:ForceNightVision(inst._forced_nightvision:value())
+    print("PHASE CHANGED EVENT FIRED:", phase) -- This should print
+    local activated = (phase == "night") or (phase == "full_moon")
+
+    DebugPrint("Checking night vision")
+
+    if inst.components.playervision then
+        DebugPrint("Player vision component found")
+
+        inst.components.playervision:ForceNightVision(activated)
+
+        if activated then
+            DebugPrint("Night or full moon detected, enabling night vision")
+            inst.components.playervision:SetCustomCCTable(getCubemaps())
+        else
+            DebugPrint("Daytime/evening detected, disabling night vision")
+            inst.components.playervision:SetCustomCCTable(nil)
+        end
+    else
+        DebugPrint("ERROR: No playervision component found, adding")
+        inst:AddComponent("playervision")
     end
 end
 
 -- When the character is revived from human ---------------------------------------
 ---@param inst EntityScript
 local function onbecamehuman(inst)
-    local rp = inst.components.runicpower
+    local rpm = inst.components.runicpowermeter
     DebugPrint("Character became human")
-    if rp ~= nil then rp:StartRegen(false) end
+    if rpm ~= nil then rpm:StartRegen(rpm:GetRate(), rpm:GetPeriod(), false) end
     inst.components.locomotor:SetExternalSpeedMultiplier(inst, "Lykio_speed_mod", 1)
+    TheWorld:ListenForEvent("phasechanged", function(_, phase)
+        OnChangePhase(inst, phase)
+    end)
+
+    OnChangePhase(inst, TheWorld.state.phase)
 
     inst:ListenForEvent("death", function()
         DebugPrint("Character died, reset runic power")
-        if rp ~= nil then rp:SetCurrent(0) end
+        if rpm ~= nil then rpm:SetCurrent(0) end
     end)
 end
 
@@ -151,6 +163,10 @@ local function onbecameghost(inst)
     local rp = inst.components.runicpower
     DebugPrint("Character became ghost")
     inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "Lykio_speed_mod")
+    TheWorld:ListenForEvent("phasechanged", function(_, phase)
+        OnChangePhase(inst, phase)
+    end)
+    OnChangePhase(inst, TheWorld.state.phase)
 
     if rp ~= nil then
         DebugPrint("Stopping runic power regeneration on ghost")
@@ -168,17 +184,13 @@ end
 ---@param inst EntityScript
 local function onload(inst, data)
     DebugPrint("Loading character state")
-    
-    if inst.components.runicpowermeter ~= nil then
-        DebugPrint("Runic power component found")
-        if data and data.rp_current then
-            inst.components.runicpowermeter:SetCurrent(data.rp_current)
-        end
-        if data and data.rp_max then
-            inst.components.runicpowermeter:SetMax(data.rp_max)
-        end
-        if data and data.rp_regen_task then
-            inst.components.runicpowermeter:SetRegenTask(data.rp_regen_task.rate, data.rp_regen_task.period, false)
+
+    if data then
+        local rpm = inst.components.runicpowermeter
+        if rpm ~= nil and data.runicpowermeter then
+            DebugPrint("Runic power component found")
+            rpm:OnLoad(data.runicpowermeter)
+            DebugPrint("Runic power loaded with current:", rpm:GetCurrent(), "max:", rpm:GetMax(), "regen rate:", rpm:GetRate(), "regen period:", rpm:GetPeriod())
         end
     end
 
@@ -193,51 +205,53 @@ end
 
 ---@param inst EntityScript
 local function onnewspawn(inst)
-    if inst.components.runicpowermeter ~= nil then
-        inst.components.runicpowermeter:SetCurrent(TUNING.LYKIO.RUNICPOWER.STATS.CURRENT.DEFAULT / 2)
-        inst.components.runicpowermeter:SetMax(TUNING.LYKIO.RUNICPOWER.STATS.MAX.DEFAULT)
-        inst.components.runicpowermeter:SetRegenTask(TUNING.LYKIO.RUNICPOWER.STATS.REGEN.DEFAULT, TUNING.LYKIO.RUNICPOWER.STATS.REGEN.PERIOD.DEFAULT, false)
-        inst.components.runicpowermeter:SetRate(TUNING.LYKIO.RUNICPOWER.STATS.REGEN.RATE.DEFAULT)
-        inst.components.runicpowermeter:SetPeriod(TUNING.LYKIO.RUNICPOWER.STATS.REGEN.PERIOD.DEFAULT)
-        DebugPrint("New spawn: Setting runic power to default values")
+    DebugPrint("New spawn: Setting runic power to default values")
+    local rpm = inst.components.runicpowermeter
+    if rpm ~= nil then
+        local stats = TUNING.LYKIO.RUNICPOWER.STATS
+        rpm:SetCurrent(stats.MAX.DEFAULT / 2)
+        rpm:SetMax(stats.MAX.DEFAULT)
+        rpm:SetRate(stats.REGEN.TINY)
+        rpm:SetPeriod(stats.REGEN.PERIOD.TINY)
     end
 end
 
 ---@param inst EntityScript
 local function onsave(inst, data)
     DebugPrint("Saving character state")
-    if inst.components.runicpowermeter ~= nil then
-        data.rp_current = inst.components.runicpowermeter:GetCurrent()
-        data.rp_max = inst.components.runicpowermeter:GetMax()
-        data.rp_regen_task = inst.components.runicpowermeter:GetRegenTask()
+    local rpm = inst.components.runicpowermeter
+    if rpm ~= nil then
+        data.runicpowermeter = rpm:OnSave()
     end
 end
 
 local function AddRPMeter(inst)
-    DebugPrint("Adding Runic Power Meter to character:", inst.prefab)
+    DebugPrint("Adding Runic Power Meter to character")
     inst["current"] = net_shortint(inst.GUID, "runicpowermeter.current", "runicpowermeter_currentdirty")
     inst["max"] = net_shortint(inst.GUID, "runicpowermeter.max", "runicpowermeter_maxdirty")
 end
 
 local function OnPlayerDeactivated(inst)
-    DebugPrint("Player deactivated:", inst.prefab)
+    DebugPrint("Player deactivated")
     inst:RemoveEventCallback("onremove", OnPlayerDeactivated)
-    if not TheNet:IsDedicated() then
-        inst:RemoveEventCallback("forced_nightvision_dirty", OnForcedNightVisionDirty)
-    end
+    TheWorld:RemoveEventCallback("phasechanged", function(_, phase)
+        OnChangePhase(inst, phase)
+    end)
+    OnChangePhase(inst, TheWorld.state.phase)
 end
 
 local function OnPlayerActivated(inst)
-    DebugPrint("Player activated:", inst.prefab)
+    DebugPrint("Player activated")
     inst:ListenForEvent("onremove", OnPlayerDeactivated)
-    if not TheNet:IsDedicated() then
-        inst:ListenForEvent("forced_nightvision_dirty", OnForcedNightVisionDirty)
-        OnForcedNightVisionDirty(inst)
+
+    if TUNING.LYKIO.STATS.NIGHTVISION and not inst:HasTag("playerghost") then
+        TheWorld:ListenForEvent("phasechanged", function(_, phase)
+            OnChangePhase(inst, phase)
+        end)
+        
+        OnChangePhase(inst, TheWorld.state.phase)
     end
 
-    if inst.components.runicpowermeter ~= nil then
-        inst.components.runicpowermeter:StartRegen(false)
-    end
 end
 
 -- This initializes for both the server and client. ----------------------------------
@@ -249,13 +263,12 @@ local common_postinit = function(inst)
     inst:AddTag(FOODTYPE.SOUL.."_eater")
     inst:AddTag(TUNING.LYKIO.FOOD_FAVORITE.."_eater")
 
-    inst._forced_nightvision = net_bool(inst.GUID, "wx78.forced_nightvision", "forced_nightvision_dirty")
-
     AddRPMeter(inst)
 
     DebugPrint("Setting up playerevents")
-    inst:ListenForEvent("playeractivated", OnPlayerActivated)
     inst:ListenForEvent("playerdeactivated", OnPlayerDeactivated)
+    inst:ListenForEvent("playeractivated", OnPlayerActivated)
+
 
 	-- Minimap icon
 	inst.MiniMapEntity:SetIcon( "lykio.tex" )
@@ -291,9 +304,6 @@ local master_postinit = function(inst)
     inst.OnLoad = onload
     inst.OnNewSpawn = onnewspawn
     inst.OnSave = onsave
-
-    DebugPrint("Setting up forced night vision")
-    inst.SetForcedNightVision = SetForcedNightVision
     
     DebugPrint("Setting up perks")
     ApplyTemperatureResilience(inst)
@@ -310,7 +320,7 @@ local master_postinit = function(inst)
             inst.components.foodaffinity:AddFoodtypeAffinity(FOODTYPE.SOUL)
         end
 
-        DebugPrint("Setting up eater component for", inst.prefab)
+        DebugPrint("Setting up eater component")
         eater:SetDiet(TUNING.LYKIO.FOOD_DIET)
         eater:SetRefusesSpoiledFood(TUNING.LYKIO.FOOD_SPOILED_IGNORE)
         eater:SetStrongStomach(TUNING.LYKIO.STOMACH_STRONG)

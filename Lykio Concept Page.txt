@@ -13,27 +13,25 @@ Stats:
 	SAN		120
 
 Core Perks:
-
-	Runic Power Mastery
+	Runic Power Mastery ✅
 		Unlocks Runic Power (RP) resource.
 		Passively regenerates +1 RP every 10s.
 		
-	Elemental Temperature Resilience
+	Elemental Temperature Resilience ✅
 		Adapts to heat/cold 50% slower (beneficial or detrimental depending on conditions).
 		
 	Night Sight
-		Gains the ability to see a short distance in the dark.
+		Gains the ability to see in the dark.
 
 Anti-Perks:
-
 	Soulbound Hunger
 		- Souls are far more nourishing than planely foods.
 			* Effect: All food provides -33% less HNGR. Insanity (being IsCrazy()) causes food to only restore 33% of their hunger. Soul foods restore 300% of their normal values. Occasionally complains about eating non-soul food.
 	Fervent Soul
-	
 		- Your hunger for souls and lifeforce makes you particularly dependant on feeding.
-			* Effect 3: Takes 33% more sanity drain from shadow creatures.
-			* Effect 2: SAN lowers -33% more rapidly if a soul has not been consumed recently. SAN regenerates 33% more rapidly if a soul has been.
+			* Effect 1: Regenerate health, hunger and sanity when killing players or creatures with souls.
+			* Effect 2: Takes 33% more sanity drain from shadow creatures.
+			* Effect 3: SAN lowers -33% more rapidly if a soul has not been consumed recently. SAN regenerates 33% more rapidly if a soul has been.
 
 Skill Tree:
 	- Shadows are soulless
@@ -82,6 +80,15 @@ Skill Tree:
 		BR2 - 
 			L6b : Glacial Spike - ACTIVE. Propel an icy spear down a line, dealing 60 frost damage to anything stuck in the line. Applies a 40% slow for 12 seconds. Costs 65 Runic Power. Cooldown 35 seconds.
 			L7b : While below 33% health, deal 25% additional frost damage, doubled while freezing. Reduces Frost spell cooldowns by 33%.
+
+Spells:
+	Wilds:
+
+	Succubism:
+
+	Fire:
+
+	Ice:
 
 Craftables:
 	Tier 1 – Basic Runic Tools (Alchemy Engine unlock, based on stone/flint tools):

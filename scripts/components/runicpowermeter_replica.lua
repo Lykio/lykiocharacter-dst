@@ -19,7 +19,7 @@ function RunicPowerMeter:OnRemoveFromEntity()
     end
 end
 
-RunicPowerMeter.OnRemoveFromEntity = RunicPowerMeter.OnRemoveFromEntity
+--RunicPowerMeter.OnRemoveFromEntity = RunicPowerMeter.OnRemoveFromEntity
 
 function RunicPowerMeter:AttachClassified(classified)
     self.classified = classified

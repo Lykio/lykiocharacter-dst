@@ -4,7 +4,7 @@
 
 TUNING.LYKIO = {}
 
-TUNING.LYKIO.START_ITEMS = {
+TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.LYKIO = {
     "nightmarefuel",
     "nightmarefuel",
     "horrorfuel"

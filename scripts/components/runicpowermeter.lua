@@ -28,7 +28,6 @@ local RunicPowerMeter = Class(function(self, inst)
     self.regen_period = TUNING.LYKIO.RUNICPOWER.STATS.REGEN.PERIOD.TINY
     self.regen_task = nil
 
-    local period = 1
     DebugPrint("DoPeriodicTask", self.regen_period)
     self.inst:DoPeriodicTask(self.regen_period, OnTaskTick, nil, self, self.regen_period)
 end,
@@ -42,7 +41,8 @@ function RunicPowerMeter:OnSave()
     return {
         _current = self.current,
         _max = self.max,
-        _regen_task = self.regen_task
+        _regen = self.regen,
+        _regen_period = self.regen_period
     }
 end
 
@@ -59,10 +59,11 @@ function RunicPowerMeter:OnLoad(data)
         end)
     end
 
-    if data._regen_task ~= nil then
-        self.inst:DoTaskInTime(1, function()
-            self:SetRegenTask(data._regen_task)
-        end)
+    if data._regen and data._regen_period ~= nil then
+        self:SetRate(data._regen)
+        self:SetPeriod(data._regen_period)
+
+        self:StartRegen(data._regen, data._regen_period, true)
     end
 end
 
@@ -76,12 +77,12 @@ function RunicPowerMeter:GetMax()
 end
 
 function RunicPowerMeter:SetCurrent(amt)
-    if amt <= self:GetMax() then
+    if amt <= self.max then
         self.current = amt
         SetReplicaRPCurrent(self, amt)
     else
-        self.current = self:GetMax()
-        SetReplicaRPCurrent(self, self:GetMax())
+        self.current = self.max
+        SetReplicaRPCurrent(self, self.max)
     end
 end
 
@@ -91,13 +92,18 @@ end
 
 function RunicPowerMeter:DoDelta(delta, overtime, cause)
     DebugPrint("RunicPowerMeter:DoDelta", delta, "overtime:", overtime, "cause:", cause)
+    if delta ~= nil then
+        delta = tonumber(delta)
+    else
+        DebugPrint("RunicPowerMeter:DoDelta inst with nil delta, defaulting to TUNING...TINY")
+        delta = TUNING.LYKIO.RUNICPOWER.STATS.REGEN.TINY
+    end
 
     if self.redirect ~= nil then
         self.redirect(self.inst, delta, overtime)
         return
     end
 
-    delta = tonumber(delta)
     local old = self.current
     self.current = math.clamp(self.current + delta, 0, self.max)
 
@@ -119,6 +125,7 @@ end
 
 function RunicPowerMeter:StopRegen()
     if self.regen_task ~= nil then
+        DebugPrint("RunicPowerMeter:StopRegen called, cancelling regen task")
         self.regen_task:Cancel()
         self.regen_task = nil
     else
@@ -126,16 +133,17 @@ function RunicPowerMeter:StopRegen()
     end
 end
 
-function RunicPowerMeter:StartRegen(amt, period, interruptcur)
-    if interruptcur ~= false then
-        self:StopRegen()
-    end
-
-    self.regen.rate = amt or TUNING.LYKIO.RUNICPOWER.STATS.REGEN.DEFAULT
-    self.regen.period = period or TUNING.LYKIO.RUNICPOWER.STATS.REGEN.PERIOD.DEFAULT
+function RunicPowerMeter:StartRegen(rate, period, interruptcur)
+    DebugPrint("RunicPowerMeter:StartRegen called with interruptcur:", interruptcur)
+    if interruptcur then self:StopRegen() end
+    if rate ~= nil then self.regen = rate end
+    if period ~= nil then self.regen_period = period end
 
     if self.regen_task == nil then
-        self.regen_task = self.inst:DoPeriodicTask(self.regen.period, (function () self:DoDelta(self.regen.rate, true, "regen") end), nil, self)
+        DebugPrint("Starting Runic Power regeneration task with regen/overtime/period:", self.regen, "/", true, "/", self.regen_period)
+        self.regen_task = self.inst:DoPeriodicTask(self.regen_period, (function ()
+                self:DoDelta(self.regen, true, "regen")
+            end), nil, self)
     end
 end
 
@@ -161,15 +169,17 @@ function RunicPowerMeter:SpendRP(amt, cause)
 end
 
 function RunicPowerMeter:SetRate(rate)
-    self.regen_rate = rate or TUNING.LYKIO.RUNICPOWER.STATS.REGEN.DEFAULT
+    if rate == nil then return error("RunicPowerMeter:SetRate called with no rate!", 3) end
+    self.regen = rate
 end
 
 function RunicPowerMeter:GetRate()
-    return self.regen_rate
+    return self.regen
 end
 
 function RunicPowerMeter:SetPeriod(period)
-    self.regen_period = period or TUNING.LYKIO.RUNICPOWER.STATS.REGEN.PERIOD.DEFAULT
+    if period == nil then return error("RunicPowerMeter:SetPeriod called with no period!") end
+    self.regen_period = period
 end
 
 function RunicPowerMeter:GetPeriod()
