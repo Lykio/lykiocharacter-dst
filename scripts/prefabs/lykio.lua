@@ -99,7 +99,7 @@ local function ApplyTemperatureResilience(inst)
     end
 end
 
--- Handle hunger modifications TODO : Configuring --------------------------------------
+-- TODO : Configuring Handle hunger modifications --------------------------------------
 ---@param inst EntityScript
 local function ApplyHungerModifications(inst)
     DebugPrint("Applying hunger modifications")

@@ -70,14 +70,16 @@ function EaterLykio:OnEat(food)
     end
 end
 
-function EaterLykio:OnKill(data) -- TODO : Make this retroactively apply DoDelta with the skilltree
+-- TODO : Make this retroactively apply DoDelta with the skilltree
+function EaterLykio:OnKill(data)
     local inst = self.inst
     local rpm = inst.components.runicpowermeter
     local victim = data and data.victim
     local RUNICPOWER = TUNING.LYKIO.RUNICPOWER
 
     if not victim then return end
-    if victim:HasTag("player") or victim:HasTag("soul") then -- TODO : soul tag doesn't exist, reductively refuse shadow creatures
+    -- TODO : soul tag doesn't exist, reductively refuse shadow creatures
+    if victim:HasTag("player") or victim:HasTag("soul") then
         DebugPrint("OnKill called, victim is a player or has soul tag:")
         inst.components.hunger:DoDelta(RUNICPOWER.TINY)
         inst.components.sanity:DoDelta(RUNICPOWER.TINY)
@@ -88,7 +90,8 @@ function EaterLykio:OnKill(data) -- TODO : Make this retroactively apply DoDelta
     end
 end
 
-function EaterLykio:GetCustomSanityRate() -- TODO : Make this retroactively tune sanityrate with the skilltree
+-- TODO : Make this retroactively tune sanityrate with the skilltree
+function EaterLykio:GetCustomSanityRate()
     local base = TUNING.LYKIO.STATS.SANITYRATE
     if self.inst.components.sanity and self.inst.components.sanity_rate_fn then
         base = self.inst.components.sanity.custom_rate_fn(self.inst)

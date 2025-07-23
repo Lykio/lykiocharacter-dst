@@ -12,6 +12,9 @@ Stats:
 	HNGR	265
 	SAN		120
 
+Quirks:
+    Picking flowers does not generate sanity.
+			
 Core Perks:
 	Runic Power Mastery ✅
 		X Unlocks Runic Power (RP) resource.
