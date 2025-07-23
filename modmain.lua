@@ -129,7 +129,8 @@ AddClassPostConstruct("widgets/statusdisplays", function(self)
         local rpbadge = require "widgets/rpbadge"
         DebugPrint("Adding Runic Power Meter to status displays")
         self.rpbadge = self:AddChild(rpbadge(self.owner, "status_health", "status_health"))
-        self.rpbadge:SetPosition(40, -550, 0)
+        self.rpbadge:SetPosition(40, -550, -80)
+        self.rpbadge:SetScale(1.2, 1.2, 1.2)
     else
         DebugPrint("Owner does not have the 'lykio' tag, not adding Runic Power Meter")
     end
@@ -141,5 +142,6 @@ AddPrefabPostInit("player_classified", function(inst)
     inst._max = net_shortint(inst.GUID, "runicpower._max", "runicpower_maxdirty")
     inst._current = net_shortint(inst.GUID, "runicpower._current", "runicpower_currentdirty")
 end)
+
 AddModCharacter("lykio", "PLURAL", skin_modes)
 DebugPrint("modmain.lua loaded")

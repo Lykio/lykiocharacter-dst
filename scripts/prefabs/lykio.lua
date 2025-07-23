@@ -248,7 +248,7 @@ local function OnPlayerActivated(inst)
         TheWorld:ListenForEvent("phasechanged", function(_, phase)
             OnChangePhase(inst, phase)
         end)
-        
+
         OnChangePhase(inst, TheWorld.state.phase)
     end
 
@@ -299,16 +299,6 @@ local master_postinit = function(inst)
         inst:AddComponent("runicpowermeter")
     end
 
-    DebugPrint("Setting up save/load handlers")
-    inst.OnPreLoad = onpreload
-    inst.OnLoad = onload
-    inst.OnNewSpawn = onnewspawn
-    inst.OnSave = onsave
-    
-    DebugPrint("Setting up perks")
-    ApplyTemperatureResilience(inst)
-    ApplyHungerModifications(inst)
-    
     local eater = inst.components.eater
 
     if eater ~= nil then
@@ -324,25 +314,39 @@ local master_postinit = function(inst)
         eater:SetDiet(TUNING.LYKIO.FOOD_DIET)
         eater:SetRefusesSpoiledFood(TUNING.LYKIO.FOOD_SPOILED_IGNORE)
         eater:SetStrongStomach(TUNING.LYKIO.STOMACH_STRONG)
-        eater:SetOnEatFn(function (eater_inst, food)
-                if food.components.edible and food.components.edible.foodtype == FOODTYPE.SOUL then
-                    DebugPrint("Updating eat function for", food.prefab)
-
-                    if inst.components.runicpowermeter then
-                        if food.prefab == "horrorfuel" then
-                            inst.components.runicpowermeter:DoDelta(TUNING.LYKIO.RUNICPOWER.HUGE, false, "eat_soul_large")
-                            return true
-                        end
-
-                        inst.components.runicpowermeter:DoDelta(TUNING.LYKIO.RUNICPOWER.LARGE, false, "eat_soul")
-                        return true
-                    end
-                end
-                return false
-        end)
     else
         DebugPrint("ERROR: No eater component found")
     end
+
+    inst:AddComponent("eaterlykio")
+    local eaterl = inst.components.eaterlykio
+
+    inst:ListenForEvent("oneat", function(self, data)
+        if eaterl:OnEat(data.food) then
+            return
+        end
+    end)
+
+    inst:ListenForEvent("killed", function(self, data)
+        eaterl:OnKill(data)
+    end)
+
+    if inst.components.sanity then
+        local old_custom_rate_fn = inst.components.sanity.custom_rate_fn
+        inst.components.sanity.custom_rate_fn = function (inst, ...)
+            return eaterl:GetCustomSanityRate() + (old_custom_rate_fn and old_custom_rate_fn(inst, ...) or 0)
+        end
+    end
+
+    DebugPrint("Setting up save/load handlers")
+    inst.OnPreLoad = onpreload
+    inst.OnLoad = onload
+    inst.OnNewSpawn = onnewspawn
+    inst.OnSave = onsave
+    
+    DebugPrint("Setting up perks")
+    ApplyTemperatureResilience(inst)
+    ApplyHungerModifications(inst)
 
     DebugPrint("Master initialization complete")
 end

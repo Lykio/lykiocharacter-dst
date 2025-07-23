@@ -24,7 +24,6 @@ return {
 			AWAKEBEEFALO = "I'm not going to try that while he's awake.",
 			GENERIC = "I can't shave that!",
 			NOBITS = "There isn't even any stubble left!",
-            REFUSE = "only_used_by_woodie",
 		},
 		STORE =
 		{
@@ -66,25 +65,10 @@ return {
             INUSE = "Looks like we had the same idea.",
             TOOFAR = "It's too far away!",
         },
-        
-        --warly specific action
-		DISMANTLE =
-		{
-			COOKING = "only_used_by_warly",
-			INUSE = "only_used_by_warly",
-			NOTEMPTY = "only_used_by_warly",
-        },
         FISH_OCEAN =
 		{
 			TOODEEP = "This rod wasn't made for deep sea fishing.",
 		},
-        --wickerbottom specific action
-        READ =
-        {
-            GENERIC = "only_used_by_wickerbottom",
-            NOBIRDS = "only_used_by_wickerbottom"
-        },
-
         GIVE =
         {
             GENERIC = "That doesn't go there.",
@@ -209,22 +193,10 @@ return {
 	ANNOUNCE_PICK_DISEASE_WARNING = "Uh, is it supposed to smell like that?",
 	ANNOUNCE_ADVENTUREFAIL = "That didn't go well. I'll have to try again.",
     ANNOUNCE_MOUNT_LOWHEALTH = "This beast seems to be wounded.",
-
-    --waxwell and wickerbottom specific strings
-    ANNOUNCE_TOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
-    ANNOUNCE_WAYTOOMANYBIRDS = "only_used_by_waxwell_and_wicker",
-
-    --wolfgang specific
-    ANNOUNCE_NORMALTOMIGHTY = "only_used_by_wolfang",
-    ANNOUNCE_NORMALTOWIMPY = "only_used_by_wolfang",
-    ANNOUNCE_WIMPYTONORMAL = "only_used_by_wolfang",
-    ANNOUNCE_MIGHTYTONORMAL = "only_used_by_wolfang",
-
 	ANNOUNCE_BEES = "BEEEEEEEEEEEEES!!!!",
 	ANNOUNCE_BOOMERANG = "Ow! I should try to catch that!",
 	ANNOUNCE_CHARLIE = "That presence... it's familiar! Hello?",
 	ANNOUNCE_CHARLIE_ATTACK = "OW! Something bit me!",
-	ANNOUNCE_CHARLIE_MISSED = "only_used_by_winona", --winona specific 
 	ANNOUNCE_COLD = "So cold!",
 	ANNOUNCE_HOT = "Need... ice... or... shade!",
 	ANNOUNCE_CRAFTING_FAIL = "I'm missing a couple key ingredients.",
@@ -245,11 +217,6 @@ return {
 	ANNOUNCE_SACREDCHEST_YES = "I guess I'm worthy.",
 	ANNOUNCE_SACREDCHEST_NO = "It didn't like that.",
     ANNOUNCE_DUSK = "It's getting late. It will be dark soon.",
-    
-    --wx-78 specific
-    ANNOUNCE_CHARGE = "only_used_by_wx78",
-	ANNOUNCE_DISCHARGE = "only_used_by_wx78",
-
 	ANNOUNCE_EAT =
 	{
 		GENERIC = "Yum!",
@@ -258,20 +225,7 @@ return {
 		STALE = "I think that was starting to turn.",
 		INVALID = "I can't eat that!",
         YUCKY = "Putting that in my mouth would be disgusting!",
-        
-        --Warly specific ANNOUNCE_EAT strings
-		COOKED = "only_used_by_warly",
-		DRIED = "only_used_by_warly",
-        PREPARED = "only_used_by_warly",
-        RAW = "only_used_by_warly",
-		SAME_OLD_1 = "only_used_by_warly",
-		SAME_OLD_2 = "only_used_by_warly",
-		SAME_OLD_3 = "only_used_by_warly",
-		SAME_OLD_4 = "only_used_by_warly",
-        SAME_OLD_5 = "only_used_by_warly",
-		TASTY = "only_used_by_warly",
     },
-    
     ANNOUNCE_ENCUMBERED =
     {
         "Huff... Pant...",
@@ -343,15 +297,11 @@ return {
 	ANNOUNCE_LIGHTNING_DAMAGE_AVOIDED = "Safe from that frightening lightning!",
 	ANNOUNCE_TOADESCAPING = "The toad is losing interest.",
 	ANNOUNCE_TOADESCAPED = "The toad got away.",
-
-
 	ANNOUNCE_DAMP = "Oh, H2O.",
 	ANNOUNCE_WET = "My clothes appear to be water permeable.",
 	ANNOUNCE_WETTER = "Water way to go!",
 	ANNOUNCE_SOAKED = "I've nearly reached my saturation point.",
-
 	ANNOUNCE_WASHED_ASHORE = "I'm wet, but alive.",
-
     ANNOUNCE_DESPAWN = "I can see the light!",
 	ANNOUNCE_BECOMEGHOST = "oOooOooo!!",
 	ANNOUNCE_GHOSTDRAIN = "My humanity is about to start slipping away...",
@@ -359,7 +309,6 @@ return {
 	ANNOUNCE_KLAUS_ENRAGE = "There's no way to beat it now!!",
 	ANNOUNCE_KLAUS_UNCHAINED = "Its chains came off!",
 	ANNOUNCE_KLAUS_CALLFORHELP = "It called for help!",
-
 	ANNOUNCE_MOONALTAR_MINE =
 	{
 		GLASS_MED = "There's a form trapped inside.",
@@ -372,108 +321,37 @@ return {
 		SEED_LOW = "I've almost got it out.",
 		SEED_REVEAL = "You're free!",
 	},
-
     --hallowed nights
     ANNOUNCE_SPOOKED = "Did you see that?!",
 	ANNOUNCE_BRAVERY_POTION = "Those trees don't seem so spooky anymore.",
 	ANNOUNCE_MOONPOTION_FAILED = "Perhaps I didn't let it steep long enough...",
-
     --lavaarena event
     ANNOUNCE_REVIVING_CORPSE = "Let me help you.",
     ANNOUNCE_REVIVED_OTHER_CORPSE = "Good as new!",
     ANNOUNCE_REVIVED_FROM_CORPSE = "Much better, thank-you.",
-
     ANNOUNCE_FLARE_SEEN = "I wonder who set that flare?",
     ANNOUNCE_OCEAN_SILHOUETTE_INCOMING = "Uh-oh. Sea monsters!",
-
-    --willow specific
-	ANNOUNCE_LIGHTFIRE =
-	{
-		"only_used_by_willow",
-    },
-
-    --winona specific
-    ANNOUNCE_HUNGRY_SLOWBUILD = 
-    {
-	    "only_used_by_winona",
-    },
-    ANNOUNCE_HUNGRY_FASTBUILD = 
-    {
-	    "only_used_by_winona",
-    },
-
-    --wormwood specific
-    ANNOUNCE_KILLEDPLANT = 
-    {
-        "only_used_by_wormwood",
-    },
-    ANNOUNCE_GROWPLANT = 
-    {
-        "only_used_by_wormwood",
-    },
-    ANNOUNCE_BLOOMING = 
-    {
-        "only_used_by_wormwood",
-    },
-
-    --wortox specfic
-    ANNOUNCE_SOUL_EMPTY =
-    {
-        "only_used_by_wortox",
-    },
-    ANNOUNCE_SOUL_FEW =
-    {
-        "only_used_by_wortox",
-    },
-    ANNOUNCE_SOUL_MANY =
-    {
-        "only_used_by_wortox",
-    },
-    ANNOUNCE_SOUL_OVERLOAD =
-    {
-        "only_used_by_wortox",
-    },
-
     --quagmire event
     QUAGMIRE_ANNOUNCE_NOTRECIPE = "Those ingredients didn't make anything.",
     QUAGMIRE_ANNOUNCE_MEALBURNT = "I left it on too long.",
     QUAGMIRE_ANNOUNCE_LOSE = "I have a bad feeling about this.",
     QUAGMIRE_ANNOUNCE_WIN = "Time to go!",
-
     ANNOUNCE_ROYALTY =
     {
         "Your majesty.",
         "Your highness.",
         "My liege!",
     },
-
     ANNOUNCE_ATTACH_BUFF_ELECTRICATTACK    = "I feel positively electric!",
     ANNOUNCE_ATTACH_BUFF_ATTACK            = "Let me at 'em!",
     ANNOUNCE_ATTACH_BUFF_PLAYERABSORPTION  = "I feel much safer now!",
     ANNOUNCE_ATTACH_BUFF_WORKEFFECTIVENESS = "Productivity intensifying!",
     ANNOUNCE_ATTACH_BUFF_MOISTUREIMMUNITY  = "I feel as dry as one of Wickerbottom's lectures!",
-    
     ANNOUNCE_DETACH_BUFF_ELECTRICATTACK    = "The electricity's gone, but the static clings.",
     ANNOUNCE_DETACH_BUFF_ATTACK            = "It seems my brawniness was short-lived.",
     ANNOUNCE_DETACH_BUFF_PLAYERABSORPTION  = "Well, that was nice while it lasted.",
     ANNOUNCE_DETACH_BUFF_WORKEFFECTIVENESS = "Desire to procrastinate... creeping back...",
     ANNOUNCE_DETACH_BUFF_MOISTUREIMMUNITY  = "Looks like my dry spell is over.",
-    
-    --Wurt announce strings
-    ANNOUNCE_KINGCREATED = "only_used_by_wurt",
-    ANNOUNCE_KINGDESTROYED = "only_used_by_wurt",
-    ANNOUNCE_CANTBUILDHERE_THRONE = "only_used_by_wurt",
-    ANNOUNCE_CANTBUILDHERE_HOUSE = "only_used_by_wurt",
-    ANNOUNCE_CANTBUILDHERE_WATCHTOWER = "only_used_by_wurt",
-    ANNOUNCE_READ_BOOK = 
-    {
-        BOOK_SLEEP = "only_used_by_wurt",
-        BOOK_BIRDS = "only_used_by_wurt",
-        BOOK_TENTACLES =  "only_used_by_wurt",
-        BOOK_BRIMSTONE = "only_used_by_wurt",
-        BOOK_GARDENING = "only_used_by_wurt",
-    },
-
 	BATTLECRY =
 	{
 		GENERIC = "Go for the eyes!",
@@ -790,7 +668,6 @@ return {
 			NIGHT_FULL = "It's a full moon.",
 			NIGHT_WANE = "The moon is waning.",
 			CAVE = "There's no moon down here to measure.",
-			WEREBEAVER = "only_used_by_woodie", --woodie specific
         },
 		THULECITE = "I wonder where this is from?",
 		ARMORRUINS = "It's oddly light.",
@@ -2886,10 +2763,6 @@ return {
 		OAR_DRIFTWOOD = "Manual ship acceleration.",
 
 		----------------------- ROT STRINGS GO ABOVE HERE ------------------
-
-        --Wortox
-        WORTOX_SOUL = "only_used_by_wortox", --only wortox can inspect souls
-
         PORTABLECOOKPOT_ITEM =
         {
             GENERIC = "Now we're cookin'!",
@@ -2979,7 +2852,6 @@ return {
             GENERIC = "It's actually kind of cute.",
             BURNT = "Ugh, the smell!",
         },
-
         MERMWATCHTOWER_REGULAR = "They seem happy to have found a king.",
         MERMWATCHTOWER_NOKING = "A royal guard with no Royal to guard.",
         MERMKING = "Your Majesty!",
@@ -2987,7 +2859,6 @@ return {
         MERM_PRINCE = "They operate on a first-come, first-sovereigned basis.",
 
     },
-
     DESCRIBE_GENERIC = "It's a... thing.",
     DESCRIBE_TOODARK = "It's too dark to see!",
     DESCRIBE_SMOLDERING = "That thing is about to catch fire.",

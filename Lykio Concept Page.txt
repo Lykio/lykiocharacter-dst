@@ -14,31 +14,31 @@ Stats:
 
 Core Perks:
 	Runic Power Mastery ✅
-		Unlocks Runic Power (RP) resource.
-		Passively regenerates +1 RP every 10s.
+		X Unlocks Runic Power (RP) resource.
+		X Passively regenerates +1 RP every 10s.
 		
 	Elemental Temperature Resilience ✅
-		Adapts to heat/cold 50% slower (beneficial or detrimental depending on conditions).
+		X Adapts to heat/cold 50% slower (beneficial or detrimental depending on conditions).
 		
-	Night Sight
-		Gains the ability to see in the dark.
+	Night Sight ✅
+		X Gains the ability to see in the dark.
 
 Anti-Perks:
-	Soulbound Hunger
+	Soulbound Hunger ✅
 		- Souls are far more nourishing than planely foods.
-			* Effect: All food provides -33% less HNGR. Insanity (being IsCrazy()) causes food to only restore 33% of their hunger. Soul foods restore 300% of their normal values. Occasionally complains about eating non-soul food.
+			X Effect: All food provides -10% less HNGR. Insanity (being IsCrazy()) causes food to only restore 50% of their hunger. Soul foods restore normal values. Occasionally complains about eating non-soul food.
 	Fervent Soul
 		- Your hunger for souls and lifeforce makes you particularly dependant on feeding.
-			* Effect 1: Regenerate health, hunger and sanity when killing players or creatures with souls.
+			X Effect 1: Regenerate health, hunger and sanity when killing players or creatures with souls.
 			* Effect 2: Takes 33% more sanity drain from shadow creatures.
-			* Effect 3: SAN lowers -33% more rapidly if a soul has not been consumed recently. SAN regenerates 33% more rapidly if a soul has been.
+			X Effect 3: SAN lowers -33% more rapidly if a soul has not been consumed recently. SAN regenerates 33% more rapidly if a soul has been.
 
 Skill Tree:
 	- Shadows are soulless
 	Tree 1 - Wilds
 		L1 : Fox's Instinct - +10% Move speed at all times, 20% chance to harvest 1 extra food from foraging.
-		L2 : Winter Resilience - Hunger decay speed during winter and fall is reduced by 10%. During winter and fall, you gain +1 sanity every 30 seconds.
-		L3: Feral Transformation - Freely toggle into your feral fox counterpart. In this form, gain 25% move speed, 25% attack speed, and reduce your health by 50%. In this form your hunger decay reduces by 10%. You may not wear armor or use tools in this form. Spells may be cast.
+		L2 : Winter Resilience - Hunger decay speed during winter and fall is reduced by 10%. During winter and fall, you gain +1 sanity every 12 seconds.
+		L3 : Feral Transformation - Freely toggle into your feral fox counterpart. In this form, gain 25% move speed, 25% attack speed, and reduce your health by 75%. In this form your hunger decay reduces by 10%. You may not wear armor or use tools in this form. Spells may be cast.
 		
 	Tree 2 - Succubism
 		L1 : Soul Feeder - Gain 2 HP, 8 hunger, 2 sanity, and 8 Runic Power when killing any creature or player.
