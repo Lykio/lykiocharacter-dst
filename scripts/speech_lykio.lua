@@ -211,7 +211,7 @@ return {
     ANNOUNCE_HIGHRESEARCH = "My knowledge swells.",
     ANNOUNCE_HOUNDS = "A hunt approaches..",
     ANNOUNCE_WORMS = "The ground stirs beneath us..",
-    ANNOUNCE_HUNGRY = "I must feed… though I wish it were not so.",
+    ANNOUNCE_HUNGRY = "I must feed.. though I wish it were not so.",
     ANNOUNCE_HUNT_BEAST_NEARBY = "Prey.. it is close. I can feel it.",
     ANNOUNCE_HUNT_LOST_TRAIL = "Gone. Slippery quarry.",
     ANNOUNCE_HUNT_LOST_TRAIL_SPRING = "Water stole its scent and print.",
@@ -297,7 +297,7 @@ return {
         "My king.",
         "Highness.",
     },
-    
+
     ANNOUNCE_ATTACH_BUFF_ELECTRICATTACK = "My fur stands alive with stormlight..",
     ANNOUNCE_ATTACH_BUFF_ATTACK = "Come closer, little prey..",
     ANNOUNCE_ATTACH_BUFF_PLAYERABSORPTION = "Strike me, and watch it fail.",
@@ -603,7 +603,7 @@ return {
 			GENERIC = "It rends the dunes to my will.",
 			ACTIVE = "Its sands swirl, ready to carry me afar.",
 		},
-        TOWNPORTALTALISMAN = 
+        TOWNPORTALTALISMAN =
         {
 			GENERIC = "A fragment of desert paths.",
 			ACTIVE = "Walking is for the patient. I am not.",
@@ -619,7 +619,7 @@ return {
             WRONGSTAFF = "This union is flawed.",
             MOONSTAFF = "It shines with the moon's unfeeling grace.",
         },
-        MOONDIAL = 
+        MOONDIAL =
         {
 			GENERIC = "A pool to capture distant light.",
 			NIGHT_NEW = "The sky's dark maw swallows the moon.",
@@ -667,18 +667,18 @@ return {
 		ORANGEGEM = "A sunset frozen forever.",
         OPALSTAFF = "The storm's rage shackled to a stick.",
         OPALPRECIOUSGEM = "It pulses with distant cosmic dread.",
-        TELEBASE = 
+        TELEBASE =
 		{
 			VALID = "Ready to tear open the world's skin.",
 			GEMS = "It hungers for more purple hearts.",
 		},
-		GEMSOCKET = 
+		GEMSOCKET =
 		{
 			VALID = "The wound is filled.",
 			GEMS = "It aches for a gem's touch.",
 		},
 		STAFFLIGHT = "Light that scorches all shadows.",
-        STAFFCOLDLIGHT = "It chills even my frigid blood.",
+        STAFFCOLDLIGHT = "Why isn't my ice magic radiant in this manner?",
 
         ANCIENT_ALTAR = "The ancients built this to feed their gods.",
 
@@ -693,7 +693,7 @@ return {
 		CAVE_BANANA_COOKED = "Steamed to tender perfection.",
 		CAVE_BANANA_TREE = "Thrives without the sun's harsh gaze.",
 		ROCKY = "His claws could shred steel. Delightful.",
-		
+
 		COMPASS =
 		{
 			GENERIC="Direction is fleeting in this place.",
@@ -834,13 +834,13 @@ return {
         CAVE_ENTRANCE = "The earth has sealed its secrets away.",
         CAVE_ENTRANCE_RUINS = "Something ancient sleeps below.",
 
-        CAVE_ENTRANCE_OPEN = 
+        CAVE_ENTRANCE_OPEN =
         {
             GENERIC = "The earth rejects my passage.",
             OPEN = "The dark below calls to me.",
             FULL = "Others crowd the darkness before me.",
         },
-        CAVE_EXIT = 
+        CAVE_EXIT =
         {
             GENERIC = "The sky above feels so far away down here.",
             OPEN = "I will return to the open air... for now.",
@@ -866,7 +866,7 @@ return {
 			REMAINS_THINGIE = "Its secrets burned away to nothingness.",
 		},
 		AXE = "Good for splitting bone and wood alike.",
-		BABYBEEFALO = 
+		BABYBEEFALO =
 		{
 			GENERIC = "Small. Soft. Defenseless. Tempting.",
 		    SLEEPING = "Dream well, little calf. The world won't.",
@@ -884,7 +884,7 @@ return {
 		BEARGER_FUR = "Thick pelt ripped from mightier prey.",
 		BEDROLL_STRAW = "Scratchy, but better than the frozen dirt.",
 		BEEQUEEN = "I will not challenge her fury today.",
-		BEEQUEENHIVE = 
+		BEEQUEENHIVE =
 		{
 			GENERIC = "Sticky prison of golden death.",
 			GROWING = "It spreads its sticky dominion.",
@@ -987,8 +987,8 @@ return {
         BLOWDART_YELLOW = "Storm-fang dart. Deadly and swift.",
         BLUEAMULET = "Cold as winter moonlight on my fur.",
         BLUEGEM = "Frozen soul of the earth's heart.",
-        BLUEPRINT = 
-        { 
+        BLUEPRINT =
+        {
             COMMON = "Knowledge carved in mortal ink.",
             RARE = "Precious wisdom few shall hold.",
         },
@@ -1018,7 +1018,7 @@ return {
 
         SHADOWDIGGER = "He multiplies his darkness. Impressive.",
 
-        CACTUS = 
+        CACTUS =
         {
             GENERIC = "Spiny armor concealing tender flesh.",
             PICKED = "Still prickly, but humbled.",
@@ -1047,7 +1047,7 @@ return {
         },
         CANE = "My paws tread swifter with its aid.",
         CATCOON = "Foolish hunter. Small and playful, like kits.",
-        CATCOONDEN = 
+        CATCOONDEN =
         {
             GENERIC = "Their den reeks of hidden kills.",
             EMPTY = "Its nine lives are spent.",
@@ -1194,7 +1194,7 @@ return {
             GENERIC = "Trapped in glass, yet content.. fascinating.",
             WAITING = "He waits patiently, unaware of eternity.",
         },
-		LAVASPIT = 
+		LAVASPIT =
 		{
 			HOT = "It burns like the rage of Muspelheim.",
 			COOL = "Stone-blood spit.. hardened, silenced.",
@@ -1202,14 +1202,14 @@ return {
 		LAVA_POND = "A molten wound upon Midgard's flesh.",
 		LAVAE = "A creature born of the world's inner fury.",
 		LAVAE_COCOON = "Its fire has slumbered.",
-		LAVAE_PET = 
+		LAVAE_PET =
 		{
 			STARVING = "Its tiny heart aches with emptiness.",
 			HUNGRY = "Its hunger cries out to me.",
 			CONTENT = "Peaceful.. for now.",
 			GENERIC = "Such a little ember beast..",
 		},
-		LAVAE_EGG = 
+		LAVAE_EGG =
 		{
 			GENERIC = "Warmth pulses within its shell.",
 		},
@@ -1279,7 +1279,7 @@ return {
 			BURNING = "Consumed in searing embrace.",
 			BURNT = "Nothing remains but brittle memory.",
 			CHOPPED = "Stripped of dignity.",
-			GENERIC = "Bare sticks scratching at the sky.",			
+			GENERIC = "Bare sticks scratching at the sky.",
 			DISEASED = "It sickens.. nature's mercy or curse.",
 		},
 		TWIGGY_NUT_SAPLING = "Its yearning for growth is strong.",
@@ -1327,7 +1327,7 @@ return {
 		},
 		FIRESTAFF = "An.. endearing implement, I suppose..",
 		FIRESUPPRESSOR =
-		{	
+		{
 			ON = "It works tirelessly, like Fenrir chasing the sun.",
 			OFF = "Silent and waiting for command.",
 			LOWFUEL = "Its strength dwindles.",
@@ -1371,7 +1371,7 @@ return {
 		FROGLEGS = "Muscle for the taking.",
 		FROGLEGS_COOKED = "Seared weakness.",
 		FRUITMEDLEY = "A mortal sweetness, fleeting as dawn.",
-		FURTUFT = "Strands of black and white.. like winter shadows.", 
+		FURTUFT = "Strands of black and white.. like winter shadows.",
 		GEARS = "The lifeblood of machines, lifeless to me.",
 		GHOST = "Lost, wandering.. I could end your suffering.",
 		GOLDENAXE = "Foolish luxury for a savage purpose.",
@@ -1389,9 +1389,9 @@ return {
 			DISEASED = "Decay eats at it from within.",
 			DISEASING = "Its sickness brews silently.",
 		},
-		GRASSGEKKO = 
+		GRASSGEKKO =
 		{
-			GENERIC = "A lizard hidden in grass's disguise.",	
+			GENERIC = "A lizard hidden in grass's disguise.",
 			DISEASED = "Its scales pale with sickness.",
 		},
 		GREEN_CAP = "A harmless morsel.. I think.",
@@ -1639,7 +1639,7 @@ return {
 		SPEAR = "I prefer claws and fangs, but this will pierce flesh fine.",
 		SPEAR_WATHGRITHR = "Forged for true warriors.",
 		WATHGRITHRHAT = "A helm fit for a Valkyrie.",
-		
+
 		SPIDER =
 		{
 			DEAD = "Still twitching.. delightful.",
@@ -1652,7 +1652,7 @@ return {
 		SPIDERGLAND = "Their lifesblood made medicine.",
 		SPIDERHAT = "Still reeks of its former owner.",
 		SPIDERQUEEN = "This realm has no shortage of queens to slay.",
-		
+
 		SPIDER_WARRIOR =
 		{
 			DEAD = "Yielded its life to my hunger.",
@@ -1668,7 +1668,7 @@ return {
 			HIDING = "I sense more here than meets the eye.",
         },
 
-        STATUE_MARBLE = 
+        STATUE_MARBLE =
         {
             GENERIC = "Stone beauty, frozen forever.",
             TYPE1 = "Headless grandeur.",
@@ -1729,15 +1729,15 @@ return {
 		TELEPORTATO_CRANK = "Solid. Heavy. Moves the world when needed.",
 		TELEPORTATO_POTATO = "Strange power sealed within iron flesh.",
 		TELEPORTATO_RING = "A forged circle holding endless paths.",
-		TELESTAFF = "It will pierce the veils between worlds.",
+		TELESTAFF = "I wonder if it could take me back to him.",
 
-		TENT = 
+		TENT =
 		{
 			GENERIC = "Rest, though nightmares may seek me.",
 			BURNT = "Shelter lost to careless flame.",
 		},
 
-		SIESTAHUT = 
+		SIESTAHUT =
 		{
 			GENERIC = "Shade and silence, welcome respite.",
 			BURNT = "Its shade turned to ash.",
@@ -1758,13 +1758,13 @@ return {
 		TRAP_TEETH = "Bites like iron jaws.",
 		TRAP_TEETH_MAXWELL = "A trap lain by that wretched sorcerer.",
 
-		TREASURECHEST = 
+		TREASURECHEST =
 		{
 			GENERIC = "A wooden maw to keep my hoard safe.",
 			BURNT = "Its treasures turned to soot.",
 		},
 
-		SACRED_CHEST = 
+		SACRED_CHEST =
 		{
 			GENERIC = "It sees into my soul and hungers.",
 			LOCKED = "It judges my offerings in silence.",
@@ -1880,756 +1880,752 @@ return {
         HOUNDWHISTLE = "A call to command lesser beasts.",
         CHESSPIECE_CLAYHOUND = "Its hunt is over.",
         CHESSPIECE_CLAYWARG = "Tamed by stone and silence.",
-        -- TODO : RESUME FLAVOUR SPEECH
 		PIGSHRINE =
 		{
-            GENERIC = "More stuff to make.",
-            EMPTY = "It's hungry for meat.",
-            BURNT = "Burnt out.",
+            GENERIC = "It demands tribute like any good idol.",
+            EMPTY = "It hungers for flesh, much like myself.",
+            BURNT = "Reduced to nothing but ash and failure.",
 		},
-		PIG_TOKEN = "This looks important.",
-		PIG_COIN = "This'll pay off in a fight.",
-		YOTP_FOOD1 = "A feast fit for me.",
-		YOTP_FOOD2 = "A meal only a beast would love.",
-		YOTP_FOOD3 = "Nothing fancy.",
+		PIG_TOKEN = "A pig's token, of no worth to a god.",
+		PIG_COIN = "Their little currency. Amusing.. but useful.",
+		YOTP_FOOD1 = "At least they prepare a feast worthy of me.",
+		YOTP_FOOD2 = "Only beasts and gods would devour this.",
+		YOTP_FOOD3 = "Barely sustenance.",
 
-		PIGELITE1 = "What are you looking at?", --BLUE
-		PIGELITE2 = "He's got gold fever!", --RED
-		PIGELITE3 = "Here's mud in your eye!", --WHITE
-		PIGELITE4 = "Wouldn't you rather hit someone else?", --GREEN
+		PIGELITE1 = "Do not stare unless you wish to be devoured.", --BLUE
+		PIGELITE2 = "His greed burns brighter than his blood.", --RED
+		PIGELITE3 = "Throw mud if you must. I'll still bite.", --WHITE
+		PIGELITE4 = "Choose your target wisely, swine.", --GREEN
 
-		PIGELITEFIGHTER1 = "What are you looking at?", --BLUE
-		PIGELITEFIGHTER2 = "He's got gold fever!", --RED
-		PIGELITEFIGHTER3 = "Here's mud in your eye!", --WHITE
-		PIGELITEFIGHTER4 = "Wouldn't you rather hit someone else?", --GREEN
+		PIGELITEFIGHTER1 = "Do not stare unless you wish to be devoured.", --BLUE
+		PIGELITEFIGHTER2 = "His greed burns brighter than his blood.", --RED
+		PIGELITEFIGHTER3 = "Throw mud if you must. I'll still bite.", --WHITE
+		PIGELITEFIGHTER4 = "Choose your target wisely, swine.", --GREEN
 
-		BISHOP_CHARGE_HIT = "Ow!",
-		TRUNKVEST_SUMMER = "Wilderness casual.",
-		TRUNKVEST_WINTER = "Winter survival gear.",
-		TRUNK_COOKED = "Somehow even more nasal than before.",
-		TRUNK_SUMMER = "A light breezy trunk.",
-		TRUNK_WINTER = "A thick, hairy trunk.",
-		TUMBLEWEED = "Who knows what that tumbleweed has picked up.",
-		TURKEYDINNER = "Mmmm.",
-		TWIGS = "It's a bunch of small twigs.",
-		UMBRELLA = "I always hate when my hair gets wet and poofy.",
-		GRASS_UMBRELLA = "My hair looks good wet... it's when it dries that's the problem.",
-		UNIMPLEMENTED = "It doesn't look finished! It could be dangerous.",
-		WAFFLES = "I'm waffling on whether it needs more syrup.",
-		WALL_HAY = 
-		{	
-			GENERIC = "Hmmmm. I guess that'll have to do.",
-			BURNT = "That won't do at all.",
-		},
-		WALL_HAY_ITEM = "This seems like a bad idea.",
-		WALL_STONE = "That's a nice wall.",
-		WALL_STONE_ITEM = "They make me feel so safe.",
-		WALL_RUINS = "An ancient piece of wall.",
-		WALL_RUINS_ITEM = "A solid piece of history.",
-		WALL_WOOD = 
+		BISHOP_CHARGE_HIT = "Grrh-careful, little insect.",
+		TRUNKVEST_SUMMER = "It barely shields me, but it will do.",
+		TRUNKVEST_WINTER = "Warm enough for even my frozen blood.",
+		TRUNK_COOKED = "Cooked snout. Better than raw.",
+		TRUNK_SUMMER = "Light, fragrant, and mine now.",
+		TRUNK_WINTER = "Heavy fur for the heavy cold.",
+		TUMBLEWEED = "Carrying secrets across the land.",
+		TURKEYDINNER = "Fattened prey, now mine.",
+		TWIGS = "Small, brittle bones of the trees.",
+		UMBRELLA = "I care little for rain, but this pleases mortals.",
+		GRASS_UMBRELLA = "It keeps my fur dry.. for now.",
+		UNIMPLEMENTED = "Half-formed. Weak. Unworthy.",
+		WAFFLES = "Sweetened prey meat would complete it.",
+		WALL_HAY =
 		{
-			GENERIC = "Pointy!",
-			BURNT = "Burnt!",
+			GENERIC = "Pathetic barrier, easily burned.",
+			BURNT = "As expected.",
 		},
-		WALL_WOOD_ITEM = "Pickets!",
-		WALL_MOONROCK = "Spacey and smooth!",
-		WALL_MOONROCK_ITEM = "Very light, but surprisingly tough.",
-		FENCE = "It's just a wood fence.",
-        FENCE_ITEM = "All we need to build a nice, sturdy fence.",
-        FENCE_GATE = "It opens. And closes sometimes, too.",
-        FENCE_GATE_ITEM = "All we need to build a nice, sturdy gate.",
-		WALRUS = "Walruses are natural predators.",
-		WALRUSHAT = "It's covered with walrus hairs.",
+		WALL_HAY_ITEM = "This would never stop me.",
+		WALL_STONE = "Sturdy enough to delay fate.",
+		WALL_STONE_ITEM = "Mortals cling to stone to feel safe.",
+		WALL_RUINS = "Old stone. Old magic. I smell echoes.",
+		WALL_RUINS_ITEM = "History's bones, ready to build anew.",
+		WALL_WOOD =
+		{
+			GENERIC = "Pointy sticks pretending to be stone.",
+			BURNT = "Ashes to ashes.",
+		},
+		WALL_WOOD_ITEM = "Sticks to stab the wind with.",
+		WALL_MOONROCK = "Pale as my realm's moonlit hunt.",
+		WALL_MOONROCK_ITEM = "Strong for its lightness. Curious.",
+		FENCE = "A fence. How quaint.",
+        FENCE_ITEM = "I could pen them in.. or out.",
+        FENCE_GATE = "An opening for prey to flee through.",
+        FENCE_GATE_ITEM = "A gate for their illusions of safety.",
+		WALRUS = "A tusked old predator. Respect.",
+		WALRUSHAT = "Torn from a worthy foe.",
 		WALRUS_CAMP =
 		{
-			EMPTY = "Looks like somebody was camping here.",
-			GENERIC = "It looks warm and cozy inside.",
+			EMPTY = "Their den lies abandoned.",
+			GENERIC = "Warmth and safety within. How dull.",
 		},
-		WALRUS_TUSK = "I'm sure I'll find a use for it eventually.",
-		WARDROBE = 
+		WALRUS_TUSK = "A worthy trophy.. or tool.",
+		WARDROBE =
 		{
-			GENERIC = "It holds dark, forbidden secrets...",
-            BURNING = "That's burning fast!",
-			BURNT = "It's out of style now.",
+			GENERIC = "Full of mortal disguises and secrets.",
+            BURNING = "Its secrets burn away.",
+			BURNT = "Gone to cinders.",
 		},
-		WARG = "You might be something to reckon with, big dog.",
-		WASPHIVE = "I think those bees are mad.",
-		WATERBALLOON = "What a scientific marvel!",
-		WATERMELON = "Sticky sweet.",
-		WATERMELON_COOKED = "Juicy and warm.",
-		WATERMELONHAT = "Let the juice run down your face.",
-		WAXWELLJOURNAL = "Spooky.",
-		WETGOOP = "It tastes like nothing.",
-        WHIP = "Nothing like loud noises to help keep the peace.",
-		WINTERHAT = "It'll be good for when winter comes.",
+		WARG = "A lesser cousin. Still strong.",
+		WASPHIVE = "Their rage hums through the air.",
+		WATERBALLOON = "Harmless plaything.. or tool for distraction.",
+		WATERMELON = "Juice drips like blood from prey.",
+		WATERMELON_COOKED = "Warm flesh. Not quite the same.",
+		WATERMELONHAT = "Mortals amuse me with their hats.",
+		WAXWELLJOURNAL = "This tome reeks of old shadows.",
+		WETGOOP = "Useless sludge, unworthy of even my tongue.",
+        WHIP = "I prefer claws, but this will do.",
+		WINTERHAT = "Warmth, though I hardly require it.",
 		WINTEROMETER =
 		{
-			GENERIC = "Mercurial.",
-			BURNT = "Its measuring days are over.",
-		},
-
-        WINTER_TREE =
+			GENERIC = "Measuring the world's dying warmth.",
+			BURNT = "Nothing left to measure.",
+		},WINTER_TREE =
         {
-            BURNT = "That puts a damper on the festivities.",
-            BURNING = "That was a mistake, I think.",
-            CANDECORATE = "Happy Winter's Feast!",
-            YOUNG = "It's almost Winter's Feast!",
+            BURNT = "Your rituals fail you now.",
+            BURNING = "Fire claims what frost could not.",
+            CANDECORATE = "Even I respect these mortal feasts.. a little.",
+            YOUNG = "It grows, as all prey should.",
         },
-		WINTER_TREESTAND = 
+		WINTER_TREESTAND =
 		{
-			GENERIC = "I need a pine cone for that.",
-            BURNT = "That puts a damper on the festivities.",
+			GENERIC = "It demands an offering of pine.",
+            BURNT = "Its purpose has been consumed.",
 		},
-        WINTER_ORNAMENT = "Every scientist appreciates a good bauble.",
-        WINTER_ORNAMENTLIGHT = "A tree's not complete without some electricity.",
-        WINTER_ORNAMENTBOSS = "This one is especially impressive.",
-		WINTER_ORNAMENTFORGE = "I should hang this one over a fire.",
-		WINTER_ORNAMENTGORGE = "For some reason it makes me hungry.",
+        WINTER_ORNAMENT = "Shiny offerings for shallow gods.",
+        WINTER_ORNAMENTLIGHT = "Let them blind themselves with light.",
+        WINTER_ORNAMENTBOSS = "At least this bauble holds some worth.",
+		WINTER_ORNAMENTFORGE = "Forge-born, it deserves the heat.",
+		WINTER_ORNAMENTGORGE = "My stomach growls looking upon it.",
 
-        WINTER_FOOD1 = "The anatomy's not right, but I'll overlook it.", --gingerbread cookie
-        WINTER_FOOD2 = "I'm going to eat forty. For science.", --sugar cookie
-        WINTER_FOOD3 = "A Yuletide toothache waiting to happen.", --candy cane
-        WINTER_FOOD4 = "That experiment may have been a tiny bit unethical.", --fruitcake
-        WINTER_FOOD5 = "It's nice to eat something other than berries for once.", --yule log cake
-        WINTER_FOOD6 = "I'm puddin' that straight in my mouth!", --plum pudding
-        WINTER_FOOD7 = "It's a hollowed apple filled with yummy juice.", --apple cider
-        WINTER_FOOD8 = "How does it stay warm? A thermodynamical mug?", --hot cocoa
-        WINTER_FOOD9 = "Can science explain why it tastes so good?", --eggnog
+        WINTER_FOOD1 = "Its shape offends, but its taste redeems.", --gingerbread cookie
+        WINTER_FOOD2 = "I could devour a legion of these.", --sugar cookie
+        WINTER_FOOD3 = "Rot your teeth, mortals.", --candy cane
+        WINTER_FOOD4 = "A dense crime against fruit.", --fruitcake
+        WINTER_FOOD5 = "Finally, not berries nor flesh. A brief reprieve.", --yule log cake
+        WINTER_FOOD6 = "It will drown upon my tongue.", --plum pudding
+        WINTER_FOOD7 = "Sweet blood of the apple. Acceptable.", --apple cider
+        WINTER_FOOD8 = "Still warm? Curious magic.", --hot cocoa
+        WINTER_FOOD9 = "I care not why it tastes good. Only that it does.", --eggnog
 
-        KLAUS = "What on earth is that thing!",
-        KLAUS_SACK = "We should definitely open that.",
-		KLAUSSACKKEY = "It's really fancy for a deer antler.",
+        KLAUS = "A creature bound and broken. Pitiful.. yet dangerous.",
+        KLAUS_SACK = "It hides its treasures well. I shall take them.",
+		KLAUSSACKKEY = "A carved bone of worth.",
+
 		WORMHOLE =
 		{
-			GENERIC = "Soft and undulating.",
-			OPEN = "Science compels me to jump in.",
+			GENERIC = "It pulses.. almost inviting.",
+			OPEN = "Shall I leap into the unknown? Yes.",
 		},
-		WORMHOLE_LIMITED = "Guh, that thing looks worse off than usual.",
-		ACCOMPLISHMENT_SHRINE = "I want to use it, and I want the world to know that I did.",        
-		LIVINGTREE = "Is it watching me?",
-		ICESTAFF = "It's cold to the touch.",
-		REVIVER = "The beating of this hideous heart will bring a ghost back to life!",
-		SHADOWHEART = "The power of science must have reanimated it...",
-        ATRIUM_RUBBLE = 
+		WORMHOLE_LIMITED = "This one is nearly spent. Like an old prey.",
+		ACCOMPLISHMENT_SHRINE = "Let all witness my dominion.",
+		LIVINGTREE = "It breathes. It watches. It fears.",
+		ICESTAFF = "Minor power on a stick.",
+		REVIVER = "Its cursed beat can tear souls back from their peace.",
+		SHADOWHEART = "Darkness clings to it, whispering forgotten truths.",
+
+        ATRIUM_RUBBLE =
         {
-			LINE_1 = "It depicts an old civilization. The people look hungry and scared.",
-			LINE_2 = "This tablet is too worn to make out.",
-			LINE_3 = "Something dark creeps over the city and its people.",
-			LINE_4 = "The people are shedding their skins. They look different underneath.",
-			LINE_5 = "It shows a massive, technologically advanced city.",
+			LINE_1 = "They starved, they feared, they fell. As all do.",
+			LINE_2 = "Worn away, like all things beneath time.",
+			LINE_3 = "Darkness spread. It always does.",
+			LINE_4 = "Shedding their skins.. becoming what they truly were.",
+			LINE_5 = "Their mighty city, now but echoes in stone.",
 		},
-        ATRIUM_STATUE = "It doesn't seem fully real.",
-        ATRIUM_LIGHT = 
+        ATRIUM_STATUE = "Half in this realm, half lost.",
+        ATRIUM_LIGHT =
         {
-			ON = "A truly unsettling light.",
-			OFF = "Something must power it.",
+			ON = "Its glow sickens even me.",
+			OFF = "Dormant, but hungry for power.",
 		},
         ATRIUM_GATE =
         {
-			ON = "Back in working order.",
-			OFF = "The essential components are still intact.",
-			CHARGING = "It's gaining power.",
-			DESTABILIZING = "The gateway is destabilizing.",
-			COOLDOWN = "It needs time to recover. Me too.",
+			ON = "The path is open once more.",
+			OFF = "Silent, but far from dead.",
+			CHARGING = "It gathers its strength.",
+			DESTABILIZING = "It shakes with fury and madness.",
+			COOLDOWN = "It slumbers.. as I do, sometimes.",
         },
-        ATRIUM_KEY = "There is power emanating from it.",
-		LIFEINJECTOR = "A scientific breakthrough! The cure!",
+        ATRIUM_KEY = "It pulses with forbidden might.",
+
+		LIFEINJECTOR = "I need no mortal cure, but it may amuse me.",
 		SKELETON_PLAYER =
 		{
-			MALE = "%s must've died performing an experiment with %s.",
-			FEMALE = "%s must've died performing an experiment with %s.",
-			ROBOT = "%s must've died performing an experiment with %s.",
-			DEFAULT = "%s must've died performing an experiment with %s.",
+			MALE = "%s fell tampering with forces beyond him. Foolish %s.",
+			FEMALE = "%s fell tampering with forces beyond her. Foolish %s.",
+			ROBOT = "%s fell tampering with forces beyond them. Foolish %s.",
+			DEFAULT = "%s fell tampering with forces beyond them. Foolish %s.",
 		},
-		HUMANMEAT = "Flesh is flesh. Where do I draw the line?",
-		HUMANMEAT_COOKED = "Cooked nice and pink, but still morally gray.",
-		HUMANMEAT_DRIED = "Letting it dry makes it not come from a human, right?",
-		ROCK_MOON = "That rock came from the moon.",
-		MOONROCKNUGGET = "That rock came from the moon.",
-		MOONROCKCRATER = "I should stick something shiny in it. For research.",
-		MOONROCKSEED = "There's science inside!",
+		HUMANMEAT = "Meat is meat. Morality is mortal.",
+		HUMANMEAT_COOKED = "Heat purifies.. somewhat.",
+		HUMANMEAT_DRIED = "Drying removes the guilt. Almost.",
 
-        REDMOONEYE = "It can see and be seen for miles!",
-        PURPLEMOONEYE = "Makes a good marker, but I wish it'd stop looking at me.",
-        GREENMOONEYE = "That'll keep a watchful eye on the place.",
-        ORANGEMOONEYE = "No one could get lost with that thing looking out for them.",
-        YELLOWMOONEYE = "That ought to show everyone the way.",
-        BLUEMOONEYE = "It's always smart to keep an eye out.",
+		ROCK_MOON = "Moonbone, cold and watching.",
+		MOONROCKNUGGET = "A piece of the watching moon.",
+		MOONROCKCRATER = "It craves something to gaze back.",
+		MOONROCKSEED = "Moon secrets, locked within.",
+
+        REDMOONEYE = "It glares for miles. Good.",
+        PURPLEMOONEYE = "Stop your staring, or I will take it from you.",
+        GREENMOONEYE = "One more eye watching my domain.",
+        ORANGEMOONEYE = "It sees all paths, all prey.",
+        YELLOWMOONEYE = "Guiding the lost. How quaint.",
+        BLUEMOONEYE = "Another eye to strengthen my watch.",
 
         --Arena Event
-        LAVAARENA_BOARLORD = "That's the guy in charge here.",
-        BOARRIOR = "You sure are big!",
-        BOARON = "I can take him!",
-        PEGHOOK = "That spit is corrosive!",
-        TRAILS = "He's got a strong arm on him.",
-        TURTILLUS = "Its shell is so spiky!",
-        SNAPPER = "This one's got bite.",
-		RHINODRILL = "He's got a nose for this kind of work.",
-		BEETLETAUR = "I can smell him from here!",
+        LAVAARENA_BOARLORD = "So this is your kingdom. I will remember your scent.",
+        BOARRIOR = "A worthy foe. Good.",
+        BOARON = "Barely an appetizer.",
+        PEGHOOK = "Its spit burns like acid. Useful to note.",
+        TRAILS = "That one throws with deadly purpose.",
+        TURTILLUS = "Thick shell. Thicker skull.",
+        SNAPPER = "Its bite is nothing compared to mine.",
+		RHINODRILL = "Your horn amuses me, little beast.",
+		BEETLETAUR = "Your stench reaches even here.",
 
-        LAVAARENA_PORTAL = 
+        LAVAARENA_PORTAL =
         {
-            ON = "I'll just be going now.",
-            GENERIC = "That's how we got here. Hopefully how we get back, too.",
+            ON = "My hunt continues elsewhere.",
+            GENERIC = "The path that dragged me here. It shall take me back.",
         },
-        LAVAARENA_KEYHOLE = "It needs a key.",
-		LAVAARENA_KEYHOLE_FULL = "That should do it.",
-        LAVAARENA_BATTLESTANDARD = "Everyone, break the Battle Standard!",
-        LAVAARENA_SPAWNER = "This is where those enemies are coming from.",
+        LAVAARENA_KEYHOLE = "It demands a key, like all locked truths.",
+		LAVAARENA_KEYHOLE_FULL = "Satiated for now.",
+        LAVAARENA_BATTLESTANDARD = "Tear it down and their courage dies with it.",
+        LAVAARENA_SPAWNER = "The spawn pit of these creatures.",
 
-        HEALINGSTAFF = "It conducts regenerative energy.",
-        FIREBALLSTAFF = "It calls a meteor from above.",
-        HAMMER_MJOLNIR = "It's a heavy hammer for hitting things.",
-        SPEAR_GUNGNIR = "I could do a quick charge with that.",
-        BLOWDART_LAVA = "That's a weapon I could use from range.",
-        BLOWDART_LAVA2 = "It uses a strong blast of air to propel a projectile.",
-        LAVAARENA_LUCY = "That weapon's for throwing.",
-        WEBBER_SPIDER_MINION = "I guess they're fighting for us.",
-        BOOK_FOSSIL = "This'll keep those monsters held for a little while.",
-		LAVAARENA_BERNIE = "He might make a good distraction for us.",
-		SPEAR_LANCE = "It gets to the point.",
-		BOOK_ELEMENTAL = "I can't make out the text.",
-		LAVAARENA_ELEMENTAL = "It's a rock monster!",
+        HEALINGSTAFF = "Mending this way is.. unfufilling.",
+        FIREBALLSTAFF = "Call fire from the sky to burn them all.",
+        HAMMER_MJOLNIR = "Mockery.",
+        SPEAR_GUNGNIR = "Haha! An amusing mortal counterfeit.",
+        BLOWDART_LAVA = "I could pierce from afar with this.",
+        BLOWDART_LAVA2 = "Air-propelled death. Efficient.",
+        LAVAARENA_LUCY = "A light thrower's blade.",
+        WEBBER_SPIDER_MINION = "Spiders that fight for me? Good.",
+        BOOK_FOSSIL = "Stone binds stronger than rope.",
+		LAVAARENA_BERNIE = "A stuffed distraction. Useful bait.",
+		SPEAR_LANCE = "Straight to the heart.",
+		BOOK_ELEMENTAL = "Its words whisper elemental secrets.",
+		LAVAARENA_ELEMENTAL = "Stone given wrath. Amusing.",
 
-   		LAVAARENA_ARMORLIGHT = "Light, but not very durable.",
-		LAVAARENA_ARMORLIGHTSPEED = "Lightweight and designed for mobility.",
-		LAVAARENA_ARMORMEDIUM = "It offers a decent amount of protection.",
-		LAVAARENA_ARMORMEDIUMDAMAGER = "That could help me hit a little harder.",
-		LAVAARENA_ARMORMEDIUMRECHARGER = "I'd have energy for a few more stunts wearing that.",
-		LAVAARENA_ARMORHEAVY = "That's as good as it gets.",
-		LAVAARENA_ARMOREXTRAHEAVY = "This armor has been petrified for maximum protection.",
+   		LAVAARENA_ARMORLIGHT = "Barely worth the trouble.",
+		LAVAARENA_ARMORLIGHTSPEED = "I will flow like moonlit rivers in this.",
+		LAVAARENA_ARMORMEDIUM = "Protection for those too weak to take a blow.",
+		LAVAARENA_ARMORMEDIUMDAMAGER = "More damage is always welcome.",
+		LAVAARENA_ARMORMEDIUMRECHARGER = "It fuels my relentless fury.",
+		LAVAARENA_ARMORHEAVY = "Heavy enough to endure gods.",
+		LAVAARENA_ARMOREXTRAHEAVY = "Stone-fused armor. Almost as hard as me.",
 
-		LAVAARENA_FEATHERCROWNHAT = "Those fluffy feathers make me want to run!",
-        LAVAARENA_HEALINGFLOWERHAT = "The blossom interacts well with healing magic.",
-        LAVAARENA_LIGHTDAMAGERHAT = "My strikes would hurt a little more wearing that.",
-        LAVAARENA_STRONGDAMAGERHAT = "It looks like it packs a wallop.",
-        LAVAARENA_TIARAFLOWERPETALSHAT = "Looks like it amplifies healing expertise.",
-        LAVAARENA_EYECIRCLETHAT = "It has a gaze full of science.",
-        LAVAARENA_RECHARGERHAT = "Those crystals will quickened my abilities.",
-        LAVAARENA_HEALINGGARLANDHAT = "This garland will restore a bit of my vitality.",
-        LAVAARENA_CROWNDAMAGERHAT = "That could cause some major destruction.",
+		LAVAARENA_FEATHERCROWNHAT = "Feathers to make me swifter still.",
+        LAVAARENA_HEALINGFLOWERHAT = "Flowers with a healer's touch.",
+        LAVAARENA_LIGHTDAMAGERHAT = "My fangs will bite deeper wearing this.",
+        LAVAARENA_STRONGDAMAGERHAT = "Its power thrums through me.",
+        LAVAARENA_TIARAFLOWERPETALSHAT = "Strengthens the gentle. Wasteful on me.",
+        LAVAARENA_EYECIRCLETHAT = "Its gaze sees truth unspoken.",
+        LAVAARENA_RECHARGERHAT = "Yes.. faster. Stronger.",
+        LAVAARENA_HEALINGGARLANDHAT = "Petals to mend these flesh-wounds.",
+        LAVAARENA_CROWNDAMAGERHAT = "I will become devastation in this.",
 
-		LAVAARENA_ARMOR_HP = "That should keep me safe.",
+		LAVAARENA_ARMOR_HP = "A temporary shield against my inevitable wounds.",
 
-		LAVAARENA_FIREBOMB = "It smells like brimstone.",
-		LAVAARENA_HEAVYBLADE = "A sharp looking instrument.",
+		LAVAARENA_FIREBOMB = "The scent of brimstone pleases me.",
+		LAVAARENA_HEAVYBLADE = "Thick. Sharp. Death incarnate.",
 
-        --Quagmire
-        QUAGMIRE_ALTAR = 
+        QUAGMIRE_ALTAR =
         {
-        	GENERIC = "We'd better start cooking some offerings.",
-        	FULL = "It's in the process of digestinating.",
+        	GENERIC = "It demands tribute.. or death.",
+        	FULL = "It feeds. As do I.",
     	},
-		QUAGMIRE_ALTAR_STATUE1 = "It's an old statue.",
-		QUAGMIRE_PARK_FOUNTAIN = "Been a long time since it was hooked up to water.",
-		
-        QUAGMIRE_HOE = "It's a farming instrument.",
-        
-        QUAGMIRE_TURNIP = "It's a raw turnip.",
-        QUAGMIRE_TURNIP_COOKED = "Cooking is science in practice.",
-        QUAGMIRE_TURNIP_SEEDS = "A handful of odd seeds.",
-        
-        QUAGMIRE_GARLIC = "The number one breath enhancer.",
-        QUAGMIRE_GARLIC_COOKED = "Perfectly browned.",
-        QUAGMIRE_GARLIC_SEEDS = "A handful of odd seeds.",
-        
-        QUAGMIRE_ONION = "Looks crunchy.",
-        QUAGMIRE_ONION_COOKED = "A successful chemical reaction.",
-        QUAGMIRE_ONION_SEEDS = "A handful of odd seeds.",
-        
-        QUAGMIRE_POTATO = "The apples of the earth.",
-        QUAGMIRE_POTATO_COOKED = "A successful temperature experiment.",
-        QUAGMIRE_POTATO_SEEDS = "A handful of odd seeds.",
-        
-        QUAGMIRE_TOMATO = "It's red because it's full of science.",
-        QUAGMIRE_TOMATO_COOKED = "Cooking's easy if you understand chemistry.",
-        QUAGMIRE_TOMATO_SEEDS = "A handful of odd seeds.",
-        
-        QUAGMIRE_FLOUR = "Ready for baking.",
-        QUAGMIRE_WHEAT = "It looks a bit grainy.",
-        QUAGMIRE_WHEAT_SEEDS = "A handful of odd seeds.",
-        --NOTE: raw/cooked carrot uses regular carrot strings
-        QUAGMIRE_CARROT_SEEDS = "A handful of odd seeds.",
-        
-        QUAGMIRE_ROTTEN_CROP = "I don't think the altar will want that.",
-        
-		QUAGMIRE_SALMON = "Mm, fresh fish.",
-		QUAGMIRE_SALMON_COOKED = "Ready for the dinner table.",
-		QUAGMIRE_CRABMEAT = "No imitations here.",
-		QUAGMIRE_CRABMEAT_COOKED = "I can put a meal together in a pinch.",
-        QUAGMIRE_POT = "This one holds more ingredients.",
-        QUAGMIRE_POT_SMALL = "Let's get cooking!",
-        QUAGMIRE_POT_HANGER_ITEM = "For suspension-based cookery.",
-		QUAGMIRE_SUGARWOODTREE = 
+		QUAGMIRE_ALTAR_STATUE1 = "Stone idol to forgotten faiths.",
+		QUAGMIRE_PARK_FOUNTAIN = "Long since dried of life or beauty.",
+
+        QUAGMIRE_HOE = "Tools to tear open the earth's flesh.",
+
+        QUAGMIRE_TURNIP = "A bitter little root.",
+        QUAGMIRE_TURNIP_COOKED = "Heat softens even the hardest.",
+        QUAGMIRE_TURNIP_SEEDS = "Tiny beginnings of meager lives.",
+
+        QUAGMIRE_GARLIC = "Its scent repels more than spirits.",
+        QUAGMIRE_GARLIC_COOKED = "Its aroma hums upon the tongue.",
+        QUAGMIRE_GARLIC_SEEDS = "Insignificant husks of potential.",
+
+        QUAGMIRE_ONION = "Layered like truths.",
+        QUAGMIRE_ONION_COOKED = "Heat strips away its tears.",
+        QUAGMIRE_ONION_SEEDS = "Frail seeds clinging to life.",
+
+        QUAGMIRE_POTATO = "Roots sleeping beneath the earth.",
+        QUAGMIRE_POTATO_COOKED = "Heat awakens its sweetness.",
+        QUAGMIRE_POTATO_SEEDS = "Insignificant husks of potential.",
+
+        QUAGMIRE_TOMATO = "Ripened like fresh prey blood.",
+        QUAGMIRE_TOMATO_COOKED = "Warm and tender, ready to consume.",
+        QUAGMIRE_TOMATO_SEEDS = "Seeds of a fleeting harvest.",
+
+        QUAGMIRE_FLOUR = "Powdered death of wheat.",
+        QUAGMIRE_WHEAT = "Bent and broken, ready for the grind.",
+        QUAGMIRE_WHEAT_SEEDS = "Insignificant husks of potential.",
+        QUAGMIRE_CARROT_SEEDS = "Insignificant husks of potential.",
+
+        QUAGMIRE_ROTTEN_CROP = "Death has claimed it first.",
+
+		QUAGMIRE_SALMON = "Flesh fresh from river's vein.",
+		QUAGMIRE_SALMON_COOKED = "Fire tempers its final taste.",
+		QUAGMIRE_CRABMEAT = "Cracked open and helpless.",
+		QUAGMIRE_CRABMEAT_COOKED = "Their armor could not save them.",
+        QUAGMIRE_POT = "A greater vessel for greater feasts.",
+        QUAGMIRE_POT_SMALL = "Let us begin the offering.",
+        QUAGMIRE_POT_HANGER_ITEM = "For suspending meals over flame.",
+		QUAGMIRE_SUGARWOODTREE =
 		{
-			GENERIC = "It's full of delicious, delicious sap.",
-			STUMP = "Where'd the tree go? I'm stumped.",
-			TAPPED_EMPTY = "Here sappy, sappy, sap.",
-			TAPPED_READY = "Sweet golden sap.",
-			TAPPED_BUGS = "That's how you get ants.",
-			WOUNDED = "It looks ill.",
+			GENERIC = "Its blood runs sweet.",
+			STUMP = "It has been felled. Good.",
+			TAPPED_EMPTY = "It bleeds slowly today.",
+			TAPPED_READY = "Its golden lifeblood is ready.",
+			TAPPED_BUGS = "Insects gather to share its wound.",
+			WOUNDED = "It sickens and withers.",
 		},
-		QUAGMIRE_SPOTSPICE_SHRUB = 
+		QUAGMIRE_SPOTSPICE_SHRUB =
 		{
-			GENERIC = "It reminds me of those tentacle monsters.",
-			PICKED = "I can't get anymore out of that shrub.",
+			GENERIC = "Strange scent clings to its flesh.",
+			PICKED = "Its bounty has been reaped.",
 		},
-		QUAGMIRE_SPOTSPICE_SPRIG = "I could grind it up to make a spice.",
-		QUAGMIRE_SPOTSPICE_GROUND = "Flavorful.",
-		QUAGMIRE_SAPBUCKET = "We can use it to gather sap from the trees.",
-		QUAGMIRE_SAP = "It tastes sweet.",
+		QUAGMIRE_SPOTSPICE_SPRIG = "A sprig of sharp tang.",
+		QUAGMIRE_SPOTSPICE_GROUND = "Powdered for mortal tongues.",
+		QUAGMIRE_SAPBUCKET = "To drain the trees of their sweetness.",
+		QUAGMIRE_SAP = "Golden nectar, sticky and rich.",
 		QUAGMIRE_SALT_RACK =
 		{
-			READY = "Salt has gathered on the rope.",
-			GENERIC = "Science takes time.",
+			READY = "Salt crusts the rope like dried blood.",
+			GENERIC = "Patience breeds results.",
 		},
-		
-		QUAGMIRE_POND_SALT = "A little salty spring.",
-		QUAGMIRE_SALT_RACK_ITEM = "For harvesting salt from the pond.",
 
-		QUAGMIRE_SAFE = 
+		QUAGMIRE_POND_SALT = "The earth's bitter tears.",
+		QUAGMIRE_SALT_RACK_ITEM = "For harvesting the pond's salt-crust.",
+
+		QUAGMIRE_SAFE =
 		{
-			GENERIC = "It's a safe. For keeping things safe.",
-			LOCKED = "It won't open without the key.",
+			GENERIC = "A locked cache of mortal treasures.",
+			LOCKED = "It denies me. For now.",
 		},
 
-		QUAGMIRE_KEY = "Safe bet this'll come in handy.",
-		QUAGMIRE_KEY_PARK = "I'll park it in my pocket until I get to the park.",
-        QUAGMIRE_PORTAL_KEY = "This looks science-y.",
+		QUAGMIRE_KEY = "A key to someone's secrets.",
+		QUAGMIRE_KEY_PARK = "It will grant me passage.",
+        QUAGMIRE_PORTAL_KEY = "It hums with hidden power.",
 
-		
+
 		QUAGMIRE_MUSHROOMSTUMP =
 		{
-			GENERIC = "Are those mushrooms? I'm stumped.",
-			PICKED = "I don't think it's growing back.",
+			GENERIC = "Fungal growth clings to death's remains.",
+			PICKED = "Its life is spent.",
 		},
-		QUAGMIRE_MUSHROOMS = "These are edible mushrooms.",
-        QUAGMIRE_MEALINGSTONE = "The daily grind.",
-		QUAGMIRE_PEBBLECRAB = "That rock's alive!",
+		QUAGMIRE_MUSHROOMS = "Edible shadows of rot.",
+        QUAGMIRE_MEALINGSTONE = "Stone that breaks grain to dust.",
+		QUAGMIRE_PEBBLECRAB = "A rock with claws. Curious.",
 
-		
-		QUAGMIRE_RUBBLE_CARRIAGE = "On the road to nowhere.",
-        QUAGMIRE_RUBBLE_CLOCK = "Someone beat the clock. Literally.",
-        QUAGMIRE_RUBBLE_CATHEDRAL = "Preyed upon.",
-        QUAGMIRE_RUBBLE_PUBDOOR = "No longer a-door-able.",
-        QUAGMIRE_RUBBLE_ROOF = "Someone hit the roof.",
-        QUAGMIRE_RUBBLE_CLOCKTOWER = "That clock's been punched.",
-        QUAGMIRE_RUBBLE_BIKE = "Must have mis-spoke.",
+
+		QUAGMIRE_RUBBLE_CARRIAGE = "Its journey ended in ruin.",
+        QUAGMIRE_RUBBLE_CLOCK = "Time's prison lies shattered.",
+        QUAGMIRE_RUBBLE_CATHEDRAL = "Their gods did not save them.",
+        QUAGMIRE_RUBBLE_PUBDOOR = "Its welcome ended in splinters.",
+        QUAGMIRE_RUBBLE_ROOF = "Crushed beneath sky's wrath.",
+        QUAGMIRE_RUBBLE_CLOCKTOWER = "Time falls as all do.",
+        QUAGMIRE_RUBBLE_BIKE = "Broken cycle. Ended journey.",
         QUAGMIRE_RUBBLE_HOUSE =
         {
-            "No one's here.",
-            "Something destroyed this town.",
-            "I wonder who they angered.",
+            "They have fled or perished.",
+            "Ash and ruin remain.",
+            "Their fate amuses me.",
         },
-        QUAGMIRE_RUBBLE_CHIMNEY = "Something put a damper on that chimney.",
-        QUAGMIRE_RUBBLE_CHIMNEY2 = "Something put a damper on that chimney.",
-        QUAGMIRE_MERMHOUSE = "What an ugly little house.",
-        QUAGMIRE_SWAMPIG_HOUSE = "It's seen better days.",
-        QUAGMIRE_SWAMPIG_HOUSE_RUBBLE = "Some pig's house was ruined.",
+        QUAGMIRE_RUBBLE_CHIMNEY = "No warmth remains within.",
+        QUAGMIRE_RUBBLE_CHIMNEY2 = "No warmth remains within.",
+        QUAGMIRE_MERMHOUSE = "Foul place for fouler creatures.",
+        QUAGMIRE_SWAMPIG_HOUSE = "Rotted but still standing.",
+        QUAGMIRE_SWAMPIG_HOUSE_RUBBLE = "Collapsed like its owner's hopes.",
         QUAGMIRE_SWAMPIGELDER =
         {
-            GENERIC = "I guess you're in charge around here?",
-            SLEEPING = "It's sleeping, for now.",
+            GENERIC = "You rule these mire-born swine?",
+            SLEEPING = "It dreams unworthy dreams.",
         },
-        QUAGMIRE_SWAMPIG = "It's a super hairy pig.",
-        
-        QUAGMIRE_PORTAL = "Another dead end.",
-        QUAGMIRE_SALTROCK = "Salt. The tastiest mineral.",
-        QUAGMIRE_SALT = "It's full of salt.",
-        --food--
-        QUAGMIRE_FOOD_BURNT = "That one was an experiment.",
+        QUAGMIRE_SWAMPIG = "Mud-stinking beasts.",
+
+        QUAGMIRE_PORTAL = "Another path closed to me.",
+        QUAGMIRE_SALTROCK = "Salt, crystallized tears of stone.",
+        QUAGMIRE_SALT = "Bitter dust of the deep.",
+
+        QUAGMIRE_FOOD_BURNT = "Failure, charred and blackened.",
         QUAGMIRE_FOOD =
         {
-        	GENERIC = "I should offer it on the Altar of Gnaw.",
-            MISMATCH = "That's not what it wants.",
-            MATCH = "Science says this will appease the sky God.",
-            MATCH_BUT_SNACK = "It's more of a light snack, really.",
+        	GENERIC = "The altar will judge its worth.",
+            MISMATCH = "It will not accept this offering.",
+            MATCH = "It shall be pleased with this tribute.",
+            MATCH_BUT_SNACK = "A meager token, but a token nonetheless.",
         },
-        
-        QUAGMIRE_FERN = "Probably chock full of vitamins.",
-        QUAGMIRE_FOLIAGE_COOKED = "We cooked the foliage.",
-        QUAGMIRE_COIN1 = "I'd like more than a penny for my thoughts.",
-        QUAGMIRE_COIN2 = "A decent amount of coin.",
-        QUAGMIRE_COIN3 = "Seems valuable.",
-        QUAGMIRE_COIN4 = "We can use these to reopen the Gateway.",
-        QUAGMIRE_GOATMILK = "Good if you don't think about where it came from.",
-        QUAGMIRE_SYRUP = "Adds sweetness to the mixture.",
-        QUAGMIRE_SAP_SPOILED = "Might as well toss it on the fire.",
-        QUAGMIRE_SEEDPACKET = "Sow what?",
-        
-        QUAGMIRE_POT_SYRUP = "I need to sweeten this pot.",
-        QUAGMIRE_POT_HANGER = "It has hang-ups.",
-        QUAGMIRE_GRILL = "Now all I need is a backyard to put it in.",
-        QUAGMIRE_GRILL_ITEM = "I'll have to grill someone about this.",
-        QUAGMIRE_GRILL_SMALL = "Barbecurious.",
-        QUAGMIRE_GRILL_SMALL_ITEM = "For grilling small meats.",
-        QUAGMIRE_OVEN = "It needs ingredients to make the science work.",
-        QUAGMIRE_OVEN_ITEM = "For scientifically burning things.",
-        QUAGMIRE_CASSEROLEDISH = "A dish for all seasonings.",
-        QUAGMIRE_CASSEROLEDISH_SMALL = "For making minuscule motleys.",
-        QUAGMIRE_PLATE_SILVER = "A silver plated plate.",
-        QUAGMIRE_BOWL_SILVER = "A bright bowl.",
-        QUAGMIRE_CRATE = "Kitchen stuff.",
-        
-        QUAGMIRE_MERM_CART1 = "Any science in there?", --sammy's wagon
-        QUAGMIRE_MERM_CART2 = "I could use some stuff.", --pipton's cart
-        QUAGMIRE_PARK_ANGEL = "Take that, creature!",
-        QUAGMIRE_PARK_ANGEL2 = "So lifelike.",
-        QUAGMIRE_PARK_URN = "Ashes to ashes.",
-        QUAGMIRE_PARK_OBELISK = "A monumental monument.",
+
+        QUAGMIRE_FERN = "Green life, soon to be gone.",
+        QUAGMIRE_FOLIAGE_COOKED = "Its final flavor revealed.",
+        QUAGMIRE_COIN1 = "Worthless metal scrap.",
+        QUAGMIRE_COIN2 = "Small wealth, fleeting.",
+        QUAGMIRE_COIN3 = "This shines with promise.",
+        QUAGMIRE_COIN4 = "A true offering to power.",
+        QUAGMIRE_GOATMILK = "Warm, thick, and unclean.",
+        QUAGMIRE_SYRUP = "Sweetness to mask rot.",
+        QUAGMIRE_SAP_SPOILED = "Its sweetness soured. Toss it away.",
+        QUAGMIRE_SEEDPACKET = "The birth of a garden's grave.",
+
+        QUAGMIRE_POT_SYRUP = "It demands more sweetness.",
+        QUAGMIRE_POT_HANGER = "It waits to carry its burden.",
+        QUAGMIRE_GRILL = "Fire's cage for mortal feasts.",
+        QUAGMIRE_GRILL_ITEM = "For searing flesh and plants alike.",
+        QUAGMIRE_GRILL_SMALL = "For smaller, quicker kills.",
+        QUAGMIRE_GRILL_SMALL_ITEM = "For the charred offerings of lesser prey.",
+        QUAGMIRE_OVEN = "Heat transforms the weak to the edible.",
+        QUAGMIRE_OVEN_ITEM = "A forge of flavor and finality.",
+        QUAGMIRE_CASSEROLEDISH = "A vessel for layered offerings.",
+        QUAGMIRE_CASSEROLEDISH_SMALL = "Small, but useful for delicate sacrifices.",
+        QUAGMIRE_PLATE_SILVER = "Mortals crave beauty even in their feeding.",
+        QUAGMIRE_BOWL_SILVER = "It gleams with silent vanity.",
+        QUAGMIRE_CRATE = "Its contents await my dominion.",
+
+        QUAGMIRE_MERM_CART1 = "What foul wares lie within?", --sammy's wagon
+        QUAGMIRE_MERM_CART2 = "Perhaps it holds something of use.", --pipton's cart
+        QUAGMIRE_PARK_ANGEL = "Stone mockery of grace.",
+        QUAGMIRE_PARK_ANGEL2 = "Lifelike. And lifeless.",
+        QUAGMIRE_PARK_URN = "Ash remains within.",
+        QUAGMIRE_PARK_OBELISK = "Stone raised to forgotten glory.",
         QUAGMIRE_PARK_GATE =
         {
-            GENERIC = "Turns out a key was the key to getting in.",
-            LOCKED = "Locked tight.",
+            GENERIC = "It yields before my will.",
+            LOCKED = "Closed to me, for now.",
         },
-        QUAGMIRE_PARKSPIKE = "The scientific term is: \"Sharp pointy thing\".",
-        QUAGMIRE_CRABTRAP = "A crabby trap.",
-        QUAGMIRE_TRADER_MERM = "Maybe they'd be willing to trade.",
-        QUAGMIRE_TRADER_MERM2 = "Maybe they'd be willing to trade.",
-        
-        QUAGMIRE_GOATMUM = "Reminds me of my old nanny.",
-        QUAGMIRE_GOATKID = "This goat's much smaller.",
+        QUAGMIRE_PARKSPIKE = "Sharp as my claws.",
+        QUAGMIRE_CRABTRAP = "A cunning snare for the scuttling.",
+        QUAGMIRE_TRADER_MERM = "Perhaps you hold something worthy.",
+        QUAGMIRE_TRADER_MERM2 = "Show me your wares, swamp-thing.",
+
+        QUAGMIRE_GOATMUM = "She stinks of milk and fear.",
+        QUAGMIRE_GOATKID = "Small. Helpless. Innocent.",
         QUAGMIRE_PIGEON =
         {
-            DEAD = "They're dead.",
-            GENERIC = "He's just winging it.",
-            SLEEPING = "It's sleeping, for now.",
+            DEAD = "Its wings failed it.",
+            GENERIC = "A fluttering meal.",
+            SLEEPING = "Its sleep is shallow and wary.",
         },
-        QUAGMIRE_LAMP_POST = "Huh. Reminds me of home.",
+        QUAGMIRE_LAMP_POST = "A cold, hollow light.",
 
-        QUAGMIRE_BEEFALO = "Science says it should have died by now.",
-        QUAGMIRE_SLAUGHTERTOOL = "Laboratory tools for surgical butchery.",
+        QUAGMIRE_BEEFALO = "It endures despite decay.",
+        QUAGMIRE_SLAUGHTERTOOL = "Blade forged for ending life.",
 
-        QUAGMIRE_SAPLING = "I can't get anything else out of that.",
-        QUAGMIRE_BERRYBUSH = "Those berries are all gone.",
+        QUAGMIRE_SAPLING = "Stripped bare and broken.",
+        QUAGMIRE_BERRYBUSH = "Its sweetness is spent.",
 
-        QUAGMIRE_ALTAR_STATUE2 = "What are you looking at?",
-        QUAGMIRE_ALTAR_QUEEN = "A monumental monument.",
-        QUAGMIRE_ALTAR_BOLLARD = "As far as posts go, this one is adequate.",
-        QUAGMIRE_ALTAR_IVY = "Kind of clingy.",
+        QUAGMIRE_ALTAR_STATUE2 = "Stone eyes do not intimidate me.",
+        QUAGMIRE_ALTAR_QUEEN = "A queen of silent stone and lost prayers.",
+        QUAGMIRE_ALTAR_BOLLARD = "A post. Nothing more.",
+        QUAGMIRE_ALTAR_IVY = "Clings desperately to stone.",
 
-        QUAGMIRE_LAMP_SHORT = "Enlightening.",
-
-        --v2 Winona
-        WINONA_CATAPULT = 
+        QUAGMIRE_LAMP_SHORT = "Its glow cannot pierce true darkness.",
+        WINONA_CATAPULT =
         {
-        	GENERIC = "She's made a sort of automatic defense system.",
-        	OFF = "It needs some electricity.",
-        	BURNING = "It's on fire!",
-        	BURNT = "Science couldn't save it.",
+        	GENERIC = "She forged a weapon to guard her fleeting life.",
+        	OFF = "Lifeless. As all things become.",
+        	BURNING = "Its purpose ends in flame.",
+        	BURNT = "Ash claims what creation abandoned.",
         },
-        WINONA_SPOTLIGHT = 
+        WINONA_SPOTLIGHT =
         {
-        	GENERIC = "What an ingenious idea!",
-        	OFF = "It needs some electricity.",
-        	BURNING = "It's on fire!",
-        	BURNT = "Science couldn't save it.",
+        	GENERIC = "It banishes darkness, yet reveals nothing.",
+        	OFF = "Without light, it is blind and dead.",
+        	BURNING = "The fire consumes its feeble glow.",
+        	BURNT = "Blackened and silent.",
         },
-        WINONA_BATTERY_LOW = 
+        WINONA_BATTERY_LOW =
         {
-        	GENERIC = "Looks science-y. How does it work?",
-        	LOWPOWER = "It's getting low on power.",
-        	OFF = "I could get it working, if Winona's busy.",
-        	BURNING = "It's on fire!",
-        	BURNT = "Science couldn't save it.",
+        	GENERIC = "A mortal's contraption of flickering power.",
+        	LOWPOWER = "Its pulse fades.",
+        	OFF = "It slumbers without spark.",
+        	BURNING = "It burns as all shall burn.",
+        	BURNT = "Charred. Its purpose gone.",
         },
-        WINONA_BATTERY_HIGH = 
+        WINONA_BATTERY_HIGH =
         {
-        	GENERIC = "Hey! That's not science!",
-        	LOWPOWER = "It'll turn off soon.",
-        	OFF = "Science beats magic, every time.",
-        	BURNING = "It's on fire!",
-        	BURNT = "Science couldn't save it.",
+        	GENERIC = "Magic woven from mortal craft.",
+        	LOWPOWER = "Its end draws near.",
+        	OFF = "Even the greatest lights die.",
+        	BURNING = "Consumed by flame's hunger.",
+        	BURNT = "Only ruin remains.",
         },
 
         --Wormwood
-        COMPOSTWRAP = "Wormwood offered me a bite, but I respectfully declined.",
-        ARMOR_BRAMBLE = "The best offense is a good defense.",
-        TRAP_BRAMBLE = "It'd really poke whoever stepped on it.",
+        COMPOSTWRAP = "Wormwood offered it. I refused his rot.",
+        ARMOR_BRAMBLE = "Thorns turn flesh to ruin.",
+        TRAP_BRAMBLE = "Pain for the unwary foot.",
 
-        BOATFRAGMENT03 = "Not much left of it.",
-        BOATFRAGMENT04 = "Not much left of it.",
-        BOATFRAGMENT05 = "Not much left of it.",
-		BOAT_LEAK = "I should patch that up before we sink.",
-        MAST = "Avast! A mast!",
-        SEASTACK = "It's a rock.",
-        FISHINGNET = "Nothing but net.",
-        ANTCHOVIES = "Yeesh. Can I toss it back?",
-        STEERINGWHEEL = "I could have been a sailor in another life.",
-        ANCHOR = "I wouldn't want my boat to float away.",
-        BOATPATCH = "Just in case of disaster.",
-        DRIFTWOOD_TREE = 
+        BOATFRAGMENT03 = "Splintered remains of a lost voyage.",
+        BOATFRAGMENT04 = "Splintered remains of a lost voyage.",
+        BOATFRAGMENT05 = "Splintered remains of a lost voyage.",
+		BOAT_LEAK = "The water hungers for us.",
+        MAST = "A tall bone to catch the sky's breath.",
+        SEASTACK = "Stone claw rising from the depths.",
+        FISHINGNET = "A snare for the river's children.",
+        ANTCHOVIES = "Barely worth devouring.",
+        STEERINGWHEEL = "Control in mortal hands is always fleeting.",
+        ANCHOR = "To bind the restless to stillness.",
+        BOATPATCH = "Mending what the sea seeks to devour.",
+        DRIFTWOOD_TREE =
         {
-            BURNING = "That driftwood's burning!",
-            BURNT = "Doesn't look very useful anymore.",
-            CHOPPED = "There might still be something worth digging up.",
-            GENERIC = "A dead tree that washed up on shore.",
+            BURNING = "It burns. Good.",
+            BURNT = "Only cinders remain.",
+            CHOPPED = "Its corpse awaits the tide.",
+            GENERIC = "A dead tree adrift, lost as all are.",
         },
 
-        DRIFTWOOD_LOG = "It floats on water.",
+        DRIFTWOOD_LOG = "Wood stripped of life, floating to nowhere.",
 
-        MOON_TREE = 
+        MOON_TREE =
         {
-            BURNING = "The tree is burning!",
-            BURNT = "The tree burned down.",
-            CHOPPED = "That was a pretty thick tree.",
-            GENERIC = "I didn't know trees grew on the moon.",
+            BURNING = "Moon's child perishes in flame.",
+            BURNT = "Its silver flesh reduced to ash.",
+            CHOPPED = "Its lunar trunk lies broken.",
+            GENERIC = "Moon's corruption roots deep.",
         },
-		MOON_TREE_BLOSSOM = "It fell from the moon tree.",
+		MOON_TREE_BLOSSOM = "A flower birthed of cold lunar madness.",
 
-        MOONBUTTERFLY = 
+        MOONBUTTERFLY =
         {
-        	GENERIC = "My vast scientific knowledge tells me it's... a moon butterfly.",
-        	HELD = "I've got you now.",
+        	GENERIC = "Moonlight has birthed this frail fluttering.",
+        	HELD = "Still and trembling within my grasp.",
         },
-		MOONBUTTERFLYWINGS = "We're really winging it now.",
-        MOONBUTTERFLY_SAPLING = "A moth turned into a tree? Lunacy!",
-        ROCK_AVOCADO_FRUIT = "I'd shatter my teeth on that.",
-        ROCK_AVOCADO_FRUIT_RIPE = "Uncooked stone fruit is the pits.",
-        ROCK_AVOCADO_FRUIT_RIPE_COOKED = "It's actually soft enough to eat now.",
-        ROCK_AVOCADO_FRUIT_SPROUT = "It's growing.",
-        ROCK_AVOCADO_BUSH = 
+		MOONBUTTERFLYWINGS = "Torn fragments of lunar beauty.",
+        MOONBUTTERFLY_SAPLING = "Moon madness reborn in wood.",
+        ROCK_AVOCADO_FRUIT = "Stone encased in rancid flesh.",
+        ROCK_AVOCADO_FRUIT_RIPE = "It reeks of life's slow death.",
+        ROCK_AVOCADO_FRUIT_RIPE_COOKED = "Soft enough to choke down.",
+        ROCK_AVOCADO_FRUIT_SPROUT = "It clings desperately to life.",
+        ROCK_AVOCADO_BUSH =
         {
-        	BARREN = "Its fruit growing days are over.",
-			WITHERED = "It's pretty hot out.",
-			GENERIC = "It's a bush... from the moon!",
-			PICKED = "It'll take awhile to grow more fruit.",
-			DISEASED = "It looks pretty sick.",
-            DISEASING = "Err, something's not right.",
-			BURNING = "It's burning!",
+        	BARREN = "Its womb is forever empty.",
+			WITHERED = "The sun has slain it.",
+			GENERIC = "Twisted bush birthed of moon rot.",
+			PICKED = "It bleeds nothing now.",
+			DISEASED = "It sickens and festers.",
+            DISEASING = "Its death is upon it.",
+			BURNING = "Flame consumes it wholly.",
 		},
-        DEAD_SEA_BONES = "That's what they get for coming up on land.",
-        HOTSPRING = 
+        DEAD_SEA_BONES = "Their hubris dragged them to land. Their bones remain.",
+        HOTSPRING =
         {
-        	GENERIC = "If only I could soak my weary bones.",
-        	BOMBED = "Just a simple chemical reaction.",
-        	GLASS = "Water turns to glass under the moon. That's just science.",
-			EMPTY = "I'll just have to wait for it to fill up again.",
+        	GENERIC = "Warm waters to ease cold bones.",
+        	BOMBED = "Strange brews cloud its depths.",
+        	GLASS = "Moonlight hardens water to glass. Strange power.",
+			EMPTY = "The earth's veins run dry here.",
         },
-        MOONGLASS = "It's very sharp.",
-        MOONGLASS_ROCK = "I can practically see my reflection in it.",
-        BATHBOMB = "It's just textbook chemistry.",
+        MOONGLASS = "Moon's shattered fangs.",
+        MOONGLASS_ROCK = "Jagged and cold as forgotten gods.",
+        BATHBOMB = "Mortals delight in simple alchemy.",
         TRAP_STARFISH =
         {
-            GENERIC = "Aw, what a cute little starfish!",
-            CLOSED = "It tried to chomp me!",
+            GENERIC = "So harmless it pretends.",
+            CLOSED = "It bares its teeth at last.",
         },
-        DUG_TRAP_STARFISH = "It's not fooling anyone now.",
-        SPIDER_MOON = 
+        DUG_TRAP_STARFISH = "I have unearthed its deception.",
+        SPIDER_MOON =
         {
-        	GENERIC = "Oh good. The moon mutated it.",
-        	SLEEPING = "Thank science, it stopped moving.",
-        	DEAD = "Is it really dead?",
+        	GENERIC = "The moon's touch twists even them.",
+        	SLEEPING = "Silent. For now.",
+        	DEAD = "Moon's corruption lies still.",
         },
-        MOONSPIDERDEN = "That's not a normal spider den.",
+        MOONSPIDERDEN = "Its nest festers with lunar madness.",
 		FRUITDRAGON =
 		{
-			GENERIC = "It's cute, but it's not ripe yet.",
-			RIPE = "I think it's ripe now.",
-			SLEEPING = "It's snoozing.",
+			GENERIC = "Soft scale and sap. Not yet ready.",
+			RIPE = "Ripe to be devoured.",
+			SLEEPING = "It slumbers, vulnerable.",
 		},
         PUFFIN =
         {
-            GENERIC = "I've never seen a live puffin before!",
-            HELD = "Catching one ain't puffin to brag about.",
-            SLEEPING = "Peacefully huffin' and puffin'.",
+            GENERIC = "Feathered morsel upon the waves.",
+            HELD = "It squirms weakly.",
+            SLEEPING = "Dreaming its final dreams.",
         },
 
-		MOONGLASSAXE = "I've made it extra effective.",
-		GLASSCUTTER = "I'm not really cut out for fighting.",
+		MOONGLASSAXE = "Moonlight reforged as my claw.",
+		GLASSCUTTER = "This blade whispers of clean deaths.",
 
         ICEBERG =
         {
-            GENERIC = "Let's steer clear of that.",
-            MELTED = "It's completely melted.",
+            GENERIC = "Frozen death lurking beneath.",
+            MELTED = "It weeps into the sea.",
         },
-        ICEBERG_MELTED = "It's completely melted.",
+        ICEBERG_MELTED = "It weeps into the sea.",
 
-        MINIFLARE = "I can light it to let everyone know I'm here.",
+        MINIFLARE = "A signal fire for the lost.",
 
-		MOON_FISSURE = 
+		MOON_FISSURE =
 		{
-			GENERIC = "My brain pulses with peace and terror.", 
-			NOLIGHT = "The cracks in this place are starting to show.",
+			GENERIC = "Peace.. and madness ripple within.",
+			NOLIGHT = "Darkness leaks from the earth's wounds.",
 		},
         MOON_ALTAR =
         {
-            MOON_ALTAR_WIP = "It wants to be finished.",
-            GENERIC = "Hm? What did you say?",
+            MOON_ALTAR_WIP = "It yearns to be made whole.",
+            GENERIC = "It whispers truths too vast for mortals.",
         },
 
-        MOON_ALTAR_IDOL = "I feel compelled to carry it somewhere.",
-        MOON_ALTAR_GLASS = "It doesn't want to be on the ground.",
-        MOON_ALTAR_SEED = "It wants me to give it a home.",
+        MOON_ALTAR_IDOL = "It calls for union with its kin.",
+        MOON_ALTAR_GLASS = "It will not remain earthbound.",
+        MOON_ALTAR_SEED = "It seeks a nest in the stone.",
 
-        MOON_ALTAR_ROCK_IDOL = "There's something trapped inside.",
-        MOON_ALTAR_ROCK_GLASS = "There's something trapped inside.",
-        MOON_ALTAR_ROCK_SEED = "There's something trapped inside.",
+        MOON_ALTAR_ROCK_IDOL = "Something stirs within its prison.",
+        MOON_ALTAR_ROCK_GLASS = "Something stirs within its prison.",
+        MOON_ALTAR_ROCK_SEED = "Something stirs within its prison.",
 
         SEAFARING_PROTOTYPER =
         {
-            GENERIC = "I think tanks are in order.",
-            BURNT = "The science has been lost to sea.",
+            GENERIC = "To build upon the ocean's bones.",
+            BURNT = "Its wisdom lost to fire.",
         },
-        BOAT_ITEM = "It would be nice to do some experiments on the water.",
-        STEERINGWHEEL_ITEM = "That's going to be the steering wheel.",
-        ANCHOR_ITEM = "Now I can build an anchor.",
-        MAST_ITEM = "Now I can build a mast.",
-        MUTATEDHOUND = 
+        BOAT_ITEM = "A vessel to traverse the sea's endless hunger.",
+        STEERINGWHEEL_ITEM = "The tool of fleeting command.",
+        ANCHOR_ITEM = "To clutch the deep and hold fast.",
+        MAST_ITEM = "To catch the wind's mercy.",
+        MUTATEDHOUND =
         {
-        	DEAD = "Now I can breathe easy.",
-        	GENERIC = "Science save us!",
-        	SLEEPING = "I have a very strong desire to run.",
+        	DEAD = "Silenced at last.",
+        	GENERIC = "Moon's corruption turned beast to nightmare.",
+        	SLEEPING = "It dreams of blood.",
         },
 
-        MUTATED_PENGUIN = 
+        MUTATED_PENGUIN =
         {
-			DEAD = "That's the end of that.",
-			GENERIC = "That thing's terrifying!",
-			SLEEPING = "Thank goodness. It's sleeping.",
+			DEAD = "Its grotesque life snuffed out.",
+			GENERIC = "Twisted by the moon's cruel gaze.",
+			SLEEPING = "It slumbers in its horror.",
 		},
-        CARRAT = 
+        CARRAT =
         {
-        	DEAD = "That's the end of that.",
-        	GENERIC = "Are carrots supposed to have legs?",
-        	HELD = "You're kind of ugly up close.",
-        	SLEEPING = "It's almost cute.",
+        	DEAD = "Its suffering ends here.",
+        	GENERIC = "Mockery of root and flesh.",
+        	HELD = "It quivers in my grasp.",
+        	SLEEPING = "Quiet. Weak.",
         },
 
-		BULLKELP_PLANT = 
+		BULLKELP_PLANT =
         {
-            GENERIC = "Welp. It's kelp.",
-            PICKED = "I just couldn't kelp myself.",
+            GENERIC = "It writhes in the tide's cold embrace.",
+            PICKED = "Its tendrils torn away.",
         },
-		BULLKELP_ROOT = "I can plant it in deep water.",
-        KELPHAT = "Sometimes you have to feel worse to feel better.",
-		KELP = "It gets my pockets all wet and gross.",
-		KELP_COOKED = "It's closer to a liquid than a solid.",
-		KELP_DRIED = "The sodium content's kinda high.",
+		BULLKELP_ROOT = "It seeks the deep to root again.",
+        KELPHAT = "Reeks of rot and brine.",
+		KELP = "Slimy. Dead. Unworthy.",
+		KELP_COOKED = "Its flavor remains foul.",
+		KELP_DRIED = "Salted deathweed.",
 
-		GESTALT = "They're promising me... knowledge.",
+		GESTALT = "They whisper secrets of old gods.",
 
-		COOKIECUTTER = "I don't like the way it's looking at my boat...",
-		COOKIECUTTERSHELL = "A shell of its former self.",
-		COOKIECUTTERHAT = "At least my hair will stay dry.",
+		COOKIECUTTER = "Its hunger gnaws at my hull.",
+		COOKIECUTTERSHELL = "Emptied of life and purpose.",
+		COOKIECUTTERHAT = "I will adorn myself in its husk.",
 		SALTSTACK =
 		{
-			GENERIC = "Are those natural formations?",
-			MINED_OUT = "It's mined... it's all mined!",
-			GROWING = "I guess it just grows like that.",
+			GENERIC = "Salt-born pillars, silent and eternal.",
+			MINED_OUT = "Its bones lie shattered.",
+			GROWING = "New pillars rise from the deep.",
 		},
-		SALTROCK = "Science compels me to lick it.",
-		SALTBOX = "Just the cure for spoiling food!",
+		SALTROCK = "Tears of stone, hardened by time.",
+		SALTBOX = "To slow the rot of mortal feasts.",
 
-        MALBATROSS = "A fowl beast indeed!",
-        MALBATROSS_FEATHER = "Plucked from a fine feathered fiend.",
-        MALBATROSS_BEAK = "Smells fishy.",
-        MAST_MALBATROSS_ITEM = "It's lighter than it looks.",
-        MAST_MALBATROSS = "Spread my wings and sail away!",
-		MALBATROSS_FEATHERED_WEAVE = "I'm making a quill-t!",
+        MALBATROSS = "Winged terror of the endless sea.",
+        MALBATROSS_FEATHER = "Torn from a sky-born corpse.",
+        MALBATROSS_BEAK = "Its hooked hunger silenced.",
+        MAST_MALBATROSS_ITEM = "Feather and bone for swift sailing.",
+        MAST_MALBATROSS = "I command the wind beneath these wings.",
+		MALBATROSS_FEATHERED_WEAVE = "Woven from plucked defeat.",
 
-        WALKINGPLANK = "Couldn't we have just made a lifeboat?",
-        OAR = "Manual ship acceleration.",
-		OAR_DRIFTWOOD = "Manual ship acceleration.",
+        WALKINGPLANK = "For surrendering to the depths.",
+        OAR = "To bend the waters to my will.",
+		OAR_DRIFTWOOD = "To bend the waters to my will.",
 
 		----------------------- ROT STRINGS GO ABOVE HERE ------------------
         PORTABLECOOKPOT_ITEM =
         {
-            GENERIC = "Now we're cookin'!",
-            DONE = "Now we're done cookin'!",
-
-			COOKING_LONG = "That meal is going to take a while.",
-			COOKING_SHORT = "It'll be ready in no-time!",
-			EMPTY = "I bet there's nothing in there.",
+            GENERIC = "This vessel shall forge mortal sustenance.",
+            DONE = "The feast is complete.",
+            COOKING_LONG = "Patience, the creation labors within.",
+            COOKING_SHORT = "Soon it shall be birthed.",
+            EMPTY = "It gapes empty, like a starving maw.",
         },
-        
-        PORTABLEBLENDER_ITEM = "It mixes all the food.",
+
+        PORTABLEBLENDER_ITEM = "A mortal tool to grind flesh and root alike.",
         PORTABLESPICER_ITEM =
         {
-            GENERIC = "This will spice things up.",
-            DONE = "Should make things a little tastier.",
+            GENERIC = "Spice to mask the blandness of mortal fare.",
+            DONE = "Its scent bites the senses.",
         },
-        SPICEPACK = "A breakthrough in culinary science!",
-        SPICE_GARLIC = "A powerfully potent powder.",
-        SPICE_SUGAR = "Sweet! It's sweet!",
-        SPICE_CHILI = "A flagon of fiery fluid.",
-        SPICE_SALT = "A little sodium's good for the heart.",
-        MONSTERTARTARE = "There's got to be something else to eat around here.",
-        FRESHFRUITCREPES = "Sugary fruit! Part of a balanced breakfast.",
-        FROGFISHBOWL = "Is that just... frogs stuffed inside a fish?",
-        POTATOTORNADO = "Potato, scientifically infused with the power of a tornado!",
-        DRAGONCHILISALAD = "I hope I can handle the spice level.",
-        GLOWBERRYMOUSSE = "Warly sure can cook.",
-        VOLTGOATJELLY = "It's shockingly delicious.",
-        NIGHTMAREPIE = "It's a little spooky.",
-        BONESOUP = "No bones about it, Warly can cook.",
-        MASHEDPOTATOES = "I've heard cooking is basically chemistry. I should try it.",
-        POTATOSOUFFLE = "I forgot what good food tasted like.",
-        MOQUECA = "He's as talented a chef as I am a scientist.",
-        GAZPACHO = "How in science does it taste so good?",
-        ASPARAGUSSOUP = "Smells like it tastes.",
-        VEGSTINGER = "Can you use the celery as a straw?",
-        BANANAPOP = "No, not brain freeze! I need that for science!",
-        CEVICHE = "Can I get a bigger bowl? This one looks a little shrimpy.",
-        SALSA = "So... hot...!",
-        PEPPERPOPPER = "What a mouthful!",
+        SPICEPACK = "A pouch of preserved flavors. Fragile culinary magic.",
+        SPICE_GARLIC = "Its reek drives away weakness.",
+        SPICE_SUGAR = "Crystals of fleeting delight.",
+        SPICE_CHILI = "Fire trapped in mortal powder.",
+        SPICE_SALT = "A mineral harvested from tears and seas.",
+        MONSTERTARTARE = "Even I recoil from such a concoction.",
+        FRESHFRUITCREPES = "Sugared offerings to fleeting life.",
+        FROGFISHBOWL = "Creatures devouring creatures. Appropriate.",
+        POTATOTORNADO = "A whirlwind of mortal indulgence.",
+        DRAGONCHILISALAD = "It burns as a dragon's breath.",
+        GLOWBERRYMOUSSE = "It gleams with pale false light.",
+        VOLTGOATJELLY = "It crackles upon my tongue.",
+        NIGHTMAREPIE = "Pie infused with silent screams.",
+        BONESOUP = "Bone boiled to trembling softness.",
+        MASHEDPOTATOES = "Pulped earth-flesh. Nourishment.",
+        POTATOSOUFFLE = "Softness masking true rot.",
+        MOQUECA = "A mortal feast worthy of sacrifice.",
+        GAZPACHO = "Cold soup. Cold as death's embrace.",
+        ASPARAGUSSOUP = "A bitter green broth.",
+        VEGSTINGER = "Even their drinks must sting.",
+        BANANAPOP = "Frozen sweetness numbs the senses.",
+        CEVICHE = "The sea's spawn, steeped in sour death.",
+        SALSA = "Heat and acid, worthy of my regard.",
+        PEPPERPOPPER = "It sears the tongue with living flame.",
 
-        TURNIP = "It's a raw turnip.",
-        TURNIP_COOKED = "Cooking is science in practice.",
-        TURNIP_SEEDS = "A handful of odd seeds.",
-        
-        GARLIC = "The number one breath enhancer.",
-        GARLIC_COOKED = "Perfectly browned.",
-        GARLIC_SEEDS = "A handful of odd seeds.",
-        
-        ONION = "Looks crunchy.",
-        ONION_COOKED = "A successful chemical reaction.",
-        ONION_SEEDS = "A handful of odd seeds.",
-        
-        POTATO = "The apples of the earth.",
-        POTATO_COOKED = "A successful temperature experiment.",
-        POTATO_SEEDS = "A handful of odd seeds.",
-        
-        TOMATO = "It's red because it's full of science.",
-        TOMATO_COOKED = "Cooking's easy if you understand chemistry.",
-        TOMATO_SEEDS = "A handful of odd seeds.",
+        TURNIP = "A root, torn from the soil's black breast.",
+        TURNIP_COOKED = "Heat transforms life to nourishment.",
+        TURNIP_SEEDS = "Tiny graves waiting to sprout.",
 
-        ASPARAGUS = "A vegetable.", 
-        ASPARAGUS_COOKED = "Science says it's good for me.",
-        ASPARAGUS_SEEDS = "It's asparagus seeds.",
+        GARLIC = "Its strength lies in its stench.",
+        GARLIC_COOKED = "Its sharpness mellowed in flame.",
+        GARLIC_SEEDS = "Silent promise of future reek.",
 
-        PEPPER = "Nice and spicy.",
-        PEPPER_COOKED = "It was already hot to begin with.",
-        PEPPER_SEEDS = "A handful of seeds.",
+        ONION = "Layers of tears within brittle flesh.",
+        ONION_COOKED = "The fire reveals its sweetness.",
+        ONION_SEEDS = "Seeds, like all things, hold death and life.",
 
-        WEREITEM_BEAVER = "I guess science works differently up North.",
-        WEREITEM_GOOSE = "That thing's giving ME goosebumps!",
-        WEREITEM_MOOSE = "A perfectly normal cursed moose thing.",
+        POTATO = "Earth's cold fruit, heavy and hidden.",
+        POTATO_COOKED = "The flame softens its stony heart.",
+        POTATO_SEEDS = "Tiny, sleeping offerings.",
 
-        MERMHAT = "Finally, I can show my face in public.",
+        TOMATO = "Red as blood and just as fleeting.",
+        TOMATO_COOKED = "Its life bleeds out in heat.",
+        TOMATO_SEEDS = "The beginnings of crimson harvests.",
+
+        ASPARAGUS = "Bitter stalks of life.",
+        ASPARAGUS_COOKED = "The fire lessens its defiance.",
+        ASPARAGUS_SEEDS = "They will sprout with time and rot.",
+
+        PEPPER = "Fire bound in flesh.",
+        PEPPER_COOKED = "The heat endures beyond death.",
+        PEPPER_SEEDS = "Slumbering embers.",
+
+        WEREITEM_BEAVER = "Northern magic bound in foolish form.",
+        WEREITEM_GOOSE = "Its gaze chills me not.",
+        WEREITEM_MOOSE = "A moose bound in curse and memory.",
+
+        MERMHAT = "A mask to wear among swamp filth.",
         MERMTHRONE =
         {
-            GENERIC = "Looks fit for a swamp king!",
-            BURNT = "There was something fishy about that throne anyway.",
-        },        
+            GENERIC = "A throne for the king of the reeking marsh.",
+            BURNT = "Smoke claims its dominion.",
+        },
         MERMTHRONE_CONSTRUCTION =
         {
-            GENERIC = "Just what is she planning?",
-            BURNT = "I suppose we'll never know what it was for now.",
-        },        
-        MERMHOUSE_CRAFTED = 
-        {
-            GENERIC = "It's actually kind of cute.",
-            BURNT = "Ugh, the smell!",
+            GENERIC = "She weaves ambition into wood and muck.",
+            BURNT = "Her plans charred to ash and silence.",
         },
-        MERMWATCHTOWER_REGULAR = "They seem happy to have found a king.",
-        MERMWATCHTOWER_NOKING = "A royal guard with no Royal to guard.",
-        MERMKING = "Your Majesty!",
-        MERMGUARD = "I feel very guarded around these guys...",
-        MERM_PRINCE = "They operate on a first-come, first-sovereigned basis.",
+        MERMHOUSE_CRAFTED =
+        {
+            GENERIC = "Crude, yet it shields from the endless rot.",
+            BURNT = "Now it smells of burnt moss and failure.",
+        },
+        MERMWATCHTOWER_REGULAR = "Their king commands. For now.",
+        MERMWATCHTOWER_NOKING = "A soldier without a sovereign.",
+        MERMKING = "This crowned beast dares call itself king?",
+        MERMGUARD = "Their loyalty binds them tighter than chains.",
+        MERM_PRINCE = "First to arrive, first to bleed.",
 
     },
-    DESCRIBE_GENERIC = "I see it… and I understand.",
+    DESCRIBE_GENERIC = "I see it.. and I understand.",
     DESCRIBE_TOODARK = "My eyes deceive me, perhaps.",
     DESCRIBE_SMOLDERING = "Exciting.",
     EAT_FOOD =
