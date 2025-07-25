@@ -68,7 +68,7 @@ return {
             NOTATRIUMKEY = "It's not shaped correctly.",
             CANTSHADOWREVIVE = "Its soul remains gone.",
             WRONGSHADOWFORM = "It's assembled incorrectly.",
-            NOMOON = "The moon's gaze is needed for this.",
+            NOMOON = "Máni's gaze is needed for this.",
             PIGKINGGAME_MESSY = "Cleanliness first, dignity later.",
             PIGKINGGAME_DANGER = "Too perilous for games now.",
             PIGKINGGAME_TOOLATE = "The time for games has passed.",
@@ -234,7 +234,7 @@ return {
     ANNOUNCE_NODANGERAFK = "Abandonment now means death.",
     ANNOUNCE_NO_TRAP = "Skill or luck.. I care not.",
     ANNOUNCE_PECKED = "Ow! Watch your beak!",
-    ANNOUNCE_QUAKE = "The earth trembles its warning!",
+    ANNOUNCE_QUAKE = "Midgard trembles its warning!",
     ANNOUNCE_RESEARCH = "Knowledge empowers me.",
     ANNOUNCE_SHELTER = "Thank you, ancient one.",
     ANNOUNCE_THORNS = "Agh! Thorns!",
@@ -568,7 +568,7 @@ return {
 		WORM =
 		{
 		    PLANT = "No threat here. Move along.",
-		    DIRT = "The earth is restless beneath my paws.",
+		    DIRT = "Midgard is restless beneath my paws.",
 		    WORM = "A great worm... slithering with blind hunger.",
 		},
         WORMLIGHT_PLANT = "Small glow, small life. It calls to me.",
@@ -617,16 +617,16 @@ return {
             BROKEN = "Shattered like many dreams.",
             STAFFED = "It slumbers, waiting to awaken.",
             WRONGSTAFF = "This union is flawed.",
-            MOONSTAFF = "It shines with the moon's unfeeling grace.",
+            MOONSTAFF = "It shines with Máni's unfeeling grace.",
         },
         MOONDIAL =
         {
 			GENERIC = "A pool to capture distant light.",
-			NIGHT_NEW = "The sky's dark maw swallows the moon.",
+			NIGHT_NEW = "The sky's dark maw swallows Máni.",
 			NIGHT_WAX = "She swells with silent promise.",
 			NIGHT_FULL = "She reveals her naked truth tonight.",
 			NIGHT_WANE = "She dwindles, weary from her vigil.",
-			CAVE = "No moon dares gaze into this abyss.",
+			CAVE = "Máni dares not gaze into this abyss.",
         },
 		THULECITE = "Born of secrets deep beneath claw and stone.",
 		ARMORRUINS = "Light as down, strong as my resolve.",
@@ -691,7 +691,7 @@ return {
 
 		CAVE_BANANA = "Sweet mush for my belly.",
 		CAVE_BANANA_COOKED = "Steamed to tender perfection.",
-		CAVE_BANANA_TREE = "Thrives without the sun's harsh gaze.",
+		CAVE_BANANA_TREE = "Thrives without Sol's harsh gaze.",
 		ROCKY = "His claws could shred steel. Delightful.",
 
 		COMPASS =
@@ -800,7 +800,7 @@ return {
         SPIDERHOLE = "Choked with their webs. Their nest reeks.",
         SPIDERHOLE_ROCK = "Choked with their webs. Their nest reeks.",
         STALAGMITE = "Stone corpse, unmoving. Nothing to fear.",
-        STALAGMITE_TALL = "Tall stone spine of the earth.",
+        STALAGMITE_TALL = "Tall stone spine of Midgard.",
         TREASURECHEST_TRAP = "A trap, lain with cunning... I admire it.",
 
         TURF_CARPETFLOOR = "Soft as prey's fur beneath my pads.",
@@ -808,8 +808,8 @@ return {
         TURF_DIRT = "Just dirt. Holds many scents.",
         TURF_FOREST = "Smells of pine sap and prey trails.",
         TURF_GRASS = "Grass and soil. Familiar comforts.",
-        TURF_MARSH = "Wetland earth, cool underpaw.",
-        TURF_METEOR = "Moon's flesh fallen to earth.",
+        TURF_MARSH = "Wetland earthen, cool underpaw.",
+        TURF_METEOR = "Máni's flesh fallen to Midgard.",
         TURF_PEBBLEBEACH = "Pebbles crunch softly underpaw.",
         TURF_ROAD = "Laid stone, unnatural yet convenient.",
         TURF_ROCKY = "Barren stone soil.",
@@ -818,25 +818,25 @@ return {
 
 		TURF_CAVE = "Cold stone. Lifeless but enduring.",
 		TURF_FUNGUS = "Fungal rot clings to it.",
-		TURF_SINKHOLE = "Earth fractured and sunken.",
+		TURF_SINKHOLE = "Midgard fractured and sunken.",
 		TURF_UNDERROCK = "Hidden stone deep below.",
 		TURF_MUD = "Slick mud, clinging and cool.",
 
 		TURF_DECIDUOUS = "Leaf rot and living root scents.",
 		TURF_SANDY = "Sand that scours with the wind's tongue.",
-		TURF_BADLANDS = "Hard, cracked earth. Bitter beneath the paw.",
+		TURF_BADLANDS = "Hard, cracked earthen. Bitter beneath the paw.",
 		TURF_DESERTDIRT = "Dry and lifeless.",
 		TURF_FUNGUS_GREEN = "Rotten green soil.",
 		TURF_FUNGUS_RED = "Red with fungal decay.",
-		TURF_DRAGONFLY = "Fireproof earth, charred to its soul.",
+		TURF_DRAGONFLY = "Fireproof earthen, charred to its soul.",
 
 		POWCAKE = "This... is an abomination.",
-        CAVE_ENTRANCE = "The earth has sealed its secrets away.",
+        CAVE_ENTRANCE = "Midgard has sealed its secrets away.",
         CAVE_ENTRANCE_RUINS = "Something ancient sleeps below.",
 
         CAVE_ENTRANCE_OPEN =
         {
-            GENERIC = "The earth rejects my passage.",
+            GENERIC = "Midgard rejects my passage.",
             OPEN = "The dark below calls to me.",
             FULL = "Others crowd the darkness before me.",
         },
@@ -948,7 +948,7 @@ return {
         BERRYBUSH =
         {
             BARREN = "It has lost its life. For now.",
-            WITHERED = "Scorched by the sun's cruel breath.",
+            WITHERED = "Scorched by Sol's cruel breath.",
             GENERIC = "Scarlet offerings await my maw.",
             PICKED = "It will birth again in time.",
             DISEASED = "Death creeps through its veins.",
@@ -986,7 +986,7 @@ return {
         BLOWDART_PIPE = "A tool to hunt from afar.",
         BLOWDART_YELLOW = "Storm-fang dart. Deadly and swift.",
         BLUEAMULET = "Cold as winter moonlight on my fur.",
-        BLUEGEM = "Frozen soul of the earth's heart.",
+        BLUEGEM = "Frozen soul of Niflheim's heart.",
         BLUEPRINT =
         {
             COMMON = "Knowledge carved in mortal ink.",
@@ -998,7 +998,7 @@ return {
         BLUE_MUSHROOM =
         {
             GENERIC = "Fungal flesh, hidden in shadows.",
-            INGROUND = "It slumbers beneath the damp earth.",
+            INGROUND = "It slumbers within Midgard.",
             PICKED = "Torn from its bed. Gone now.",
         },
         BOARDS = "The forest's bones, cut and shaped.",
@@ -1054,9 +1054,9 @@ return {
         },
         CATCOONHAT = "Their hide warms my ears. Hunt complete.",
         COONTAIL = "Twitches no more, yet remains soft.",
-        CARROT = "Ripped from earth's womb. Tasteless prey.",
+        CARROT = "Ripped from Midgard's womb. Tasteless prey.",
         CARROT_COOKED = "Its life is gone, its taste remains bland.",
-        CARROT_PLANTED = "Still clinging to its earthen mother.",
+        CARROT_PLANTED = "Still clinging to its midgardian mother.",
         CARROT_SEEDS = "Tiny promise of blandness.",
         CARTOGRAPHYDESK =
         {
@@ -1093,7 +1093,7 @@ return {
         CHESSPIECE_DRAGONFLY = "Even as stone, its memory burns me.",
         CHESSPIECE_BUTTERFLY = "Fragile beauty, made eternal in stone.",
         CHESSPIECE_ANCHOR = "Weighted with silent depths.",
-        CHESSPIECE_MOON = "The pale moon made captive.",
+        CHESSPIECE_MOON = "Pale máni made captive.",
         CHESSJUNK1 = "Dead machines. Useless now.",
         CHESSJUNK2 = "Scraps of fallen constructs.",
         CHESSJUNK3 = "Stone bones of broken minds.",
@@ -1328,7 +1328,7 @@ return {
 		FIRESTAFF = "An.. endearing implement, I suppose..",
 		FIRESUPPRESSOR =
 		{
-			ON = "It works tirelessly, like Fenrir chasing the sun.",
+			ON = "It works tirelessly, like my son chasing Sol.",
 			OFF = "Silent and waiting for command.",
 			LOWFUEL = "Its strength dwindles.",
 		},
@@ -1341,7 +1341,7 @@ return {
 		FLINT = "Sharp as my fangs.",
 		FLOWER =
 		{
-            GENERIC = "It holds no allure for a devourer of souls.",
+            GENERIC = "I prefer a different bloom.",
             ROSE = "A thorned beauty, red like spilt blood.",
         },
         FLOWER_WITHERED = "It bent to death's quiet hand.",
@@ -1378,13 +1378,13 @@ return {
 		GOLDENPICKAXE = "Gold's softness belies its worth.",
 		GOLDENPITCHFORK = "Even a farmer's tool may shine.",
 		GOLDENSHOVEL = "To bury with grandeur.",
-		GOLDNUGGET = "The sun's cold tears, solidified.",
+		GOLDNUGGET = "Sol's cold tears, solidified.",
 		GRASS =
 		{
 			BARREN = "Its life has withered away.",
-			WITHERED = "The sun's wrath has slain it.",
+			WITHERED = "Sol's wrath has slain it.",
 			BURNING = "It flares and dies swiftly.",
-			GENERIC = "Soft earth fur.",
+			GENERIC = "Soft Midgard fur.",
 			PICKED = "It shall regrow or rot.",
 			DISEASED = "Decay eats at it from within.",
 			DISEASING = "Its sickness brews silently.",
@@ -1486,7 +1486,7 @@ return {
 		LIVINGLOG = "Alive.. and afraid. Good.",
 		LOG =
 		{
-			BURNING = "Ashes to feed the hungry earth.. or me.",
+			BURNING = "Ashes to feed dear hungering Midgard.. or me.",
 			GENERIC = "Dead wood has its uses. So do the dead themselves.",
 		},
 		LUCY = "A tool with a spirit? Hnh. We are kin in that way.",
@@ -1533,7 +1533,7 @@ return {
         MEATRACK =
         {
             DONE = "Cured flesh, ready for devouring.",
-            DRYING = "The flesh ripens under sun and time.",
+            DRYING = "The flesh ripens under Sol's fury and time.",
             DRYINGINRAIN = "Hnh. Even the sky seeks to spoil my feast.",
             GENERIC = "Hang the dead high, let the wind season them.",
             BURNT = "Wasted.",
@@ -1682,11 +1682,11 @@ return {
 		STEELWOOL = "Rough to touch, strong as forged fur.",
 		STINGER = "Sharp and venomous, a hunter's perfect tooth.",
 
-		STRAWHAT = "It will not shield me from the sun's fury for long.",
+		STRAWHAT = "It will not shield me from Sol's fury for long.",
 
 		STUFFEDEGGPLANT = "Warm, hearty.. a meal to dull the bite of winter.",
 		SWEATERVEST = "I prefer fur to wool, but this is soft enough.",
-		REFLECTIVEVEST = "Glows like the sun to keep its wrath at bay.",
+		REFLECTIVEVEST = "Glows like Sol to keep its wrath at bay.",
 		HAWAIIANSHIRT = "Colorful, but does little against claw or fang.",
 
 		TAFFY = "Sticky sweetness clinging to my fangs.",
@@ -1773,7 +1773,7 @@ return {
 		TREECLUMP = "Something denies my path with living walls.",
 		TRINKET_1 = "Melted like souls in my maw.",
 		TRINKET_2 = "What pitiful music. Even their cries are sweeter.",
-		TRINKET_3 = "Knots are easy. Flesh is easier.",
+		TRINKET_3 = "inferior to my own knot, I believe.",
 		TRINKET_4 = "A stone creature, silent and devout.",
 		TRINKET_5 = "Too small to ride. Too fragile to eat.",
 		TRINKET_6 = "Wires drained of life. Like veins emptied.",
@@ -1844,7 +1844,7 @@ return {
 		HALLOWEENPOTION_DRINKS_WEAK = "Barely worth swallowing.",
 		HALLOWEENPOTION_DRINKS_POTENT = "Power worthy of my throat.",
         HALLOWEENPOTION_BRAVERY = "Does bravery taste like fear denied?",
-		HALLOWEENPOTION_MOON = "It glows with moon's quiet madness.",
+		HALLOWEENPOTION_MOON = "It glows with Máni's hushed madness.",
 		HALLOWEENPOTION_FIRE_FX = "Liquid flame, frozen in time.",
 		MADSCIENCE_LAB = "Sanity traded for power. Familiar.",
 		LIVINGTREE_ROOT = "It squirms. So will they all.",
@@ -1870,7 +1870,7 @@ return {
             BURNT = "Its purpose burned away.",
         },
         CLAYWARG = {
-        	GENERIC = "Born from earth to tear flesh.",
+        	GENERIC = "Born from Midgard to tear flesh.",
         	STATUE = "Still now. For how long?",
         },
         CLAYHOUND = {
@@ -2045,10 +2045,10 @@ return {
 		HUMANMEAT_COOKED = "Heat purifies.. somewhat.",
 		HUMANMEAT_DRIED = "Drying removes the guilt. Almost.",
 
-		ROCK_MOON = "Moonbone, cold and watching.",
-		MOONROCKNUGGET = "A piece of the watching moon.",
+		ROCK_MOON = "Máni's bone, cold and watching.",
+		MOONROCKNUGGET = "A piece of Máni's watch.",
 		MOONROCKCRATER = "It craves something to gaze back.",
-		MOONROCKSEED = "Moon secrets, locked within.",
+		MOONROCKSEED = "Máni's secrets, locked within.",
 
         REDMOONEYE = "It glares for miles. Good.",
         PURPLEMOONEYE = "Stop your staring, or I will take it from you.",
@@ -2123,7 +2123,7 @@ return {
 		QUAGMIRE_ALTAR_STATUE1 = "Stone idol to forgotten faiths.",
 		QUAGMIRE_PARK_FOUNTAIN = "Long since dried of life or beauty.",
 
-        QUAGMIRE_HOE = "Tools to tear open the earth's flesh.",
+        QUAGMIRE_HOE = "Tools to tear open Midgard's flesh.",
 
         QUAGMIRE_TURNIP = "A bitter little root.",
         QUAGMIRE_TURNIP_COOKED = "Heat softens even the hardest.",
@@ -2137,7 +2137,7 @@ return {
         QUAGMIRE_ONION_COOKED = "Heat strips away its tears.",
         QUAGMIRE_ONION_SEEDS = "Frail seeds clinging to life.",
 
-        QUAGMIRE_POTATO = "Roots sleeping beneath the earth.",
+        QUAGMIRE_POTATO = "Roots sleeping beneath Midgard.",
         QUAGMIRE_POTATO_COOKED = "Heat awakens its sweetness.",
         QUAGMIRE_POTATO_SEEDS = "Insignificant husks of potential.",
 
@@ -2183,7 +2183,7 @@ return {
 			GENERIC = "Patience breeds results.",
 		},
 
-		QUAGMIRE_POND_SALT = "The earth's bitter tears.",
+		QUAGMIRE_POND_SALT = "Midgard's bitter tears.",
 		QUAGMIRE_SALT_RACK_ITEM = "For harvesting the pond's salt-crust.",
 
 		QUAGMIRE_SAFE =
@@ -2367,10 +2367,10 @@ return {
 
         MOON_TREE =
         {
-            BURNING = "Moon's child perishes in flame.",
+            BURNING = "Máni's child perishes in flame.",
             BURNT = "Its silver flesh reduced to ash.",
             CHOPPED = "Its lunar trunk lies broken.",
-            GENERIC = "Moon's corruption roots deep.",
+            GENERIC = "Máni's corruption roots deep.",
         },
 		MOON_TREE_BLOSSOM = "A flower birthed of cold lunar madness.",
 
@@ -2380,7 +2380,7 @@ return {
         	HELD = "Still and trembling within my grasp.",
         },
 		MOONBUTTERFLYWINGS = "Torn fragments of lunar beauty.",
-        MOONBUTTERFLY_SAPLING = "Moon madness reborn in wood.",
+        MOONBUTTERFLY_SAPLING = "Máni's madness reborn in wood.",
         ROCK_AVOCADO_FRUIT = "Stone encased in rancid flesh.",
         ROCK_AVOCADO_FRUIT_RIPE = "It reeks of life's slow death.",
         ROCK_AVOCADO_FRUIT_RIPE_COOKED = "Soft enough to choke down.",
@@ -2388,8 +2388,8 @@ return {
         ROCK_AVOCADO_BUSH =
         {
         	BARREN = "Its womb is forever empty.",
-			WITHERED = "The sun has slain it.",
-			GENERIC = "Twisted bush birthed of moon rot.",
+			WITHERED = "Sol has slain it.",
+			GENERIC = "Twisted bush birthed of máni's rot.",
 			PICKED = "It bleeds nothing now.",
 			DISEASED = "It sickens and festers.",
             DISEASING = "Its death is upon it.",
@@ -2401,9 +2401,9 @@ return {
         	GENERIC = "Warm waters to ease cold bones.",
         	BOMBED = "Strange brews cloud its depths.",
         	GLASS = "Moonlight hardens water to glass. Strange power.",
-			EMPTY = "The earth's veins run dry here.",
+			EMPTY = "Midgard's veins run dry here.",
         },
-        MOONGLASS = "Moon's shattered fangs.",
+        MOONGLASS = "Máni's shattered fangs.",
         MOONGLASS_ROCK = "Jagged and cold as forgotten gods.",
         BATHBOMB = "Mortals delight in simple alchemy.",
         TRAP_STARFISH =
@@ -2414,9 +2414,9 @@ return {
         DUG_TRAP_STARFISH = "I have unearthed its deception.",
         SPIDER_MOON =
         {
-        	GENERIC = "The moon's touch twists even them.",
+        	GENERIC = "Máni's touch twists even them.",
         	SLEEPING = "Silent. For now.",
-        	DEAD = "Moon's corruption lies still.",
+        	DEAD = "Máni's corruption lies still.",
         },
         MOONSPIDERDEN = "Its nest festers with lunar madness.",
 		FRUITDRAGON =
@@ -2447,7 +2447,7 @@ return {
 		MOON_FISSURE =
 		{
 			GENERIC = "Peace.. and madness ripple within.",
-			NOLIGHT = "Darkness leaks from the earth's wounds.",
+			NOLIGHT = "Darkness leaks from the Midgard's wounds.",
 		},
         MOON_ALTAR =
         {
@@ -2456,7 +2456,7 @@ return {
         },
 
         MOON_ALTAR_IDOL = "It calls for union with its kin.",
-        MOON_ALTAR_GLASS = "It will not remain earthbound.",
+        MOON_ALTAR_GLASS = "It will not remain Midgard-bound.",
         MOON_ALTAR_SEED = "It seeks a nest in the stone.",
 
         MOON_ALTAR_ROCK_IDOL = "Something stirs within its prison.",
@@ -2475,14 +2475,14 @@ return {
         MUTATEDHOUND =
         {
         	DEAD = "Silenced at last.",
-        	GENERIC = "Moon's corruption turned beast to nightmare.",
+        	GENERIC = "Máni's corruption turned beast to nightmare.",
         	SLEEPING = "It dreams of blood.",
         },
 
         MUTATED_PENGUIN =
         {
 			DEAD = "Its grotesque life snuffed out.",
-			GENERIC = "Twisted by the moon's cruel gaze.",
+			GENERIC = "Twisted by Máni's cruel gaze.",
 			SLEEPING = "It slumbers in its horror.",
 		},
         CARRAT =
@@ -2559,7 +2559,7 @@ return {
         VOLTGOATJELLY = "It crackles upon my tongue.",
         NIGHTMAREPIE = "Pie infused with silent screams.",
         BONESOUP = "Bone boiled to trembling softness.",
-        MASHEDPOTATOES = "Pulped earth-flesh. Nourishment.",
+        MASHEDPOTATOES = "Pulped Midgard-flesh. Nourishment.",
         POTATOSOUFFLE = "Softness masking true rot.",
         MOQUECA = "A mortal feast worthy of sacrifice.",
         GAZPACHO = "Cold soup. Cold as death's embrace.",
@@ -2582,7 +2582,7 @@ return {
         ONION_COOKED = "The fire reveals its sweetness.",
         ONION_SEEDS = "Seeds, like all things, hold death and life.",
 
-        POTATO = "Earth's cold fruit, heavy and hidden.",
+        POTATO = "Midgard's cold fruit, heavy and hidden.",
         POTATO_COOKED = "The flame softens its stony heart.",
         POTATO_SEEDS = "Tiny, sleeping offerings.",
 

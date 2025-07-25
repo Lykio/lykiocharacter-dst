@@ -1,6 +1,6 @@
 -- This information tells other players more about the mod
 name = "Lykio Frostpaw"
-description = "A demonic Æsir succubus for Don't Starve Together."
+description = "An Æsir succubus for Don't Starve Together."
 author = "Lykio"
 version = "0.0.1" -- This is the version of the template. Change it to your own number.
 folder_name = "lykio_dst"
@@ -42,27 +42,17 @@ configuration_options = {
             {description = "Disabled", data = false}
         },
         default = false,
-        hover = "Enable or disable debug messages in the console."
+        hover = "Enable or disable debug messages and commands in the console."
     },
     {
         name = "enable_skilltrees",
-        label = "Enable Skill Trees",
+        label = "Whether or not Lykio's Skill Tree is enabled. Requires Runic Power and Spells to be enabled.",
         options = {
             {description = "Enabled", data = true},
             {description = "Disabled", data = false}
         },
         default = true,
         hover = "Enable or disable skill trees."
-    },
-    {
-        name = "sanity_penalty",
-        label = "Enable Sanity Rate Penalty",
-        options = {
-            {description = "Enabled", data = true},
-            {description = "Disabled", data = false}
-        },
-        default = true,
-        hover = "Enable or disable sanity penalty."
     },
     {
         name = "enable_nightvision",

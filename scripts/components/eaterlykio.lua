@@ -1,6 +1,6 @@
 
 local function DebugPrint(...)
-    if GLOBAL.DEBUGMODE then print("[Lykio Eater Debug]", ...) end
+    if DEV_MODE then print("[Lykio Eater Debug]", ...) end
 end
 
 local EaterLykio = Class(function(self, inst)

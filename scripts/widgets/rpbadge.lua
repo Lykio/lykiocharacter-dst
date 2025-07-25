@@ -4,7 +4,7 @@ local Image = require "widgets/image"
 local Text = require "widgets/text"
 
 local function DebugPrint(...)
-    if GLOBAL.DEBUGMODE then print("[RunicPowerBadge Debug]", ...) end
+    if DEV_MODE then print("[RunicPowerBadge Debug]", ...) end
 end
 
 ---@class RunicPowerBadge extends Badge

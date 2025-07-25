@@ -1,5 +1,5 @@
 -- Commands only for dev mode for now probably
-if not GLOBAL.DEV_MODE then return end
+if not DEV_MODE then return end
 
 function c_setrpmcur(amt)
     if amt == nil then print("Put a number idiot") return end

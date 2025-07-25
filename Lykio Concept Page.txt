@@ -14,15 +14,15 @@ Stats:
 
 Quirks:
     Picking flowers does not generate sanity.
-			
+
 Core Perks:
 	Runic Power Mastery ✅
 		X Unlocks Runic Power (RP) resource.
 		X Passively regenerates +1 RP every 10s.
-		
+
 	Elemental Temperature Resilience ✅
 		X Adapts to heat/cold 50% slower (beneficial or detrimental depending on conditions).
-		
+
 	Night Sight ✅
 		X Gains the ability to see in the dark.
 
@@ -30,7 +30,7 @@ Anti-Perks:
 	Soulbound Hunger ✅
 		- Souls are far more nourishing than planely foods.
 			X Effect: All food provides -10% less HNGR. Insanity (being IsCrazy()) causes food to only restore 50% of their hunger. Soul foods always restore normal values. Occasionally complains about eating non-soul food, particularly when insane
-	Fervent Soul
+	Fervent Soul ✅
 		- Your hunger for souls and lifeforce makes you particularly dependant on feeding.
 			X Effect 1: Regenerate health, hunger and sanity when killing players or creatures with souls.
 			X Effect 2: Takes 33% more sanity drain from shadow creatures.
@@ -38,13 +38,14 @@ Anti-Perks:
 
 Skill Tree:
 	- Shadows are soulless
+	- Walter tree is skilltree4, use icons walter, willow, winston
 	Tree 1 - Wilds
 		L1 : Fox's Instinct - +10% Move speed at all times, 20% chance to harvest 1 extra food from foraging.
-		L2 : Winter Resilience - Hunger decay speed during winter and fall is reduced by 10%. During winter and fall, you gain +1 sanity every 12 seconds.
+		L2 : TODO Winter Resilience - Hunger decay speed during winter and fall is reduced by 10%. During winter and fall, you gain +1 sanity every 12 seconds.
 		L3 : Feral Transformation - Freely toggle into your feral fox counterpart. In this form, gain 25% move speed, 25% attack speed, and reduce your health by 75%. In this form your hunger decay reduces by 10%. You may not wear armor or use tools in this form. Spells may be cast.
-		
+
 	Tree 2 - Succubism
-		L1 : Soul Feeder - Gain 2 HP, 8 hunger, 2 sanity, and 8 Runic Power when killing any creature or player.
+		L1 : Soul Feeder - Each point in this tree makes killing restore more stats. 15/45/75/150/300%
 		L2 : Sinful Allure - In a 3 tile radius around Lykio, creatures get attack speed reduced by 15%. Players in a 3 tile radius gain Lykio's current move speed bonuses.
 		L3 : Seductive Drain - ACTIVE: Charm (stun for 3.25 seconds) and drain a creature for 8 health, 8 hunger and 15 Runic Power. 45 second cooldown.
 		BR1 -
@@ -54,10 +55,10 @@ Skill Tree:
 		BR2 -
 			- Unlocked after spending 6 skill points
 			L4b : Frenzied Feast - Killing an enemy grants 10% move speed and attack speed for 15 seconds. Targets under 33% health restore 2 health when struck by Lykio.
-			L5b : Predatory Apex - Soul Feeder is 150% more effective while Lykio is under 33% health.
-			
-	Tree 3 - Death
-		L1 : Frozen Veins - -15% sanity drain from shadow creatures and the night, increased to 25% less sanity drain while insane. Insanity reduces damage taken by 10%. Gain 10% frost damage.
+			L5b : Predatory Apex - Soul Feeder is 150% more effective while Lykio is under 33% health. Feral form also gains 15% move speed, 50% attack speed, and 250% attack damage while below the threshold.
+
+	Tree 3 - Fatalism
+		L1 : Familiarity - -15% sanity drain from shadow creatures and the night, increased to 25% less sanity drain while insane. Insanity reduces damage taken by 10%. Gain 10% frost damage.
 		L2 : Necrotic Resilience - 15% damage taken under 50% health.
 		L3 : Death's Grasp - ACTIVE: Root targets for 3 seconds in a radius of 3 tiles, while dealing 14 frost damage. This costs 30 Runic Power and has a 24 second cooldown.
 		BR1 -
@@ -68,7 +69,7 @@ Skill Tree:
 			- Unlocked after spending 6 skill points
 			L4b : Necrotic Empowerment - Gain 35 max health and 25 max Runic Power permanently. Gain permament 25% damage reduction. Armor effectiveness is reduced by 50%.
 			L5b : Unyeilding Dominion - Under 33% health, gain 40% damage reduction.
-			
+
 	Tree 4 - Elementalism
 		L1 : Runic Attunement - Runic Power Mastery regeneration is changed to 6 runic power per 10 seconds.
 		L2 : Frostfire Attunement - While Lykio is over 50% Runic Power, Lykio gains immunity to damage from freezing or overheating. Freezing increases frost damage by 33%. Overheating increases fire damage by 33%.
@@ -76,22 +77,23 @@ Skill Tree:
 		L4 : Icy Veins - Instantly gain 75 Runic Power and increase attack speed by 25%. Cooldown is 240 seconds.
 			- Unlocked after spending 12 skill points
 		L5 : Elemental Surge - Max Runic Power is increased by 75 permanently.
-		BR1 - 
+		BR1 -
 			L6a : Pyroblast - Propel a massive ball of pyroclasm to a location dealing 80 fire damage to anything caught in a 2 tile radius. Applies a burn lasting 4 seconds dealing 11 damage every second. Costs 65 Runic Power. Cooldown 35 seconds.
 			L7a : Infernal Core - Over 75% Runic Power, deal 25% additional fire damage. Overheating doubles the bonus.
 					Additionally, gain ACTIVE. Scorch: Quick fiery lash that increases target's fire damage taken by 15% and then deals 12 fire damage. Costs 22 Runic Power. No cooldown.
-		BR2 - 
+		BR2 -
 			L6b : Glacial Spike - ACTIVE. Propel an icy spear down a line, dealing 60 frost damage to anything stuck in the line. Applies a 40% slow for 12 seconds. Costs 65 Runic Power. Cooldown 35 seconds.
 			L7b : While below 33% health, deal 25% additional frost damage, doubled while freezing. Reduces Frost spell cooldowns by 33%.
 
 Spells:
 	Wilds:
+		Transformation
 
 	Succubism:
 
-	Fire:
+	Fatalism:
 
-	Ice:
+	Elementalism:
 
 Craftables:
 	Tier 1 – Basic Runic Tools (Alchemy Engine unlock, based on stone/flint tools):
@@ -107,7 +109,7 @@ Craftables:
 		Weapons & Armor:
 			Runic Spear: +15% damage compared to regular spear, consumes RP to deal magic damage type
 			Runic Tunic (armor): Base log suit or football helmet tier, consumes RP to reduce incoming damage by an additional 10% (balanced drain rate to avoid infinite tanking)
-	
+
 		Runic Workbench (Upgrade Bench):
 			Crafted with 6 Marble, 4 Nightmare Fuel, 2 Purple Gem, 4 Boards
 			Consumes 100 RP upon construction
@@ -119,7 +121,7 @@ Craftables:
 		Soulbound Hammer: +40% hammer effectiveness, +30% durability
 		Infernal Hoe: +50% tilling speed, +50% durability
 		Runic Clawblades: Usable in feral form, dual-wield claw weapons with rapid attacks, drain RP per attack (careful balance needed)
-		Necrotic Fang Dagger: 59 ATK. Deals 25% more damage to shadow creatures. 120 uses. 
+		Necrotic Fang Dagger: 59 ATK. Deals 25% more damage to shadow creatures. 120 uses.
 		Runebound Armor: Equivalent to marble suit in defense, consumes RP over time to maintain durability (10 RP over 1 minute to restore 5% durability, same durability as marble armor, light).
 		Minor Bi-Frost: Resurrect a fallen ally. May only be used 4 times.
 		Frozen Runeband: Increases the rate at which Runic Power is restored by 33%. Must remain on primary hotbar. No durability.
@@ -183,7 +185,7 @@ Theoretical Lines:
 	On Resurrection (Meat Effigy)
 		“Death rejects me… my task remains unfinished.”
 		“The end denies me once more… I continue.”
-		
+
 	Ghost Lines
 		“Death is no stranger… yet I do not welcome it.”
 		“The veil is thin… but my hunger remains.”

@@ -1,51 +1,46 @@
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 local net_shortint = GLOBAL.net_shortint
-local DEV_MODE = GetModConfigData("dev_mode")
-GLOBAL.DEV_MODE = false
 
-if DEV_MODE then
-    GLOBAL.DEV_MODE = DEV_MODE
-    GLOBAL.TheSim:SetSetting("misc", "console_enabled", true)
-    GLOBAL.AddKeyDownHandler(GLOBAL.KEY_F5, function()
-        GLOBAL.TheSim:SendServerCommand("lykio", "toggle_debug")
-        print("[Lykio Debug] RELOADING MOD SCRIPTS...")
-        if GLOBAL.TheNet:GetIsServer() then
-            GLOBAL.c_reset()
-        else
-            GLOBAL.TheNet:SendRemoteExecute("c_reset()")
-        end
-    end)
-    GLOBAL.AddKeyDownHandler(GLOBAL.KEY_F6, function()
-        GLOBAL.DEBUGMODE = not GLOBAL.DEBUGMODE
-        print("[Lykio Debug] Debug visualization:", GLOBAL.DEBUGMODE and "ON" or "OFF")
-    end)
-end
+GLOBAL.DEV_MODE = GetModConfigData("dev_mode")
+GLOBAL.LYKIO_SKILL_TREE = GetModConfigData("enable_skilltrees")
+GLOBAL.LYKIO_NIGHTVISION = GetModConfigData("enable_nightvision")
+GLOBAL.LYKIO_EATER = GetModConfigData("enable_eater_lykio")
+GLOBAL.LYKIO_RUNICPOWER_AND_SPELLS = GetModConfigData("enable_runic_power_and_spells")
+
+if GLOBAL.LYKIO_SKILL_TREE == nil then return else GLOBAL.LYKIO_SKILL_TREE = false end
+if GLOBAL.LYKIO_NIGHTVISION == nil then return else GLOBAL.LYKIO_NIGHTVISION = false end
+if GLOBAL.LYKIO_EATER == nil then return else GLOBAL.LYKIO_EATER = false end
+if GLOBAL.LYKIO_RUNICPOWER_AND_SPELLS == nil then return else GLOBAL.LYKIO_RUNICPOWER_AND_SPELLS = false end
 
 local function DebugPrint(...)
-    if GLOBAL.DEBUGMODE then print("[Lykio Debug]", ...) end
+    if GLOBAL.DEV_MODE then print("[Lykio Debug]", ...) else return end
+end
+
+DebugPrint("modmain.lua start")
+
+local function MakeSoulEdible(inst)
+    if not inst.components.edible then
+        inst:AddComponent("edible")
+        inst:AddTag(GLOBAL.FOODTYPE.SOUL)
+        inst.components.edible.foodtype = GLOBAL.FOODTYPE.SOUL
+        inst.components.edible.healthvalue = 0
+        inst.components.edible.hungervalue = 0
+        inst.components.edible.sanityvalue = 0
+        if inst:HasTag("NOEAT") then inst:RemoveTag("NOEAT") end
+    end
 end
 
 PrefabFiles = {
 	"lykio",
     "lykio_none",
+    --"lykio_feral",
 }
 
 Assets = {
-    --For Runic Power
-    Asset("ANIM", "anim/runicpowericon.zip"),
-    Asset("IMAGE", "images/runicpowericon.tex"),
-    Asset("ATLAS", "images/runicpowericon.xml"),
-
-    Asset("SCRIPT", "scripts/components/runicpowermeter.lua"),
-    Asset("SCRIPT", "scripts/components/runicpowermeter_replica.lua"),
-    Asset("SCRIPT", "scripts/widgets/rpbadge.lua"),
-
-    -- Tuning
+    -- GLOBALS
     Asset("SCRIPT", "scripts/tuning_lykio.lua"),
-
-    -- Eater
-    Asset("SCRIPT", "scripts/components/eaterlykio.lua"),
+    Asset("SCRIPT", "scripts/strings_lykio.lua"),
 
     -- For Art
     Asset( "IMAGE", "images/saveslot_portraits/lykio.tex" ),
@@ -79,28 +74,65 @@ Assets = {
     Asset( "ATLAS", "images/names_gold_lykio.xml" )
 }
 
-modimport("scripts/components/runicpowermeter")
-modimport("scripts/components/eaterlykio")
-require("tuning_lykio")
+if GLOBAL.DEV_MODE then
+    DebugPrint("Development Mode is enabled, adding commands")
+    table.insert(Assets, Asset("SCRIPT", "scripts/commands_lykio.lua"))
+    require("commands_lykio")
+else
+    DebugPrint("Development Mode is disabled, not adding commands")
+end
 
-DebugPrint("modmain.lua start")
+if GLOBAL.LYKIO_EATER then
+    DebugPrint("Lykio Eater enabled, adding eaterlykio components and assets")
+    table.insert(Assets, Asset("SCRIPT", "scripts/components/eaterlykio.lua"))
 
-AddMinimapAtlas("images/map_icons/lykio.xml")
+    modimport("scripts/components/eaterlykio")
+    AddPrefabPostInit("nightmarefuel", MakeSoulEdible)
+    AddPrefabPostInit("horrorfuel", MakeSoulEdible)
+else
+    DebugPrint("Lykio Eater is disabled, not adding eaterlykio components")
+end
+
+if GLOBAL.LYKIO_RUNICPOWER_AND_SPELLS then
+    DebugPrint("Lykio Runic Power and Spells enabled, adding runicpower components and assets")
+    table.insert(Assets, Asset("ANIM", "anim/runicpowericon.zip"))
+    table.insert(Assets, Asset("IMAGE", "images/runicpowericon.tex"))
+    table.insert(Assets, Asset("ATLAS", "images/runicpowericon.xml"))
+    table.insert(Assets, Asset("SCRIPT", "scripts/components/runicpowermeter.lua"))
+    table.insert(Assets, Asset("SCRIPT", "scripts/components/runicpowermeter_replica.lua"))
+    table.insert(Assets, Asset("SCRIPT", "scripts/widgets/rpbadge.lua"))
+
+    modimport("scripts/components/runicpowermeter")
+    AddReplicableComponent("runicpowermeter")
+    AddClassPostConstruct("widgets/statusdisplays", function(self)
+        if self.owner:HasTag("lykio") then
+            local rpbadge = require "widgets/rpbadge"
+            DebugPrint("Adding Runic Power Meter to status displays")
+            self.rpbadge = self:AddChild(rpbadge(self.owner, "status_health", "status_health"))
+            self.rpbadge:SetPosition(40, -550, -80)
+            self.rpbadge:SetScale(1.2, 1.2, 1.2)
+        else
+            DebugPrint("Owner does not have the 'lykio' tag, not adding Runic Power")
+        end
+    end)
+    AddPrefabPostInit("player_classified", function(inst)
+        inst._max = net_shortint(inst.GUID, "runicpower._max", "runicpower_maxdirty")
+        inst._current = net_shortint(inst.GUID, "runicpower._current", "runicpower_currentdirty")
+    end)
+else
+    DebugPrint("Lykio Runic Power and Spells is disabled, not adding runicpower components")
+end
+
+if GLOBAL.LYKIO_RUNICPOWER_AND_SPELLS and GLOBAL.LYKIO_SKILL_TREE then
+    DebugPrint("Lykio Skill Tree and Runic Power enabled, adding skill tree components and assets")
+    table.insert(Assets, Asset("SCRIPT", "scripts/components/lykio_skilltree.lua"))
+
+    modimport("scripts/components/lykio_skilltree")
+else
+    DebugPrint("Lykio Skill Tree or Runic Power is disabled, not adding skill tree components")
+end
 
 
--- The character select screen lines
-STRINGS.CHARACTER_TITLES.Lykio = "The Fallen Æsir Succubus"
-STRINGS.CHARACTER_NAMES.Lykio = "Lykio"
-STRINGS.SKIN_NAMES.Lykio_none = "Lykio"
-STRINGS.CHARACTER_DESCRIPTIONS.Lykio = "*Skilled fox.\n*Born to fire, ice and death.\n*Hungers endlessly, sanity frays quickly."
-STRINGS.CHARACTER_QUOTES.Lykio = "\"Once, I only feared the emptiness of winter..\""
-STRINGS.CHARACTER_SURVIVABILITY.Lykio = "Likely"
-
--- Custom speech strings
-STRINGS.CHARACTERS.Lykio = require "speech_lykio"
-
--- The skins shown in the cycle view window on the character select screen.
--- A good place to see what you can put in here is in skinutils.lua, in the function GetSkinModes
 local skin_modes = {
     {
         type = "ghost_skin",
@@ -118,34 +150,8 @@ local skin_modes = {
     },
 }
 
-local function MakeSoulEdible(inst)
-    if not inst.components.edible then
-        inst:AddComponent("edible")
-        inst:AddTag(GLOBAL.FOODTYPE.SOUL)
-        if inst:HasTag("NOEAT") then inst:RemoveTag("NOEAT") end
-    end
-end
-
-AddReplicableComponent("runicpowermeter")
-
-AddClassPostConstruct("widgets/statusdisplays", function(self)
-    if self.owner:HasTag("lykio") then
-        local rpbadge = require "widgets/rpbadge"
-        DebugPrint("Adding Runic Power Meter to status displays")
-        self.rpbadge = self:AddChild(rpbadge(self.owner, "status_health", "status_health"))
-        self.rpbadge:SetPosition(40, -550, -80)
-        self.rpbadge:SetScale(1.2, 1.2, 1.2)
-    else
-        DebugPrint("Owner does not have the 'lykio' tag, not adding Runic Power Meter")
-    end
-end)
-
-AddPrefabPostInit("nightmarefuel", MakeSoulEdible)
-AddPrefabPostInit("horrorfuel", MakeSoulEdible)
-AddPrefabPostInit("player_classified", function(inst)
-    inst._max = net_shortint(inst.GUID, "runicpower._max", "runicpower_maxdirty")
-    inst._current = net_shortint(inst.GUID, "runicpower._current", "runicpower_currentdirty")
-end)
-
+require("tuning_lykio")
+require("strings_lykio")
+AddMinimapAtlas("images/map_icons/lykio.xml")
 AddModCharacter("lykio", "PLURAL", skin_modes)
 DebugPrint("modmain.lua loaded")

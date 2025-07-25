@@ -2,7 +2,7 @@ local MakePlayerCharacter = require "prefabs/player_common"
 local rpbadge = require("widgets/rpbadge")
 
 local function DebugPrint(...)
-    if GLOBAL.DEBUGMODE then print("[Lykio Character Debug]", ...) end
+    if DEV_MODE then print("[Lykio Character Debug]", ...) end
 end
 
 local Assets = {
